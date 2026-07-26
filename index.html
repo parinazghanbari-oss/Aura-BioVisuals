@@ -4,11 +4,61 @@
 -->
 <html>
 	<head>
-		<title>Aura BioVisuals Studio | Biomedical Illustrations & Grant Graphics</title>
+		<title>Aura BioVisuals Studio | Scientific Visual Communication</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* CSS for Client Logo Slider */
+			.logo-slider-container {
+				overflow: hidden;
+				padding: 20px 0;
+				background: rgba(0, 0, 0, 0.05);
+				white-space: nowrap;
+				margin: 2em 0;
+				border-radius: 6px;
+			}
+			.logo-slider {
+				display: inline-block;
+				animation: 25s slide infinite linear;
+			}
+			.logo-slider span {
+				margin: 0 30px;
+				font-weight: bold;
+				letter-spacing: 2px;
+				font-size: 0.9em;
+				opacity: 0.85;
+			}
+			@keyframes slide {
+				from { transform: translateX(0); }
+				to { transform: translateX(-50%); }
+			}
+			/* CSS for Team Advisory Section */
+			.team-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 20px;
+				margin-top: 1.5em;
+				text-align: left;
+			}
+			.team-card {
+				background: rgba(0, 0, 0, 0.03);
+				padding: 20px;
+				border-radius: 6px;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+			}
+			.team-card h3 {
+				margin-bottom: 5px;
+			}
+			.team-card .title {
+				color: #18bfef;
+				font-size: 0.85em;
+				font-weight: bold;
+				display: block;
+				margin-bottom: 10px;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -19,7 +69,7 @@
 					<div id="intro">
 						<h1>Aura BioVisuals<br />
 						Studio</h1>
-						<p>Combining scientific precision & artistic vision to create impactful biomedical visuals & grant graphics.</p>
+						<p>Combining scientific precision & artistic vision to create publication-ready biomedical visuals & grant graphics.</p>
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -33,7 +83,8 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">Portfolio</a></li>
+							<li class="active"><a href="index.html">Services & Visual Solutions</a></li>
+							<li><a href="#about">About Us</a></li>
 							<li><a href="#footer">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
@@ -55,11 +106,11 @@
 								<a href="images/pic01.jpg" target="_blank" class="image main"><img src="images/pic01.jpg" alt="Featured Scientific Visual" /></a>
 							</article>
 
-						<!-- Portfolio Gallery Grid -->
+						<!-- Services & Visual Solutions Grid -->
 							<section class="posts">
 								<article>
 									<header>
-										<h2><a href="images/pic02.jpg" target="_blank">Graphical Abstracts</a></h2>
+										<h2><a href="images/pic02.jpg" target="_blank">1. Figures, Graphical Abstracts & Medical Illustrations</a></h2>
 									</header>
 									<a href="images/pic02.jpg" target="_blank" class="image fit"><img src="images/pic02.jpg" alt="Graphical Abstract" /></a>
 									<p>Clear and precise graphical summaries designed to elevate research paper impact and journal submissions.</p>
@@ -70,10 +121,10 @@
 
 								<article>
 									<header>
-										<h2><a href="images/pic03.jpg" target="_blank">Journal Covers</a></h2>
+										<h2><a href="images/pic03.jpg" target="_blank">2. Scientific Journal Cover Designs & Press Releases</a></h2>
 									</header>
 									<a href="images/pic03.jpg" target="_blank" class="image fit"><img src="images/pic03.jpg" alt="Journal Cover Art" /></a>
-									<p>Striking, high-impact journal cover artwork tailored for top scientific publications.</p>
+									<p>Striking, high-impact journal cover artwork tailored for prestigious scientific publications.</p>
 									<ul class="actions special">
 										<li><a href="images/pic03.jpg" target="_blank" class="button">View High-Res</a></li>
 									</ul>
@@ -81,10 +132,10 @@
 
 								<article>
 									<header>
-										<h2><a href="images/pic04.jpg" target="_blank">Grant Figures (NIH/NSF)</a></h2>
+										<h2><a href="images/pic04.jpg" target="_blank">3. Logos for Research Groups & Industry</a></h2>
 									</header>
 									<a href="images/pic04.jpg" target="_blank" class="image fit"><img src="images/pic04.jpg" alt="Grant Supporting Graphics" /></a>
-									<p>Data visualization and mechanism-of-action diagrams built to help secure competitive research funding.</p>
+									<p>Custom branding and strategic visual identity built for academic labs, research centers, and biotech startups.</p>
 									<ul class="actions special">
 										<li><a href="images/pic04.jpg" target="_blank" class="button">View High-Res</a></li>
 									</ul>
@@ -92,14 +143,54 @@
 
 								<article>
 									<header>
-										<h2><a href="images/pic05.jpg" target="_blank">3D Molecular Models</a></h2>
+										<h2><a href="images/pic05.jpg" target="_blank">3D Molecular & Cellular Models</a></h2>
 									</header>
 									<a href="images/pic05.jpg" target="_blank" class="image fit"><img src="images/pic05.jpg" alt="3D Biomedical Illustration" /></a>
-									<p>Accurate 3D renders of cellular processes, proteins, and drug interaction mechanisms.</p>
+									<p>Accurate 3D renders of cellular processes, proteins, and targeted drug interaction mechanisms.</p>
 									<ul class="actions special">
 										<li><a href="images/pic05.jpg" target="_blank" class="button">View High-Res</a></li>
 									</ul>
 								</article>
+							</section>
+
+						<!-- About Us Section -->
+							<section id="about" class="post">
+								<header class="major">
+									<h2>About Us</h2>
+									<p>Aura BioVisuals Studio is driven by a multidisciplinary advisory structure combining high-end scientific visual design with advanced pharmaceutical and engineering expertise.</p>
+								</header>
+
+								<h3>Trusted Collaborations & Journals</h3>
+								<div class="logo-slider-container">
+									<div class="logo-slider">
+										<span>NATURE</span>
+										<span>CELL PRESS</span>
+										<span>SCIENCE</span>
+										<span>ACS NANO</span>
+										<span>OREGON STATE UNIVERSITY</span>
+										<span>NDSU</span>
+									</div>
+								</div>
+
+								<div class="team-grid">
+									<div class="team-card">
+										<h3>Parinaz Ghanbari</h3>
+										<span class="title">Founder & Art Director | Senior Scientific Illustrator</span>
+										<p>Expert in 3D/2D biomedical visuals, scientific journal covers, and complex data visualization for competitive research funding.</p>
+									</div>
+
+									<div class="team-card">
+										<h3>Babak Mamnoon, Ph.D.</h3>
+										<span class="title">Senior Scientific Advisor – Pharmaceutical & Computational Sciences</span>
+										<p>Specializes in molecular modeling, targeted drug delivery systems, and ensuring scientific accuracy across biomedical illustrations.</p>
+									</div>
+
+									<div class="team-card">
+										<h3>Anika Chopra, Ph.D.</h3>
+										<span class="title">Scientific & Technical Consultant – Engineering Systems</span>
+										<p>Consultant in complex systems architecture, technical modeling, and industrial simulation frameworks.</p>
+									</div>
+								</div>
 							</section>
 
 					</div>
@@ -134,7 +225,7 @@
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="mailto:info@aurabiovisuals.com">info@aurabiovisuals.com</a></p>
+								<p><a href="mailto:contact@aurabiovisuals.com">contact@aurabiovisuals.com</a></p>
 							</section>
 							<section>
 								<h3>Social & Professional</h3>
