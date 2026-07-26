@@ -79,6 +79,45 @@
 				margin-top: 2.5em;
 				margin-bottom: 1em;
 			}
+
+			/* Custom Footer Layout Adjustment */
+			#footer {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			#footer > section:first-child {
+				flex: 1 1 55%;
+				padding-right: 3em;
+			}
+			#footer > section.split.contact {
+				flex: 1 1 40%;
+				text-align: right;
+				border-left: 1px solid rgba(0, 0, 0, 0.1);
+				padding-left: 2.5em;
+			}
+			#footer > section.split.contact section {
+				padding: 1.2em 0;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+			}
+			#footer > section.split.contact section:last-child {
+				border-bottom: none;
+			}
+			#footer > section.split.contact ul.icons {
+				justify-content: flex-end;
+			}
+			@media screen and (max-width: 736px) {
+				#footer > section:first-child,
+				#footer > section.split.contact {
+					flex: 1 1 100%;
+					padding-right: 0;
+					padding-left: 0;
+					text-align: center;
+					border-left: none;
+				}
+				#footer > section.split.contact ul.icons {
+					justify-content: center;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
