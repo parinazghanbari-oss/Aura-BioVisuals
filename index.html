@@ -10,6 +10,15 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			/* Sticky Navigation & Header */
+			#nav {
+				position: -webkit-sticky;
+				position: sticky;
+				top: 0;
+				z-index: 10000;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			}
+
 			/* CSS for Client Logo Slider */
 			.logo-slider-container {
 				overflow: hidden;
@@ -38,6 +47,7 @@
 				from { transform: translateX(0); }
 				to { transform: translateX(-50%); }
 			}
+
 			/* CSS for Team Advisory Section */
 			.team-grid {
 				display: grid;
@@ -84,7 +94,7 @@
 						<a href="index.html" class="logo">Aura BioVisuals</a>
 					</header>
 
-				<!-- Nav -->
+				<!-- Sticky Nav -->
 					<nav id="nav">
 						<ul class="links">
 							<li class="active"><a href="index.html">Services & Visual Solutions</a></li>
@@ -250,7 +260,7 @@
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="mailto:contact@aurabiovisuals.com">contact@aurabiovisuals.com</a></p>
+								<p><a href="url?id=9">contact@aurabiovisuals.com</a></p>
 							</section>
 							<section>
 								<h3>Social & Professional</h3>
