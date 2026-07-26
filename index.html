@@ -1,163 +1,212 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP | Customized for Aura BioVisuals Studio
--->
 <html>
 	<head>
-		<title>Aura BioVisuals Studio | Biomedical Illustrations & Grant Graphics</title>
+		<title>Aura BioVisuals Studio | Scientific Visual Communication</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Custom Styling for Corporate Layout */
+			.logo-slider-container {
+				overflow: hidden;
+				padding: 20px 0;
+				background: rgba(255, 255, 255, 0.05);
+				white-space: nowrap;
+				position: relative;
+				margin: 2em 0;
+			}
+			.logo-slider {
+				display: inline-block;
+				animation: 25s slide infinite linear;
+			}
+			.logo-slider img {
+				height: 50px;
+				margin: 0 40px;
+				opacity: 0.7;
+				transition: opacity 0.3s;
+				vertical-align: middle;
+			}
+			.logo-slider img:hover {
+				opacity: 1;
+			}
+			@keyframes slide {
+				from { transform: translateX(0); }
+				to { transform: translateX(-50%); }
+			}
+			.team-grid {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				margin-top: 2em;
+			}
+			.team-card {
+				flex: 1 1 300px;
+				background: rgba(255, 255, 255, 0.03);
+				padding: 25px;
+				border-radius: 8px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			.team-card h3 {
+				margin-bottom: 5px;
+			}
+			.team-card .title {
+				color: #4CAF50;
+				font-size: 0.9em;
+				font-weight: bold;
+				margin-bottom: 10px;
+				display: block;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
-
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Aura BioVisuals<br />
-						Studio</h1>
-						<p>Combining scientific precision & artistic vision to create impactful biomedical visuals & grant graphics.</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+			<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Aura BioVisuals</a>
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Aura BioVisuals Studio</h1>
+								<p>Translating Complex Scientific Concepts into High-Impact Visual Languages</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#home">Home</a></li>
+								<li><a href="#services">Services & Visual Solutions</a></li>
+								<li><a href="#about">About Us</a></li>
+								<li><a href="#contact">Contact</a></li>
+							</ul>
+						</nav>
 					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Portfolio</a></li>
-							<li><a href="#footer">Contact Us</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						</ul>
-					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Featured Work -->
-							<article class="post featured">
-								<header class="major">
-									<h2><a href="images/pic01.jpg" target="_blank">Publication-Ready Visuals</a></h2>
-									<p>Bridging the gap between complex science and high-end visual communication. Specialized in 3D/2D biomedical illustrations, graphical abstracts, and journal covers.</p>
-								</header>
-								<a href="images/pic01.jpg" target="_blank" class="image main"><img src="images/pic01.jpg" alt="Featured Scientific Visual" /></a>
-							</article>
-
-						<!-- Portfolio Gallery Grid -->
-							<section class="posts">
-								<article>
-									<header>
-										<h2><a href="images/pic02.jpg" target="_blank">Graphical Abstracts</a></h2>
-									</header>
-									<a href="images/pic02.jpg" target="_blank" class="image fit"><img src="images/pic02.jpg" alt="Graphical Abstract" /></a>
-									<p>Clear and precise graphical summaries designed to elevate research paper impact and journal submissions.</p>
-									<ul class="actions special">
-										<li><a href="images/pic02.jpg" target="_blank" class="button">View High-Res</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<header>
-										<h2><a href="images/pic03.jpg" target="_blank">Journal Covers</a></h2>
-									</header>
-									<a href="images/pic03.jpg" target="_blank" class="image fit"><img src="images/pic03.jpg" alt="Journal Cover Art" /></a>
-									<p>Striking, high-impact journal cover artwork tailored for top scientific publications.</p>
-									<ul class="actions special">
-										<li><a href="images/pic03.jpg" target="_blank" class="button">View High-Res</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<header>
-										<h2><a href="images/pic04.jpg" target="_blank">Grant Figures (NIH/NSF)</a></h2>
-									</header>
-									<a href="images/pic04.jpg" target="_blank" class="image fit"><img src="images/pic04.jpg" alt="Grant Supporting Graphics" /></a>
-									<p>Data visualization and mechanism-of-action diagrams built to help secure competitive research funding.</p>
-									<ul class="actions special">
-										<li><a href="images/pic04.jpg" target="_blank" class="button">View High-Res</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<header>
-										<h2><a href="images/pic05.jpg" target="_blank">3D Molecular Models</a></h2>
-									</header>
-									<a href="images/pic05.jpg" target="_blank" class="image fit"><img src="images/pic05.jpg" alt="3D Biomedical Illustration" /></a>
-									<p>Accurate 3D renders of cellular processes, proteins, and drug interaction mechanisms.</p>
-									<ul class="actions special">
-										<li><a href="images/pic05.jpg" target="_blank" class="button">View High-Res</a></li>
-									</ul>
-								</article>
-							</section>
-
-					</div>
-
-				<!-- Footer / Contact Section -->
-					<footer id="footer">
-						<section>
-							<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" required />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" required />
-									</div>
-									<div class="field">
-										<label for="message">Project Details / Inquiry</label>
-										<textarea name="message" id="message" rows="3" required></textarea>
+						<!-- Home -->
+							<article id="home">
+								<h2 class="major">Aura BioVisuals Studio</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="Aura BioVisuals Banner" /></span>
+								<p>Aura BioVisuals Studio specializes in creating publication-ready biomedical illustrations, cover designs, and strategic figures for NIH/NSF grant proposals. Combining artistic precision with deep scientific rigor, we bridge the gap between discovery and visual communication.</p>
+								
+								<h3>Trusted Collaborations</h3>
+								<div class="logo-slider-container">
+									<div class="logo-slider">
+										<!-- Placeholders for Client & Journal Logos -->
+										<span style="margin: 0 30px; font-weight: bold;">NATURE</span>
+										<span style="margin: 0 30px; font-weight: bold;">CELL PRESS</span>
+										<span style="margin: 0 30px; font-weight: bold;">SCIENCE</span>
+										<span style="margin: 0 30px; font-weight: bold;">ACS NANO</span>
+										<span style="margin: 0 30px; font-weight: bold;">OREGON STATE UNIVERSITY</span>
+										<span style="margin: 0 30px; font-weight: bold;">NDSU</span>
 									</div>
 								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Inquiry" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>Fargo, ND · Remote Worldwide Services</p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="mailto:info@aurabiovisuals.com">info@aurabiovisuals.com</a></p>
-							</section>
-							<section>
-								<h3>Social & Professional</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+							</article>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Aura BioVisuals Studio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<!-- Services & Visual Solutions -->
+							<article id="services">
+								<h2 class="major">Services & Visual Solutions</h2>
+								<p>We provide comprehensive visual communication services designed for researchers, academic institutions, and biotechnology enterprises.</p>
+								
+								<section>
+									<h3>1. Figures, Graphical Abstracts & Medical Illustrations</h3>
+									<span class="image main"><img src="images/pic02.jpg" alt="Graphical Abstracts" /></span>
+									<p>Clear, precise, and publication-ready mechanism-of-action diagrams, pathways, and graphical summaries designed to elevate research paper impact.</p>
+								</section>
+
+								<hr />
+
+								<section>
+									<h3>2. Scientific Journal Cover Designs & Press Release Images</h3>
+									<span class="image main"><img src="images/pic03.jpg" alt="Journal Covers" /></span>
+									<p>Striking 3D/2D artwork tailored for prestigious scientific publication covers and high-visibility media announcements.</p>
+								</section>
+
+								<hr />
+
+								<section>
+									<h3>3. Logos for Research Groups and Industry</h3>
+									<span class="image main"><img src="images/pic04.jpg" alt="Research Logos" /></span>
+									<p>Custom branding and identity development for academic labs, university research centers, and biotech startups.</p>
+								</section>
+							</article>
+
+						<!-- About Us -->
+							<article id="about">
+								<h2 class="major">About Us</h2>
+								<p>Aura BioVisuals Studio is driven by a multidisciplinary advisory structure combining high-end visual design with advanced pharmaceutical and engineering expertise.</p>
+
+								<div class="team-grid">
+									<div class="team-card">
+										<h3>Parinaz Ghanbari</h3>
+										<span class="title">Founder & Art Director | Senior Scientific Illustrator</span>
+										<p>Expert in 3D/2D biomedical visuals, scientific journal covers, and complex data visualization for competitive research funding.</p>
+									</div>
+
+									<div class="team-card">
+										<h3>Babak Mamnoon, Ph.D.</h3>
+										<span class="title">Senior Scientific Advisor – Pharmaceutical & Computational Sciences</span>
+										<p>Specializes in molecular modeling, targeted drug delivery systems, and ensuring scientific accuracy across biomedical illustrations.</p>
+									</div>
+
+									<div class="team-card">
+										<h3>Anika Chopra, Ph.D.</h3>
+										<span class="title">Scientific & Technical Consultant – Engineering Systems</span>
+										<p>Consultant in complex systems architecture, technical modeling, and industrial simulation frameworks.</p>
+									</div>
+								</div>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact Us</h2>
+								<p>Ready to bring your research to life? Send us your project details or inquiries below.</p>
+								<form method="post" action="https://formspree.io/f/xyzabpro">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" required />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="email" name="email" id="email" required />
+										</div>
+										<div class="field">
+											<label for="message">Project Details / Inquiry</label>
+											<textarea name="message" id="message" rows="4" required></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+								</ul>
+							</article>
+
 					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Aura BioVisuals Studio. All rights reserved.</p>
+					</footer>
 
 			</div>
 
+		<!-- BG -->
+			<div id="bg"></div>
+
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.min.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
