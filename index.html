@@ -90,6 +90,32 @@
 				min-width: 180px;
 			}
 
+			/* Remove Grid Borders between the 4 Cards */
+			section.posts {
+				border-top: none !important;
+			}
+			section.posts article {
+				border-color: transparent !important;
+				border-width: 0 !important;
+				box-shadow: none !important;
+			}
+
+			/* Circular Image Styling for Service Cards */
+			section.posts article .image.fit {
+				width: 260px;
+				height: 260px;
+				margin: 0 auto 2em auto;
+				border-radius: 50%;
+				overflow: hidden;
+				display: block;
+			}
+			section.posts article .image.fit img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+
 			/* Scroll Fade Initial State for the 4 Service Cards */
 			section.posts article {
 				opacity: 0;
@@ -186,7 +212,7 @@
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://twitter.com/" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="url?id=5" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
