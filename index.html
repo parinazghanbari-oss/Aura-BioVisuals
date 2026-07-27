@@ -101,14 +101,13 @@
 				padding: 2em 1em !important;
 			}
 
-			/* Ambient Title Styling with Slight Curved Arc Framing */
+			/* Clean, Straight Ambient Title Styling */
 			.glow-title {
 				position: relative;
 				display: inline-block;
 				z-index: 2;
-				padding: 12px 24px;
-				margin-bottom: 0.8em;
-				border-radius: 120px 120px 0 0; /* ایجاد منحنی همگام با بالاسر دایره */
+				padding: 10px 20px;
+				margin-bottom: 1.2em;
 			}
 
 			.glow-title a {
@@ -132,20 +131,14 @@
 				pointer-events: none;
 			}
 
-			/* Larger Circular Image Container (320px) with Behind Glow */
+			/* Rounded Rectangle Image Container with Behind Glow */
 			section.posts article .image-glow-wrapper {
 				position: relative;
-				width: 320px;
-				height: 320px;
+				width: 100%;
+				max-width: 360px;
+				height: 240px;
 				margin: 0 auto;
 				display: block;
-			}
-
-			@media screen and (max-width: 480px) {
-				section.posts article .image-glow-wrapper {
-					width: 260px;
-					height: 260px;
-				}
 			}
 
 			section.posts article .image-glow-wrapper::before {
@@ -154,10 +147,10 @@
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				width: 115%;
-				height: 115%;
-				border-radius: 50%;
-				filter: blur(45px);
+				width: 108%;
+				height: 108%;
+				border-radius: 22px;
+				filter: blur(40px);
 				opacity: 0.65;
 				z-index: 0;
 				pointer-events: none;
@@ -166,17 +159,17 @@
 
 			section.posts article .image-glow-wrapper:hover::before {
 				opacity: 0.9;
-				transform: translate(-50%, -50%) scale(1.08);
+				transform: translate(-50%, -50%) scale(1.05);
 			}
 
-			/* Circular Image Styling & Hover Zoom Effect */
+			/* Rounded Rectangle Image Styling & Hover Zoom Effect */
 			section.posts article .image.fit {
 				position: relative;
 				z-index: 1;
 				width: 100%;
 				height: 100%;
 				margin: 0;
-				border-radius: 50%;
+				border-radius: 18px;
 				overflow: hidden;
 				display: block;
 				border: none !important;
@@ -184,17 +177,17 @@
 			}
 
 			section.posts article .image-glow-wrapper:hover .image.fit {
-				transform: scale(1.04);
+				transform: scale(1.03);
 			}
 
 			section.posts article .image.fit img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				border-radius: 50%;
+				border-radius: 18px;
 			}
 
-			/* --- Unified Color Definitions for Titles & Circles --- */
+			/* --- Unified Color Definitions for Titles & Rectangles --- */
 			/* 1. Lime-Yellow Glow (زرد فسفری) */
 			.glow-yellow-lime::before {
 				background: radial-gradient(circle, rgba(204, 255, 0, 0.95) 0%, rgba(204, 255, 0, 0) 75%);
@@ -268,7 +261,7 @@
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://www.aurabiovisuals.com/url?id=5" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.aurabiovisuals.com/https://www.aurabiovisuals.com/about.html" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
@@ -283,7 +276,7 @@
 								</header>
 							</article>
 
-						<!-- Services Grid (4 Categories with Larger Circles & Curved Close Titles) -->
+						<!-- Services Grid (4 Categories with Rounded Rectangles & Straight Ambient Titles) -->
 							<section class="posts">
 								<article>
 									<header>
