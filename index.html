@@ -29,38 +29,6 @@
 				#intro .intro-logo { max-width: 100px; }
 			}
 
-			/* Custom Centered Footer & Contact Form */
-			#footer {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding: 4em 2em;
-			}
-			#footer > section.footer-form-container {
-				width: 100%;
-				max-width: 780px;
-				margin: 0 auto;
-				text-align: center;
-			}
-			.contact-heading {
-				font-size: 1.35em;
-				font-weight: 700;
-				line-height: 1.5;
-				margin-bottom: 2em;
-				color: inherit;
-				letter-spacing: 0.03em;
-			}
-			#footer .actions {
-				justify-content: center;
-				display: flex;
-				margin-top: 1.5em;
-			}
-			#footer form {
-				text-align: left;
-				max-width: 680px;
-				margin: 0 auto;
-			}
-
 			/* CSS Dropdown Menu for Services */
 			#nav ul.links li.has-dropdown {
 				position: relative;
@@ -101,6 +69,26 @@
 				background: rgba(255, 255, 255, 0.1);
 				color: #ffffff !important;
 			}
+
+			/* Custom Centered Action Buttons in Footer */
+			#footer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 5em 2em;
+				text-align: center;
+			}
+			.footer-navigation-buttons {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				flex-wrap: wrap;
+				margin: 0 auto;
+			}
+			.footer-navigation-buttons .button {
+				min-width: 180px;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -110,9 +98,9 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						<img src="images/aura logo.png" alt="Aura BioVisuals Studio Logo" class="intro-logo" />
+						<img src="images/Aura-Logo.png" alt="Aura BioVisuals Studio Logo" class="intro-logo" />
 						<h1>Aura BioVisuals Studio</h1>
-						<p>Combining scientific precision & artistic vision to create publication-ready biomedical visuals & grant graphics.</p>
+						<p>High-Impact Scientific Visuals, Journal Covers, & Biomedical Illustrations.</p>
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -140,31 +128,30 @@
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://twitter.com/" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Featured Work -->
+						<!-- Featured Post / Intro Banner -->
 							<article class="post featured">
 								<header class="major">
-									<h2><a href="images/pic01.jpg" target="_blank">Publication-Ready Visuals</a></h2>
-									<p>Bridging the gap between complex science and high-end visual communication. Specialized in 3D/2D biomedical illustrations, graphical abstracts, and journal covers.</p>
+									<h2>Visual Excellence in<br />Scientific Communication</h2>
+									<p>Aura BioVisuals Studio specializes in transforming complex biomedical concepts, grant narratives, and clinical research into publication-ready visual assets.</p>
 								</header>
-								<a href="images/pic01.jpg" target="_blank" class="image main"><img src="images/pic01.jpg" alt="Featured Scientific Visual" /></a>
 							</article>
 
-						<!-- Services & Visual Solutions Grid -->
+						<!-- Services Grid (4 Categories) -->
 							<section class="posts">
 								<article>
 									<header>
-										<h2><a href="figures.html">1. Figures, Graphical Abstracts & Medical Illustrations</a></h2>
+										<h2><a href="figures.html">Figures, Graphical Abstracts & Medical Illustrations</a></h2>
 									</header>
-									<a href="figures.html" class="image fit"><img src="images/pic02.jpg" alt="Graphical Abstract" /></a>
-									<p>Clear and precise graphical summaries designed to elevate research paper impact and journal submissions.</p>
+									<a href="figures.html" class="image fit"><img src="images/pic01.jpg" alt="Figures & Graphical Abstracts" /></a>
+									<p>Custom publication figures, mechanistic pathways, graphical abstracts, and high-precision medical illustrations tailored for manuscripts and high-stakes grant applications.</p>
 									<ul class="actions special">
 										<li><a href="figures.html" class="button">View Portfolio</a></li>
 									</ul>
@@ -172,10 +159,10 @@
 
 								<article>
 									<header>
-										<h2><a href="journal-covers.html">2. Scientific Journal Cover Designs & Press Releases</a></h2>
+										<h2><a href="journal-covers.html">Scientific Journal<br />Cover Designs</a></h2>
 									</header>
-									<a href="journal-covers.html" class="image fit"><img src="images/pic03.jpg" alt="Journal Cover Art" /></a>
-									<p>Striking, high-impact journal cover artwork tailored for prestigious scientific publications.</p>
+									<a href="journal-covers.html" class="image fit"><img src="images/pic02.jpg" alt="Scientific Journal Covers" /></a>
+									<p>Captivating, high-resolution cover artwork designed to maximize research visibility and meet the strict aesthetic and technical standards of top scientific journals.</p>
 									<ul class="actions special">
 										<li><a href="journal-covers.html" class="button">View Portfolio</a></li>
 									</ul>
@@ -183,10 +170,10 @@
 
 								<article>
 									<header>
-										<h2><a href="logos.html">3. Logos for Research Groups & Industry</a></h2>
+										<h2><a href="logos.html">Logos for Research Groups<br />& Industry</a></h2>
 									</header>
-									<a href="logos.html" class="image fit"><img src="images/pic04.jpg" alt="Grant Supporting Graphics" /></a>
-									<p>Custom branding and strategic visual identity built for academic labs, research centers, and biotech startups.</p>
+									<a href="logos.html" class="image fit"><img src="images/pic03.jpg" alt="Logos & Visual Identities" /></a>
+									<p>Professional brand identity design, emblem creation, and vector logos engineered specifically for academic labs, research centers, and biotech startups.</p>
 									<ul class="actions special">
 										<li><a href="logos.html" class="button">View Portfolio</a></li>
 									</ul>
@@ -194,10 +181,10 @@
 
 								<article>
 									<header>
-										<h2><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></h2>
+										<h2><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
 									</header>
-									<a href="3d-models.html" class="image fit"><img src="images/pic05.jpg" alt="3D Biomedical Illustration" /></a>
-									<p>Accurate 3D renders of cellular processes, proteins, and targeted drug interaction mechanisms.</p>
+									<a href="3d-models.html" class="image fit"><img src="images/pic04.jpg" alt="3D Molecular Models" /></a>
+									<p>Cinematic 3D cellular landscapes, structural biomolecule visualizations, and advanced animations depicting targeted drug interaction mechanisms.</p>
 									<ul class="actions special">
 										<li><a href="3d-models.html" class="button">View Portfolio</a></li>
 									</ul>
@@ -206,30 +193,12 @@
 
 					</div>
 
-				<!-- Footer / Contact Section -->
+				<!-- Footer with Buttons for About and Contact -->
 					<footer id="footer">
-						<section class="footer-form-container">
-							<h2 class="contact-heading">Send us a description of your project,<br />and we will respond within 24 hours.</h2>
-							<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" required />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" required />
-									</div>
-									<div class="field">
-										<label for="message">Project Details / Inquiry</label>
-										<textarea name="message" id="message" rows="4" required></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Inquiry" /></li>
-								</ul>
-							</form>
-						</section>
+						<div class="footer-navigation-buttons">
+							<a href="about.html" class="button large">About Us</a>
+							<a href="contact.html" class="button primary large">Contact Us</a>
+						</div>
 					</footer>
 
 				<!-- Copyright -->
