@@ -101,18 +101,51 @@
 				padding: 2em 1em !important;
 			}
 
-			/* Title Styling without Glow */
-			section.posts article header h2 {
-				margin-bottom: 1.5em;
+			/* Ambient Title Styling with Slight Curved Arc Framing */
+			.glow-title {
+				position: relative;
+				display: inline-block;
+				z-index: 2;
+				padding: 12px 24px;
+				margin-bottom: 0.8em;
+				border-radius: 120px 120px 0 0; /* ایجاد منحنی همگام با بالاسر دایره */
 			}
 
-			/* Circular Image Container with Behind Glow Effect */
+			.glow-title a {
+				font-size: 0.9em;
+				line-height: 1.35;
+				letter-spacing: 0.03em;
+			}
+
+			.glow-title::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 110%;
+				height: 120%;
+				border-radius: 50%;
+				filter: blur(35px);
+				opacity: 0.5;
+				z-index: -1;
+				pointer-events: none;
+			}
+
+			/* Larger Circular Image Container (320px) with Behind Glow */
 			section.posts article .image-glow-wrapper {
 				position: relative;
-				width: 260px;
-				height: 260px;
+				width: 320px;
+				height: 320px;
 				margin: 0 auto;
 				display: block;
+			}
+
+			@media screen and (max-width: 480px) {
+				section.posts article .image-glow-wrapper {
+					width: 260px;
+					height: 260px;
+				}
 			}
 
 			section.posts article .image-glow-wrapper::before {
@@ -124,15 +157,15 @@
 				width: 115%;
 				height: 115%;
 				border-radius: 50%;
-				filter: blur(40px);
-				opacity: 0.6;
+				filter: blur(45px);
+				opacity: 0.65;
 				z-index: 0;
 				pointer-events: none;
 				transition: opacity 0.4s ease, transform 0.4s ease;
 			}
 
 			section.posts article .image-glow-wrapper:hover::before {
-				opacity: 0.85;
+				opacity: 0.9;
 				transform: translate(-50%, -50%) scale(1.08);
 			}
 
@@ -149,9 +182,11 @@
 				border: none !important;
 				transition: transform 0.4s ease;
 			}
+
 			section.posts article .image-glow-wrapper:hover .image.fit {
 				transform: scale(1.04);
 			}
+
 			section.posts article .image.fit img {
 				width: 100%;
 				height: 100%;
@@ -159,7 +194,7 @@
 				border-radius: 50%;
 			}
 
-			/* --- Colors for the Behind-Circle Glows --- */
+			/* --- Unified Color Definitions for Titles & Circles --- */
 			/* 1. Lime-Yellow Glow (زرد فسفری) */
 			.glow-yellow-lime::before {
 				background: radial-gradient(circle, rgba(204, 255, 0, 0.95) 0%, rgba(204, 255, 0, 0) 75%);
@@ -248,11 +283,11 @@
 								</header>
 							</article>
 
-						<!-- Services Grid (4 Categories with Glow Behind Circles) -->
+						<!-- Services Grid (4 Categories with Larger Circles & Curved Close Titles) -->
 							<section class="posts">
 								<article>
 									<header>
-										<h2><a href="figures.html">Grants, Figures &<br />Graphical Abstracts</a></h2>
+										<h2 class="glow-title glow-yellow-lime"><a href="figures.html">Grants, Figures &<br />Graphical Abstracts</a></h2>
 									</header>
 									<div class="image-glow-wrapper glow-yellow-lime">
 										<a href="figures.html" class="image fit"><img src="images/pic01.jpg" alt="Grants, Figures & Graphical Abstracts" /></a>
@@ -261,7 +296,7 @@
 
 								<article>
 									<header>
-										<h2><a href="journal-covers.html">Journal Covers &<br />Press Releases</a></h2>
+										<h2 class="glow-title glow-deep-blue"><a href="journal-covers.html">Journal Covers &<br />Press Releases</a></h2>
 									</header>
 									<div class="image-glow-wrapper glow-deep-blue">
 										<a href="journal-covers.html" class="image fit"><img src="images/pic02.jpg" alt="Journal Covers & Press Releases" /></a>
@@ -270,7 +305,7 @@
 
 								<article>
 									<header>
-										<h2><a href="logos.html">Lab Branding &<br />Pitch Decks</a></h2>
+										<h2 class="glow-title glow-magenta-red"><a href="logos.html">Lab Branding &<br />Pitch Decks</a></h2>
 									</header>
 									<div class="image-glow-wrapper glow-magenta-red">
 										<a href="logos.html" class="image fit"><img src="images/pic03.jpg" alt="Lab Branding & Pitch Decks" /></a>
@@ -279,7 +314,7 @@
 
 								<article>
 									<header>
-										<h2><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
+										<h2 class="glow-title glow-cyan-green"><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
 									</header>
 									<div class="image-glow-wrapper glow-cyan-green">
 										<a href="3d-models.html" class="image fit"><img src="images/pic04.jpg" alt="3D Molecular Models" /></a>
