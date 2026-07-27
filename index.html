@@ -90,14 +90,15 @@
 				min-width: 180px;
 			}
 
-			/* Scroll Fade-In Initial State for the 4 Service Cards */
+			/* Scroll Fade Initial State for the 4 Service Cards */
 			section.posts article {
 				opacity: 0;
-				transform: translateY(40px);
-				transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+				transform: translateY(50px);
+				transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+				will-change: opacity, transform;
 			}
 
-			/* Visible State triggered by JavaScript on scroll */
+			/* Visible State triggered on Scroll */
 			section.posts article.fade-in-visible {
 				opacity: 1;
 				transform: translateY(0);
@@ -157,7 +158,7 @@
 								</header>
 							</article>
 
-						<!-- Services Grid (4 Categories with Scroll Fade-In) -->
+						<!-- Services Grid (4 Categories with Two-Way Scroll Fade) -->
 							<section class="posts">
 								<article>
 									<header>
@@ -230,33 +231,30 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<!-- Sequential Scroll Fade-In Script for 4 Service Cards -->
+			<!-- Two-Way Scroll Fade Script with Row-by-Row Triggering -->
 			<script>
 				document.addEventListener("DOMContentLoaded", function () {
 					const serviceCards = document.querySelectorAll("section.posts article");
 
 					const observerOptions = {
 						root: null,
-						threshold: 0.1,
-						rootMargin: "0px 0px -50px 0px"
+						threshold: 0.2,
+						rootMargin: "0px 0px -80px 0px"
 					};
 
-					const observer = new IntersectionObserver((entries, observer) => {
+					const observer = new IntersectionObserver((entries) => {
 						entries.forEach(entry => {
 							if (entry.isIntersecting) {
-								serviceCards.forEach((card, index) => {
-									setTimeout(() => {
-										card.classList.add("fade-in-visible");
-									}, index * 180); // تاخیر ۱۸۰ میلی‌ثانیه‌ای بین نمایش هر کارت
-								});
-								observer.disconnect(); // پس از یک‌بار اجرا غیرفعال می‌شود
+								entry.target.classList.add("fade-in-visible");
+							} else {
+								entry.target.classList.remove("fade-in-visible");
 							}
 						});
 					}, observerOptions);
 
-					if (serviceCards.length > 0) {
-						observer.observe(serviceCards[0]);
-					}
+					serviceCards.forEach(card => {
+						observer.observe(card);
+					});
 				});
 			</script>
 
