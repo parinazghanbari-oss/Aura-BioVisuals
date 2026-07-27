@@ -47,29 +47,33 @@
 				to { transform: translateX(-50%); }
 			}
 
-			/* CSS for Team Advisory Section */
+			/* CSS for Team Advisory Section - Horizontal Rows */
 			.team-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 25px;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
 				margin-top: 2em;
 				text-align: left;
 			}
 			.team-card {
-				background: rgba(0, 0, 0, 0.03);
-				padding: 25px;
+				background: rgba(0, 0, 0, 0.02);
+				padding: 20px 25px;
 				border-radius: 8px;
-				border: 1px solid rgba(0, 0, 0, 0.1);
+				border: 1px solid rgba(0, 0, 0, 0.08);
+				display: flex;
+				align-items: center;
+				gap: 25px;
 			}
 			.team-header {
 				display: flex;
 				align-items: center;
 				gap: 15px;
-				margin-bottom: 12px;
+				min-width: 280px;
+				flex-shrink: 0;
 			}
 			.team-avatar {
-				width: 60px;
-				height: 60px;
+				width: 65px;
+				height: 65px;
 				border-radius: 50%;
 				object-fit: cover;
 				border: 2px solid #18bfef;
@@ -77,14 +81,34 @@
 			}
 			.team-card h3 {
 				margin: 0;
-				font-size: 1.15em;
+				font-size: 1.1em;
+				line-height: 1.2;
 			}
 			.team-card .title {
 				color: #18bfef;
-				font-size: 0.85em;
+				font-size: 0.82em;
 				font-weight: bold;
 				display: block;
-				margin-top: 3px;
+				margin-top: 4px;
+				line-height: 1.3;
+			}
+			.team-card p {
+				margin: 0;
+				font-size: 0.85em; /* کوچکتر شدن سایز فونت توضیحات */
+				line-height: 1.5;
+				color: rgba(0, 0, 0, 0.75);
+			}
+
+			/* Responsive Design for Small Screens (Mobiles) */
+			@media screen and (max-width: 736px) {
+				.team-card {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 12px;
+				}
+				.team-header {
+					min-width: 100%;
+				}
 			}
 
 			/* Back to top button style */
