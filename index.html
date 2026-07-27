@@ -127,16 +127,17 @@
 			}
 			#footer > section.footer-form-container {
 				width: 100%;
-				max-width: 680px;
+				max-width: 780px; /* افزایش عرض کادر برای جا شدن کامل تیتر */
 				margin: 0 auto;
 				text-align: center;
 			}
 			.contact-heading {
-				font-size: 1.8em;
+				font-size: 1.35em; /* سایز فونت کوچکتر و متناسب */
 				font-weight: 700;
-				line-height: 1.35;
-				margin-bottom: 1.5em;
+				line-height: 1.5;
+				margin-bottom: 2em;
 				color: inherit;
+				letter-spacing: 0.03em;
 			}
 			#footer .actions {
 				justify-content: center;
@@ -145,6 +146,8 @@
 			}
 			#footer form {
 				text-align: left;
+				max-width: 680px;
+				margin: 0 auto;
 			}
 		</style>
 	</head>
@@ -333,7 +336,7 @@
 				<!-- Footer / Contact Section -->
 					<footer id="footer">
 						<section class="footer-form-container">
-							<h2 class="contact-heading">Send us a description of your project,<br />and we will respond within 24 hours</h2>
+							<h2 class="contact-heading">Send us a description of your project,<br />and we will respond within 24 hours.</h2>
 							<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
 								<div class="fields">
 									<div class="field">
