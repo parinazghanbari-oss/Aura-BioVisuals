@@ -10,25 +10,6 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Intro Header Logo and Single Line Title Styling */
-			#intro .intro-logo {
-				max-width: 140px;
-				height: auto;
-				margin-bottom: 1.5em;
-				display: inline-block;
-			}
-			#intro h1 {
-				white-space: nowrap;
-				font-size: 3.2em;
-			}
-			@media screen and (max-width: 980px) {
-				#intro h1 { font-size: 2.4em; }
-			}
-			@media screen and (max-width: 736px) {
-				#intro h1 { font-size: 1.8em; white-space: normal; }
-				#intro .intro-logo { max-width: 100px; }
-			}
-
 			/* CSS Dropdown Menu for Services */
 			#nav ul.links li.has-dropdown {
 				position: relative;
@@ -70,31 +51,60 @@
 				color: #ffffff !important;
 			}
 
-			/* Custom Centered Contact Section */
-			.contact-page-container {
-				width: 100%;
-				max-width: 780px;
-				margin: 0 auto;
-				text-align: center;
-				padding: 2em 0;
+			/* --- Diagonal Tri-Color Glow Behind Main Header --- */
+			article.post.featured {
+				position: relative;
+				z-index: 1;
+				overflow: visible;
 			}
-			.contact-heading {
-				font-size: 1.35em;
-				font-weight: 700;
-				line-height: 1.5;
-				margin-bottom: 2em;
-				color: inherit;
-				letter-spacing: 0.03em;
+
+			article.post.featured header.major {
+				position: relative;
+				display: inline-block;
+				padding: 2em 3em;
+				z-index: 2;
 			}
-			.contact-page-container form {
-				text-align: left;
-				max-width: 680px;
-				margin: 0 auto;
+
+			/* Glow Slash Gradient (Yellow - Deep Blue - Magenta) */
+			article.post.featured header.major::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) rotate(-15deg);
+				width: 110%;
+				height: 140%;
+				background: linear-gradient(
+					125deg, 
+					rgba(204, 255, 0, 0.45) 0%, 
+					rgba(0, 82, 255, 0.5) 50%, 
+					rgba(255, 20, 147, 0.45) 100%
+				);
+				filter: blur(45px);
+				border-radius: 40px;
+				z-index: -1;
+				pointer-events: none;
+				opacity: 0.85;
 			}
-			.contact-page-container .actions {
-				justify-content: center;
+
+			/* Custom Centered Navigation Buttons in Footer */
+			#footer {
 				display: flex;
-				margin-top: 1.5em;
+				flex-direction: column;
+				align-items: center;
+				padding: 5em 2em;
+				text-align: center;
+			}
+			.footer-navigation-buttons {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				flex-wrap: wrap;
+				margin-top: 3em;
+			}
+			.footer-navigation-buttons .button {
+				min-width: 180px;
 			}
 		</style>
 	</head>
@@ -114,9 +124,9 @@
 							<li class="has-dropdown">
 								<a href="index.html">Services & Visual Solutions</a>
 								<ul class="dropdown-menu">
-									<li><a href="figures.html">1. Figures, Graphical Abstracts & Medical Illustrations</a></li>
-									<li><a href="journal-covers.html">2. Scientific Journal Cover Designs</a></li>
-									<li><a href="logos.html">3. Logos for Research Groups & Industry</a></li>
+									<li><a href="figures.html">1. Grants, Figures & Graphical Abstracts</a></li>
+									<li><a href="journal-covers.html">2. Journal Covers & Press Releases</a></li>
+									<li><a href="logos.html">3. Lab Branding & Pitch Decks</a></li>
 									<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
 								</ul>
 							</li>
@@ -124,45 +134,51 @@
 							<li class="active"><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="url?id=3" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://www.aurabiovisuals.com/https://www.aurabiovisuals.com/about.html" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Contact Us Section -->
-							<section class="post">
-								<div class="contact-page-container">
-									<header class="major">
-										<h2>Get In Touch</h2>
-									</header>
-									<h3 class="contact-heading">Send us a description of your project,<br />and we will respond within 24 hours.</h3>
-									<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
-										<div class="fields">
-											<div class="field">
-												<label for="name">Name</label>
-												<input type="text" name="name" id="name" required />
-											</div>
-											<div class="field">
-												<label for="email">Email</label>
-												<input type="email" name="email" id="email" required />
-											</div>
-											<div class="field">
-												<label for="message">Project Details / Inquiry</label>
-												<textarea name="message" id="message" rows="5" required></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Inquiry" /></li>
-										</ul>
-									</form>
-								</div>
-							</section>
+						<!-- Header Section with Diagonal Tri-Color Glow -->
+							<article class="post featured">
+								<header class="major">
+									<h2>Get in Touch</h2>
+									<p>Collaborate with Aura BioVisuals Studio on your next research visual project.</p>
+								</header>
+							</article>
 
 					</div>
+
+				<!-- Footer / Contact Details Form Section -->
+					<footer id="footer">
+						<section class="split contact" style="width: 100%; max-width: 800px; text-align: left;">
+							<section class="alt">
+								<h3>Studio Address</h3>
+								<p>Aura BioVisuals Studio<br />Fargo, ND 58102, USA</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:contact@aurabiovisuals.com">contact@aurabiovisuals.com</a></p>
+							</section>
+							<section>
+								<h3>Social Profiles</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="url?id=4" target="_blank" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://www.aurabiovisuals.com/https://www.aurabiovisuals.com/about.html" target="_blank" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								</ul>
+							</section>
+						</section>
+
+						<div class="footer-navigation-buttons">
+							<a href="index.html" class="button large">Home / Services</a>
+							<a href="about.html" class="button primary large">About Us</a>
+						</div>
+					</footer>
 
 				<!-- Copyright -->
 					<div id="copyright">
