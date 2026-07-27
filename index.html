@@ -90,10 +90,46 @@
 				min-width: 180px;
 			}
 
+			/* --- Diagonal Tri-Color Glow Behind Main Featured Title --- */
+			article.post.featured {
+				position: relative;
+				z-index: 1;
+				overflow: visible;
+			}
+
+			article.post.featured header.major {
+				position: relative;
+				display: inline-block;
+				padding: 2em 3em;
+				z-index: 2;
+			}
+
+			/* Glow slash (1: Yellow, 2: Deep Blue, 3: Magenta Red) */
+			article.post.featured header.major::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) rotate(-15deg);
+				width: 110%;
+				height: 140%;
+				background: linear-gradient(
+					125deg, 
+					rgba(204, 255, 0, 0.45) 0%, 
+					rgba(0, 82, 255, 0.5) 50%, 
+					rgba(255, 20, 147, 0.45) 100%
+				);
+				filter: blur(45px);
+				border-radius: 40px;
+				z-index: -1;
+				pointer-events: none;
+				opacity: 0.85;
+			}
+
 			/* Remove Grid Borders between the 4 Cards */
 			section.posts {
 				border-top: none !important;
-				overflow: hidden; /* جلوگیری از ایجاد اسکرول افقی موقع خروج کارت‌ها */
+				overflow: hidden;
 				padding: 2em 0 !important;
 			}
 			section.posts article {
@@ -276,7 +312,7 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Featured Post / Intro Banner -->
+						<!-- Featured Post / Intro Banner with Diagonal Tri-Color Glow -->
 							<article class="post featured">
 								<header class="major">
 									<h2>Visual Excellence in<br />Scientific Communication</h2>
