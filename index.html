@@ -169,12 +169,12 @@
 				pointer-events: none;
 			}
 
-			/* Large Rounded Rectangle Image Container with Behind Glow */
+			/* Uniform Large Rounded Rectangle Image Container */
 			section.posts article .image-glow-wrapper {
 				position: relative;
 				width: 90%;
 				max-width: 480px;
-				height: 290px;
+				height: 280px; /* Fixed Height to Ensure Identical Sizes */
 				margin: 0 auto;
 				display: block;
 			}
@@ -218,11 +218,14 @@
 				transform: scale(1.02);
 			}
 
+			/* Force Exact Rectangular Fill with Cover Cropping */
 			section.posts article .image.fit img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
+				object-position: center;
 				border-radius: 20px;
+				display: block;
 			}
 
 			/* --- Unified Color Definitions for Titles & Rectangles --- */
@@ -320,14 +323,14 @@
 								</header>
 							</article>
 
-						<!-- Services Grid (4 Categories with Left/Right Scroll Slide Effect) -->
+						<!-- Services Grid (4 Categories with section1.png to section4.png) -->
 							<section class="posts">
 								<article class="slide-left-init">
 									<header>
 										<h2 class="glow-title glow-yellow-lime"><a href="figures.html">Grants, Figures &<br />Graphical Abstracts</a></h2>
 									</header>
 									<div class="image-glow-wrapper glow-yellow-lime">
-										<a href="figures.html" class="image fit"><img src="images/pic01.jpg" alt="Grants, Figures & Graphical Abstracts" /></a>
+										<a href="figures.html" class="image fit"><img src="images/section1.png" alt="Grants, Figures & Graphical Abstracts" /></a>
 									</div>
 								</article>
 
@@ -336,7 +339,7 @@
 										<h2 class="glow-title glow-deep-blue"><a href="journal-covers.html">Journal Covers &<br />Press Releases</a></h2>
 									</header>
 									<div class="image-glow-wrapper glow-deep-blue">
-										<a href="journal-covers.html" class="image fit"><img src="images/pic02.jpg" alt="Journal Covers & Press Releases" /></a>
+										<a href="journal-covers.html" class="image fit"><img src="images/section2.png" alt="Journal Covers & Press Releases" /></a>
 									</div>
 								</article>
 
@@ -345,7 +348,7 @@
 										<h2 class="glow-title glow-magenta-red"><a href="logos.html">Lab Branding &<br />Pitch Decks</a></h2>
 									</header>
 									<div class="image-glow-wrapper glow-magenta-red">
-										<a href="logos.html" class="image fit"><img src="images/pic03.jpg" alt="Lab Branding & Pitch Decks" /></a>
+										<a href="logos.html" class="image fit"><img src="images/section3.png" alt="Lab Branding & Pitch Decks" /></a>
 									</div>
 								</article>
 
@@ -354,7 +357,7 @@
 										<h2 class="glow-title glow-cyan-green"><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
 									</header>
 									<div class="image-glow-wrapper glow-cyan-green">
-										<a href="3d-models.html" class="image fit"><img src="images/pic04.jpg" alt="3D Molecular Models" /></a>
+										<a href="3d-models.html" class="image fit"><img src="images/section4.png" alt="3D Molecular Models" /></a>
 									</div>
 								</article>
 							</section>
