@@ -93,12 +93,14 @@
 			/* Remove Grid Borders between the 4 Cards */
 			section.posts {
 				border-top: none !important;
+				overflow: hidden; /* جلوگیری از ایجاد اسکرول افقی موقع خروج کارت‌ها */
+				padding: 2em 0 !important;
 			}
 			section.posts article {
 				border-color: transparent !important;
 				border-width: 0 !important;
 				box-shadow: none !important;
-				padding: 2em 1em !important;
+				padding: 1.5em 1em !important;
 			}
 
 			/* Clean, Straight Ambient Title Styling */
@@ -106,8 +108,8 @@
 				position: relative;
 				display: inline-block;
 				z-index: 2;
-				padding: 10px 20px;
-				margin-bottom: 1.2em;
+				padding: 10px 15px;
+				margin-bottom: 1em;
 			}
 
 			.glow-title a {
@@ -131,12 +133,12 @@
 				pointer-events: none;
 			}
 
-			/* Rounded Rectangle Image Container with Behind Glow */
+			/* Large Rounded Rectangle Image Container with Behind Glow */
 			section.posts article .image-glow-wrapper {
 				position: relative;
-				width: 100%;
-				max-width: 360px;
-				height: 240px;
+				width: 90%;
+				max-width: 480px;
+				height: 290px;
 				margin: 0 auto;
 				display: block;
 			}
@@ -147,9 +149,9 @@
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				width: 108%;
-				height: 108%;
-				border-radius: 22px;
+				width: 106%;
+				height: 106%;
+				border-radius: 24px;
 				filter: blur(40px);
 				opacity: 0.65;
 				z-index: 0;
@@ -159,7 +161,7 @@
 
 			section.posts article .image-glow-wrapper:hover::before {
 				opacity: 0.9;
-				transform: translate(-50%, -50%) scale(1.05);
+				transform: translate(-50%, -50%) scale(1.04);
 			}
 
 			/* Rounded Rectangle Image Styling & Hover Zoom Effect */
@@ -169,7 +171,7 @@
 				width: 100%;
 				height: 100%;
 				margin: 0;
-				border-radius: 18px;
+				border-radius: 20px;
 				overflow: hidden;
 				display: block;
 				border: none !important;
@@ -177,14 +179,14 @@
 			}
 
 			section.posts article .image-glow-wrapper:hover .image.fit {
-				transform: scale(1.03);
+				transform: scale(1.02);
 			}
 
 			section.posts article .image.fit img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				border-radius: 18px;
+				border-radius: 20px;
 			}
 
 			/* --- Unified Color Definitions for Titles & Rectangles --- */
@@ -208,18 +210,24 @@
 				background: radial-gradient(circle, rgba(0, 245, 212, 0.95) 0%, rgba(0, 245, 212, 0) 75%);
 			}
 
-			/* Scroll Fade Initial State for the 4 Service Cards */
+			/* --- Sliding Animations (Left & Right Entry/Exit) --- */
 			section.posts article {
-				opacity: 0;
-				transform: translateY(50px);
-				transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-				will-change: opacity, transform;
+				transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+				will-change: transform;
 			}
 
-			/* Visible State triggered on Scroll */
-			section.posts article.fade-in-visible {
-				opacity: 1;
-				transform: translateY(0);
+			/* Initial Out-of-Screen States (Half visible/off-screen) */
+			section.posts article.slide-left-init {
+				transform: translateX(-55%);
+			}
+
+			section.posts article.slide-right-init {
+				transform: translateX(55%);
+			}
+
+			/* Active In-Screen State */
+			section.posts article.slide-in-active {
+				transform: translateX(0) !important;
 			}
 		</style>
 	</head>
@@ -276,9 +284,9 @@
 								</header>
 							</article>
 
-						<!-- Services Grid (4 Categories with Rounded Rectangles & Straight Ambient Titles) -->
+						<!-- Services Grid (4 Categories with Left/Right Scroll Slide Effect) -->
 							<section class="posts">
-								<article>
+								<article class="slide-left-init">
 									<header>
 										<h2 class="glow-title glow-yellow-lime"><a href="figures.html">Grants, Figures &<br />Graphical Abstracts</a></h2>
 									</header>
@@ -287,7 +295,7 @@
 									</div>
 								</article>
 
-								<article>
+								<article class="slide-right-init">
 									<header>
 										<h2 class="glow-title glow-deep-blue"><a href="journal-covers.html">Journal Covers &<br />Press Releases</a></h2>
 									</header>
@@ -296,7 +304,7 @@
 									</div>
 								</article>
 
-								<article>
+								<article class="slide-left-init">
 									<header>
 										<h2 class="glow-title glow-magenta-red"><a href="logos.html">Lab Branding &<br />Pitch Decks</a></h2>
 									</header>
@@ -305,7 +313,7 @@
 									</div>
 								</article>
 
-								<article>
+								<article class="slide-right-init">
 									<header>
 										<h2 class="glow-title glow-cyan-green"><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
 									</header>
@@ -341,28 +349,28 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<!-- Two-Way Scroll Fade Script with Row-by-Row Triggering -->
+			<!-- Reversible Left/Right Slide-in Intersection Observer Script -->
 			<script>
 				document.addEventListener("DOMContentLoaded", function () {
-					const serviceCards = document.querySelectorAll("section.posts article");
+					const slidingCards = document.querySelectorAll("section.posts article");
 
 					const observerOptions = {
 						root: null,
-						threshold: 0.2,
-						rootMargin: "0px 0px -80px 0px"
+						threshold: 0.15,
+						rootMargin: "0px 0px -50px 0px"
 					};
 
 					const observer = new IntersectionObserver((entries) => {
 						entries.forEach(entry => {
 							if (entry.isIntersecting) {
-								entry.target.classList.add("fade-in-visible");
+								entry.target.classList.add("slide-in-active");
 							} else {
-								entry.target.classList.remove("fade-in-visible");
+								entry.target.classList.remove("slide-in-active");
 							}
 						});
 					}, observerOptions);
 
-					serviceCards.forEach(card => {
+					slidingCards.forEach(card => {
 						observer.observe(card);
 					});
 				});
