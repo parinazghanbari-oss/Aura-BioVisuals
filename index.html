@@ -98,16 +98,22 @@
 				border-color: transparent !important;
 				border-width: 0 !important;
 				box-shadow: none !important;
+				padding: 2em 1em !important;
 			}
 
-			/* Circular Image Styling for Service Cards */
+			/* Circular Image Styling & Hover Zoom Effect */
 			section.posts article .image.fit {
 				width: 260px;
 				height: 260px;
-				margin: 0 auto 2em auto;
+				margin: 0 auto;
 				border-radius: 50%;
 				overflow: hidden;
 				display: block;
+				border: none !important;
+				transition: transform 0.4s ease, box-shadow 0.4s ease;
+			}
+			section.posts article .image.fit:hover {
+				transform: scale(1.05);
 			}
 			section.posts article .image.fit img {
 				width: 100%;
@@ -136,6 +142,7 @@
 				display: inline-block;
 				z-index: 1;
 				padding: 10px 15px;
+				margin-bottom: 1.5em;
 			}
 
 			.glow-title::before {
@@ -212,7 +219,7 @@
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="url?id=5" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.aurabiovisuals.com/url?id=5" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
@@ -227,17 +234,13 @@
 								</header>
 							</article>
 
-						<!-- Services Grid (4 Categories with Two-Way Scroll Fade & Ambient Color Glows) -->
+						<!-- Services Grid (4 Categories with Clickable Circular Images) -->
 							<section class="posts">
 								<article>
 									<header>
 										<h2 class="glow-title glow-yellow-lime"><a href="figures.html">Grants, Figures &<br />Graphical Abstracts</a></h2>
 									</header>
 									<a href="figures.html" class="image fit"><img src="images/pic01.jpg" alt="Grants, Figures & Graphical Abstracts" /></a>
-									<p>Custom publication figures, mechanistic pathways, graphical abstracts, and high-precision medical illustrations tailored for manuscripts and high-stakes grant applications.</p>
-									<ul class="actions special">
-										<li><a href="figures.html" class="button">View Portfolio</a></li>
-									</ul>
 								</article>
 
 								<article>
@@ -245,10 +248,6 @@
 										<h2 class="glow-title glow-deep-blue"><a href="journal-covers.html">Journal Covers &<br />Press Releases</a></h2>
 									</header>
 									<a href="journal-covers.html" class="image fit"><img src="images/pic02.jpg" alt="Journal Covers & Press Releases" /></a>
-									<p>Captivating, high-resolution cover artwork designed to maximize research visibility and meet the strict aesthetic and technical standards of top scientific journals.</p>
-									<ul class="actions special">
-										<li><a href="journal-covers.html" class="button">View Portfolio</a></li>
-									</ul>
 								</article>
 
 								<article>
@@ -256,10 +255,6 @@
 										<h2 class="glow-title glow-magenta-red"><a href="logos.html">Lab Branding &<br />Pitch Decks</a></h2>
 									</header>
 									<a href="logos.html" class="image fit"><img src="images/pic03.jpg" alt="Lab Branding & Pitch Decks" /></a>
-									<p>Professional brand identity design, emblem creation, and vector logos engineered specifically for academic labs, research centers, and biotech startups.</p>
-									<ul class="actions special">
-										<li><a href="logos.html" class="button">View Portfolio</a></li>
-									</ul>
 								</article>
 
 								<article>
@@ -267,10 +262,6 @@
 										<h2 class="glow-title glow-cyan-green"><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
 									</header>
 									<a href="3d-models.html" class="image fit"><img src="images/pic04.jpg" alt="3D Molecular Models" /></a>
-									<p>Cinematic 3D cellular landscapes, structural biomolecule visualizations, and advanced animations depicting targeted drug interaction mechanisms.</p>
-									<ul class="actions special">
-										<li><a href="3d-models.html" class="button">View Portfolio</a></li>
-									</ul>
 								</article>
 							</section>
 
