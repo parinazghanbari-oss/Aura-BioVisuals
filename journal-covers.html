@@ -13,6 +13,33 @@
 			#nav ul.links li .dropdown-menu li { display: block; padding: 0; margin: 0; }
 			#nav ul.links li .dropdown-menu li a { display: block; padding: 10px 20px; color: rgba(255, 255, 255, 0.8) !important; font-size: 0.8em; text-transform: none; letter-spacing: 0.05em; border-bottom: none !important; }
 			#nav ul.links li .dropdown-menu li a:hover { background: rgba(255, 255, 255, 0.1); color: #ffffff !important; }
+
+			/* Scroll to Top Button (Bottom Right) */
+			#scrollToTopBtn {
+				position: fixed;
+				bottom: 25px;
+				right: 25px;
+				z-index: 99;
+				width: 45px;
+				height: 45px;
+				padding: 0 !important;
+				line-height: 43px !important;
+				text-align: center;
+				border-radius: 50% !important;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+				font-size: 1em;
+				min-width: unset !important;
+			}
+
+			/* Bottom Navigation Buttons */
+			.page-nav-actions {
+				display: flex;
+				justify-content: center;
+				gap: 15px;
+				margin-top: 3em;
+				padding-top: 2em;
+				border-top: 1px solid rgba(0, 0, 0, 0.1);
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -37,8 +64,8 @@
 				</ul>
 				<ul class="icons">
 					<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://twitter.com/" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 				</ul>
 			</nav>
 
@@ -62,8 +89,17 @@
 							<p>Details of the journal cover artwork and target publication will go here.</p>
 						</article>
 					</section>
+
+					<!-- Bottom Navigation Buttons -->
+					<ul class="actions page-nav-actions">
+						<li><a href="index.html" class="button primary">Back to Home</a></li>
+						<li><a href="contact.html" class="button">Contact Us</a></li>
+					</ul>
 				</section>
 			</div>
+
+			<!-- Fixed Scroll to Top Button -->
+			<a href="#header" class="button icon solid fa-arrow-up scrolly" id="scrollToTopBtn" title="Back to Top"></a>
 
 			<div id="copyright">
 				<ul><li>&copy; Aura BioVisuals Studio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
