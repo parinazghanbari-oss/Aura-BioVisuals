@@ -51,25 +51,40 @@
 			.team-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 20px;
-				margin-top: 1.5em;
+				gap: 25px;
+				margin-top: 2em;
 				text-align: left;
 			}
 			.team-card {
 				background: rgba(0, 0, 0, 0.03);
-				padding: 20px;
-				border-radius: 6px;
+				padding: 25px;
+				border-radius: 8px;
 				border: 1px solid rgba(0, 0, 0, 0.1);
 			}
+			.team-header {
+				display: flex;
+				align-items: center;
+				gap: 15px;
+				margin-bottom: 12px;
+			}
+			.team-avatar {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 2px solid #18bfef;
+				flex-shrink: 0;
+			}
 			.team-card h3 {
-				margin-bottom: 5px;
+				margin: 0;
+				font-size: 1.15em;
 			}
 			.team-card .title {
 				color: #18bfef;
 				font-size: 0.85em;
 				font-weight: bold;
 				display: block;
-				margin-bottom: 10px;
+				margin-top: 3px;
 			}
 
 			/* Back to top button style */
@@ -235,22 +250,38 @@
 									</div>
 								</div>
 
+								<h3 class="section-subheading">OUR MANAGEMENT TEAM</h3>
 								<div class="team-grid">
 									<div class="team-card">
-										<h3>Parinaz Ghanbari</h3>
-										<span class="title">Founder & Art Director | Senior Scientific Illustrator</span>
+										<div class="team-header">
+											<img src="images/Parinaz.png" alt="Parinaz Ghanbari" class="team-avatar" />
+											<div>
+												<h3>Parinaz Ghanbari</h3>
+												<span class="title">Founder & Art Director | Senior Scientific Illustrator</span>
+											</div>
+										</div>
 										<p>Expert in 3D/2D biomedical visuals, scientific journal covers, and complex data visualization for competitive research funding.</p>
 									</div>
 
 									<div class="team-card">
-										<h3>Babak Mamnoon, Ph.D.</h3>
-										<span class="title">Senior Scientific Advisor – Pharmaceutical & Computational Sciences</span>
+										<div class="team-header">
+											<img src="images/Babak.png" alt="Babak Mamnoon, Ph.D." class="team-avatar" />
+											<div>
+												<h3>Babak Mamnoon, Ph.D.</h3>
+												<span class="title">Senior Scientific Advisor – Pharmaceutical & Computational Sciences</span>
+											</div>
+										</div>
 										<p>Specializes in molecular modeling, targeted drug delivery systems, and ensuring scientific accuracy across biomedical illustrations.</p>
 									</div>
 
 									<div class="team-card">
-										<h3>Anika Chopra, Ph.D.</h3>
-										<span class="title">Scientific & Technical Consultant – Engineering Systems</span>
+										<div class="team-header">
+											<img src="images/Anika.png" alt="Anika Chopra, Ph.D." class="team-avatar" />
+											<div>
+												<h3>Anika Chopra, Ph.D.</h3>
+												<span class="title">Scientific & Technical Consultant – Engineering Systems</span>
+											</div>
+										</div>
 										<p>Consultant in complex systems architecture, technical modeling, and industrial simulation frameworks.</p>
 									</div>
 								</div>
