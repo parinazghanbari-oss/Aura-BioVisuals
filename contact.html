@@ -87,22 +87,70 @@
 				opacity: 0.85;
 			}
 
+			/* --- Frosted Glass Container (Glassmorphism) --- */
+			.glass-contact-container {
+				max-width: 720px;
+				margin: 2em auto 4em auto;
+				padding: 3em 2.5em;
+				background: rgba(255, 255, 255, 0.07);
+				backdrop-filter: blur(16px);
+				-webkit-backdrop-filter: blur(16px);
+				border: 1px solid rgba(255, 255, 255, 0.18);
+				border-radius: 20px;
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 15px rgba(255, 255, 255, 0.05);
+				text-align: left;
+			}
+
+			.glass-contact-container label {
+				font-weight: 600;
+				letter-spacing: 0.05em;
+				margin-bottom: 0.5em;
+			}
+
+			.glass-contact-container input[type="text"],
+			.glass-contact-container input[type="email"],
+			.glass-contact-container textarea {
+				background: rgba(0, 0, 0, 0.2);
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				border-radius: 8px;
+				color: inherit;
+				padding: 0.8em 1em;
+				transition: border-color 0.3s ease, background 0.3s ease;
+			}
+
+			.glass-contact-container input[type="text"]:focus,
+			.glass-contact-container input[type="email"]:focus,
+			.glass-contact-container textarea:focus {
+				border-color: rgba(255, 255, 255, 0.5);
+				background: rgba(0, 0, 0, 0.3);
+				outline: none;
+			}
+
+			.glass-contact-container .actions {
+				display: flex;
+				justify-content: center;
+				margin-top: 2em;
+			}
+
 			/* Custom Centered Navigation Buttons in Footer */
 			#footer {
 				display: flex;
-				flex-direction: column;
+				justify-content: center;
 				align-items: center;
-				padding: 5em 2em;
+				padding: 3em 2em 5em 2em;
 				text-align: center;
+				border-top: none;
 			}
+
 			.footer-navigation-buttons {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				gap: 20px;
 				flex-wrap: wrap;
-				margin-top: 3em;
+				margin: 0 auto;
 			}
+
 			.footer-navigation-buttons .button {
 				min-width: 180px;
 			}
@@ -124,9 +172,9 @@
 							<li class="has-dropdown">
 								<a href="index.html">Services & Visual Solutions</a>
 								<ul class="dropdown-menu">
-									<li><a href="figures.html">1. Grants, Figures & Graphical Abstracts</a></li>
-									<li><a href="journal-covers.html">2. Journal Covers & Press Releases</a></li>
-									<li><a href="logos.html">3. Lab Branding & Pitch Decks</a></li>
+									<li><a href="figures.html">1. Figures, Graphical Abstracts & Medical Illustrations</a></li>
+									<li><a href="journal-covers.html">2. Scientific Journal Cover Designs</a></li>
+									<li><a href="logos.html">3. Logos for Research Groups & Industry</a></li>
 									<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
 								</ul>
 							</li>
@@ -134,9 +182,9 @@
 							<li class="active"><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://www.aurabiovisuals.com/https://www.aurabiovisuals.com/about.html" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
@@ -147,35 +195,39 @@
 							<article class="post featured">
 								<header class="major">
 									<h2>Get in Touch</h2>
-									<p>Collaborate with Aura BioVisuals Studio on your next research visual project.</p>
+									<p>Send us a description of your project, and we will respond within 24 hours.</p>
 								</header>
 							</article>
 
+						<!-- Frosted Glass Contact Form Box -->
+							<div class="glass-contact-container">
+								<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
+									<div class="fields">
+										<div class="field">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" placeholder="Your Full Name" required />
+										</div>
+										<div class="field">
+											<label for="email">Email</label>
+											<input type="email" name="email" id="email" placeholder="your.email@institution.edu" required />
+										</div>
+										<div class="field">
+											<label for="message">Project Details</label>
+											<textarea name="message" id="message" rows="5" placeholder="Tell us about your visual project, timeline, and requirements..." required></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Inquiry" class="button primary large" /></li>
+									</ul>
+								</form>
+							</div>
+
 					</div>
 
-				<!-- Footer / Contact Details Form Section -->
+				<!-- Footer Navigation Buttons -->
 					<footer id="footer">
-						<section class="split contact" style="width: 100%; max-width: 800px; text-align: left;">
-							<section class="alt">
-								<h3>Studio Address</h3>
-								<p>Aura BioVisuals Studio<br />Fargo, ND 58102, USA</p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="mailto:contact@aurabiovisuals.com">contact@aurabiovisuals.com</a></p>
-							</section>
-							<section>
-								<h3>Social Profiles</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://www.instagram.com/" target="_blank" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://www.aurabiovisuals.com/url?id=1" target="_blank" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								</ul>
-							</section>
-						</section>
-
 						<div class="footer-navigation-buttons">
-							<a href="index.html" class="button large">Home / Services</a>
+							<a href="index.html" class="button large">Services & Visual Solutions</a>
 							<a href="about.html" class="button primary large">About Us</a>
 						</div>
 					</footer>
