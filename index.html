@@ -89,6 +89,19 @@
 			.footer-navigation-buttons .button {
 				min-width: 180px;
 			}
+
+			/* Scroll Fade-In Initial State for the 4 Service Cards */
+			section.posts article {
+				opacity: 0;
+				transform: translateY(40px);
+				transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+			}
+
+			/* Visible State triggered by JavaScript on scroll */
+			section.posts article.fade-in-visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -98,7 +111,7 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						<img src="images/Aura-Logo.png" alt="Aura BioVisuals Studio Logo" class="intro-logo" />
+						<img src="images/aura-logo.png" alt="Aura BioVisuals Studio" class="intro-logo" />
 						<h1>Aura BioVisuals Studio</h1>
 						<p>High-Impact Scientific Visuals, Journal Covers, & Biomedical Illustrations.</p>
 						<ul class="actions">
@@ -127,9 +140,9 @@
 							<li><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://twitter.com/" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
@@ -144,7 +157,7 @@
 								</header>
 							</article>
 
-						<!-- Services Grid (4 Categories) -->
+						<!-- Services Grid (4 Categories with Scroll Fade-In) -->
 							<section class="posts">
 								<article>
 									<header>
@@ -216,6 +229,36 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Sequential Scroll Fade-In Script for 4 Service Cards -->
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const serviceCards = document.querySelectorAll("section.posts article");
+
+					const observerOptions = {
+						root: null,
+						threshold: 0.1,
+						rootMargin: "0px 0px -50px 0px"
+					};
+
+					const observer = new IntersectionObserver((entries, observer) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								serviceCards.forEach((card, index) => {
+									setTimeout(() => {
+										card.classList.add("fade-in-visible");
+									}, index * 180); // تاخیر ۱۸۰ میلی‌ثانیه‌ای بین نمایش هر کارت
+								});
+								observer.disconnect(); // پس از یک‌بار اجرا غیرفعال می‌شود
+							}
+						});
+					}, observerOptions);
+
+					if (serviceCards.length > 0) {
+						observer.observe(serviceCards[0]);
+					}
+				});
+			</script>
 
 	</body>
 </html>
