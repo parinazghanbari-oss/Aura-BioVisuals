@@ -101,25 +101,83 @@
 				padding: 2em 1em !important;
 			}
 
-			/* Circular Image Styling & Hover Zoom Effect */
-			section.posts article .image.fit {
+			/* Title Styling without Glow */
+			section.posts article header h2 {
+				margin-bottom: 1.5em;
+			}
+
+			/* Circular Image Container with Behind Glow Effect */
+			section.posts article .image-glow-wrapper {
+				position: relative;
 				width: 260px;
 				height: 260px;
 				margin: 0 auto;
+				display: block;
+			}
+
+			section.posts article .image-glow-wrapper::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 115%;
+				height: 115%;
+				border-radius: 50%;
+				filter: blur(40px);
+				opacity: 0.6;
+				z-index: 0;
+				pointer-events: none;
+				transition: opacity 0.4s ease, transform 0.4s ease;
+			}
+
+			section.posts article .image-glow-wrapper:hover::before {
+				opacity: 0.85;
+				transform: translate(-50%, -50%) scale(1.08);
+			}
+
+			/* Circular Image Styling & Hover Zoom Effect */
+			section.posts article .image.fit {
+				position: relative;
+				z-index: 1;
+				width: 100%;
+				height: 100%;
+				margin: 0;
 				border-radius: 50%;
 				overflow: hidden;
 				display: block;
 				border: none !important;
-				transition: transform 0.4s ease, box-shadow 0.4s ease;
+				transition: transform 0.4s ease;
 			}
-			section.posts article .image.fit:hover {
-				transform: scale(1.05);
+			section.posts article .image-glow-wrapper:hover .image.fit {
+				transform: scale(1.04);
 			}
 			section.posts article .image.fit img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
 				border-radius: 50%;
+			}
+
+			/* --- Colors for the Behind-Circle Glows --- */
+			/* 1. Lime-Yellow Glow (زرد فسفری) */
+			.glow-yellow-lime::before {
+				background: radial-gradient(circle, rgba(204, 255, 0, 0.95) 0%, rgba(204, 255, 0, 0) 75%);
+			}
+
+			/* 2. Deep Royal Blue Glow (آبی پررنگ) */
+			.glow-deep-blue::before {
+				background: radial-gradient(circle, rgba(0, 82, 255, 0.95) 0%, rgba(0, 82, 255, 0) 75%);
+			}
+
+			/* 3. Magenta Red Glow (قرمز روشن مایل به سرخابی) */
+			.glow-magenta-red::before {
+				background: radial-gradient(circle, rgba(255, 20, 147, 0.95) 0%, rgba(255, 20, 147, 0) 75%);
+			}
+
+			/* 4. Light Cyan Green Glow (سبز روشن مایل به سایان) */
+			.glow-cyan-green::before {
+				background: radial-gradient(circle, rgba(0, 245, 212, 0.95) 0%, rgba(0, 245, 212, 0) 75%);
 			}
 
 			/* Scroll Fade Initial State for the 4 Service Cards */
@@ -134,50 +192,6 @@
 			section.posts article.fade-in-visible {
 				opacity: 1;
 				transform: translateY(0);
-			}
-
-			/* --- Ambient Title Glow Effects --- */
-			.glow-title {
-				position: relative;
-				display: inline-block;
-				z-index: 1;
-				padding: 10px 15px;
-				margin-bottom: 1.5em;
-			}
-
-			.glow-title::before {
-				content: '';
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				width: 110%;
-				height: 120%;
-				border-radius: 50%;
-				filter: blur(35px);
-				opacity: 0.45;
-				z-index: -1;
-				pointer-events: none;
-			}
-
-			/* 1. Lime-Yellow Glow (زرد فسفری) */
-			.glow-yellow-lime::before {
-				background: radial-gradient(circle, rgba(204, 255, 0, 0.9) 0%, rgba(204, 255, 0, 0) 75%);
-			}
-
-			/* 2. Deep Royal Blue Glow (آبی پررنگ) */
-			.glow-deep-blue::before {
-				background: radial-gradient(circle, rgba(0, 82, 255, 0.95) 0%, rgba(0, 82, 255, 0) 75%);
-			}
-
-			/* 3. Magenta Red Glow (قرمز روشن مایل به سرخابی) */
-			.glow-magenta-red::before {
-				background: radial-gradient(circle, rgba(255, 20, 147, 0.9) 0%, rgba(255, 20, 147, 0) 75%);
-			}
-
-			/* 4. Light Cyan Green Glow (سبز روشن مایل به سایان) */
-			.glow-cyan-green::before {
-				background: radial-gradient(circle, rgba(0, 245, 212, 0.9) 0%, rgba(0, 245, 212, 0) 75%);
 			}
 		</style>
 	</head>
@@ -234,34 +248,42 @@
 								</header>
 							</article>
 
-						<!-- Services Grid (4 Categories with Clickable Circular Images) -->
+						<!-- Services Grid (4 Categories with Glow Behind Circles) -->
 							<section class="posts">
 								<article>
 									<header>
-										<h2 class="glow-title glow-yellow-lime"><a href="figures.html">Grants, Figures &<br />Graphical Abstracts</a></h2>
+										<h2><a href="figures.html">Grants, Figures &<br />Graphical Abstracts</a></h2>
 									</header>
-									<a href="figures.html" class="image fit"><img src="images/pic01.jpg" alt="Grants, Figures & Graphical Abstracts" /></a>
+									<div class="image-glow-wrapper glow-yellow-lime">
+										<a href="figures.html" class="image fit"><img src="images/pic01.jpg" alt="Grants, Figures & Graphical Abstracts" /></a>
+									</div>
 								</article>
 
 								<article>
 									<header>
-										<h2 class="glow-title glow-deep-blue"><a href="journal-covers.html">Journal Covers &<br />Press Releases</a></h2>
+										<h2><a href="journal-covers.html">Journal Covers &<br />Press Releases</a></h2>
 									</header>
-									<a href="journal-covers.html" class="image fit"><img src="images/pic02.jpg" alt="Journal Covers & Press Releases" /></a>
+									<div class="image-glow-wrapper glow-deep-blue">
+										<a href="journal-covers.html" class="image fit"><img src="images/pic02.jpg" alt="Journal Covers & Press Releases" /></a>
+									</div>
 								</article>
 
 								<article>
 									<header>
-										<h2 class="glow-title glow-magenta-red"><a href="logos.html">Lab Branding &<br />Pitch Decks</a></h2>
+										<h2><a href="logos.html">Lab Branding &<br />Pitch Decks</a></h2>
 									</header>
-									<a href="logos.html" class="image fit"><img src="images/pic03.jpg" alt="Lab Branding & Pitch Decks" /></a>
+									<div class="image-glow-wrapper glow-magenta-red">
+										<a href="logos.html" class="image fit"><img src="images/pic03.jpg" alt="Lab Branding & Pitch Decks" /></a>
+									</div>
 								</article>
 
 								<article>
 									<header>
-										<h2 class="glow-title glow-cyan-green"><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
+										<h2><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
 									</header>
-									<a href="3d-models.html" class="image fit"><img src="images/pic04.jpg" alt="3D Molecular Models" /></a>
+									<div class="image-glow-wrapper glow-cyan-green">
+										<a href="3d-models.html" class="image fit"><img src="images/pic04.jpg" alt="3D Molecular Models" /></a>
+									</div>
 								</article>
 							</section>
 
