@@ -100,51 +100,59 @@
 				max-width: 720px;
 				margin: 2em auto 4em auto;
 				padding: 3em 2.5em;
-				background: rgba(255, 255, 255, 0.07);
+				background: rgba(255, 255, 255, 0.65);
 				backdrop-filter: blur(16px);
 				-webkit-backdrop-filter: blur(16px);
-				border: 1px solid rgba(255, 255, 255, 0.18);
+				border: 1px solid rgba(255, 255, 255, 0.8);
 				border-radius: 20px;
-				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 15px rgba(255, 255, 255, 0.05);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 15px rgba(255, 255, 255, 0.2);
 				text-align: left;
 			}
 
 			.contact-intro-text {
 				text-align: center;
-				font-size: 0.95em;
+				font-size: 1.05em;
 				line-height: 1.6;
-				color: rgba(255, 255, 255, 0.85);
+				color: #1a202c !important; /* تیره و بسیار خوانا */
+				font-weight: 600;
 				margin-bottom: 2em;
 				padding-bottom: 1.2em;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 			}
 
 			.glass-contact-container label {
-				font-weight: 600;
+				font-weight: 700;
 				letter-spacing: 0.05em;
 				margin-bottom: 0.5em;
+				color: #2d3748 !important; /* تیره کردن لِیبل‌ها */
 			}
 
 			.glass-contact-container input[type="text"],
 			.glass-contact-container input[type="email"],
 			.glass-contact-container textarea {
-				background: rgba(0, 0, 0, 0.2);
-				border: 1px solid rgba(255, 255, 255, 0.15);
+				background: rgba(255, 255, 255, 0.85);
+				border: 1px solid rgba(0, 0, 0, 0.15);
 				border-radius: 8px;
-				color: inherit;
+				color: #1a202c !important; /* متن ورودی‌ها تیره */
 				padding: 0.8em 1em;
 				transition: border-color 0.3s ease, background 0.3s ease;
+			}
+
+			.glass-contact-container input[type="text"]::placeholder,
+			.glass-contact-container input[type="email"]::placeholder,
+			.glass-contact-container textarea::placeholder {
+				color: #718096 !important;
 			}
 
 			.glass-contact-container input[type="text"]:focus,
 			.glass-contact-container input[type="email"]:focus,
 			.glass-contact-container textarea:focus {
-				border-color: rgba(255, 255, 255, 0.5);
-				background: rgba(0, 0, 0, 0.3);
+				border-color: #0052ff;
+				background: #ffffff;
 				outline: none;
 			}
 
-			/* Blue Custom Button Matching Backround Glow */
+			/* Blue Custom Button Matching Background Glow */
 			.glass-contact-container input[type="submit"].btn-blue {
 				background-color: #0052ff !important;
 				box-shadow: 0 4px 14px rgba(0, 82, 255, 0.4) !important;
@@ -216,9 +224,9 @@
 							<li class="active"><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="url?id=3" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="url?id=5" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.aurabiovisuals.com/url?id=5" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
