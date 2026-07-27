@@ -76,7 +76,7 @@
 				height: 65px;
 				border-radius: 50%;
 				object-fit: cover;
-				border: 2px solid #cbd5e0; /* رنگ طوسی روشن دور عکس */
+				border: 2px solid #cbd5e0;
 				flex-shrink: 0;
 			}
 			.team-card h3 {
@@ -85,7 +85,7 @@
 				line-height: 1.2;
 			}
 			.team-card .title {
-				color: #64748b; /* رنگ طوسی خانای مدرن برای عنوان شغلی */
+				color: #64748b;
 				font-size: 0.82em;
 				font-weight: 600;
 				display: block;
@@ -118,7 +118,7 @@
 				margin-bottom: 1em;
 			}
 
-			/* Custom Centered Footer (Form Only) */
+			/* Custom Centered Footer & Contact Form */
 			#footer {
 				display: flex;
 				justify-content: center;
@@ -129,10 +129,22 @@
 				width: 100%;
 				max-width: 680px;
 				margin: 0 auto;
+				text-align: center;
+			}
+			.contact-heading {
+				font-size: 1.8em;
+				font-weight: 700;
+				line-height: 1.35;
+				margin-bottom: 1.5em;
+				color: inherit;
 			}
 			#footer .actions {
 				justify-content: center;
 				display: flex;
+				margin-top: 1.5em;
+			}
+			#footer form {
+				text-align: left;
 			}
 		</style>
 	</head>
@@ -321,6 +333,7 @@
 				<!-- Footer / Contact Section -->
 					<footer id="footer">
 						<section class="footer-form-container">
+							<h2 class="contact-heading">Send us a description of your project,<br />and we will respond within 24 hours</h2>
 							<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
 								<div class="fields">
 									<div class="field">
