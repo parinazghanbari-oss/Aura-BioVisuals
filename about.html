@@ -10,6 +10,25 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			/* Intro Header Logo and Single Line Title Styling */
+			#intro .intro-logo {
+				max-width: 140px;
+				height: auto;
+				margin-bottom: 1.5em;
+				display: inline-block;
+			}
+			#intro h1 {
+				white-space: nowrap;
+				font-size: 3.2em;
+			}
+			@media screen and (max-width: 980px) {
+				#intro h1 { font-size: 2.4em; }
+			}
+			@media screen and (max-width: 736px) {
+				#intro h1 { font-size: 1.8em; white-space: normal; }
+				#intro .intro-logo { max-width: 100px; }
+			}
+
 			/* CSS Dropdown Menu for Services */
 			#nav ul.links li.has-dropdown {
 				position: relative;
@@ -51,60 +70,153 @@
 				color: #ffffff !important;
 			}
 
-			/* --- Diagonal Tri-Color Glow Behind Main Header --- */
-			article.post.featured {
-				position: relative;
-				z-index: 1;
-				overflow: visible;
+			/* Centered Section Title */
+			.section-subheading {
+				text-align: center !important;
+				margin-top: 2em;
+				margin-bottom: 1em;
 			}
 
-			article.post.featured header.major {
-				position: relative;
+			/* Added Extra Spacing above Team Section */
+			.team-section-heading {
+				margin-top: 5em !important; /* فاصله بیشتر بین لوگوها و تیتر بخش مدیریت */
+				margin-bottom: 1.5em;
+			}
+
+			/* CSS for Client Logo Slider with Rail Lines */
+			.logo-slider-container {
+				overflow: hidden;
+				padding: 25px 0;
+				background: rgba(255, 255, 255, 0.03);
+				white-space: nowrap;
+				margin: 1.5em 0 4em 0; /* افزایش فاصله از پایین اسلایدر */
+				border-top: 2px solid rgba(0, 0, 0, 0.15);
+				border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+			}
+			.logo-slider {
 				display: inline-block;
-				padding: 2em 3em;
-				z-index: 2;
+				animation: 35s slide infinite linear;
 			}
-
-			/* Glow Slash Gradient (Yellow - Deep Blue - Magenta) */
-			article.post.featured header.major::before {
-				content: '';
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%) rotate(-15deg);
-				width: 110%;
-				height: 140%;
-				background: linear-gradient(
-					125deg, 
-					rgba(204, 255, 0, 0.45) 0%, 
-					rgba(0, 82, 255, 0.5) 50%, 
-					rgba(255, 20, 147, 0.45) 100%
-				);
-				filter: blur(45px);
-				border-radius: 40px;
-				z-index: -1;
-				pointer-events: none;
+			.logo-slider img {
+				height: 50px;
+				width: auto;
+				margin: 0 35px;
+				vertical-align: middle;
 				opacity: 0.85;
+				transition: opacity 0.3s;
+			}
+			.logo-slider img:hover {
+				opacity: 1;
+			}
+			@keyframes slide {
+				from { transform: translateX(0); }
+				to { transform: translateX(-50%); }
 			}
 
-			/* Custom Centered Navigation Buttons in Footer */
+			/* CSS for Team Advisory Section - Horizontal Rows with Fade Animation */
+			.team-grid {
+				display: flex;
+				flex-direction: column;
+				gap: 25px;
+				margin-top: 2em;
+				text-align: left;
+			}
+			.team-card {
+				background: rgba(0, 0, 0, 0.02);
+				padding: 25px 30px;
+				border-radius: 8px;
+				border: 1px solid rgba(0, 0, 0, 0.08);
+				display: flex;
+				align-items: center;
+				gap: 25px;
+
+				/* Scroll Fade-In Initial State */
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+			}
+
+			/* Scroll Fade-In Active State */
+			.team-card.fade-in-visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.team-header {
+				display: flex;
+				align-items: center;
+				gap: 15px;
+				min-width: 280px;
+				flex-shrink: 0;
+			}
+			.team-avatar {
+				width: 65px;
+				height: 65px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 2px solid #cbd5e0;
+				flex-shrink: 0;
+			}
+			.team-card h3 {
+				margin: 0;
+				font-size: 1.1em;
+				line-height: 1.2;
+			}
+			.team-card .title {
+				color: #64748b;
+				font-size: 0.82em;
+				font-weight: 600;
+				display: block;
+				margin-top: 4px;
+				line-height: 1.3;
+			}
+			.team-card p {
+				margin: 0;
+				font-size: 0.85em;
+				line-height: 1.5;
+				color: rgba(0, 0, 0, 0.75);
+			}
+
+			/* Responsive Design for Small Screens */
+			@media screen and (max-width: 736px) {
+				.team-card {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 12px;
+				}
+				.team-header { min-width: 100%; }
+			}
+
+			/* Custom Centered Footer & Contact Form */
 			#footer {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				padding: 5em 2em;
+				padding: 4em 2em;
+			}
+			#footer > section.footer-form-container {
+				width: 100%;
+				max-width: 780px;
+				margin: 0 auto;
 				text-align: center;
 			}
-			.footer-navigation-buttons {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 20px;
-				flex-wrap: wrap;
-				margin: 0 auto;
+			.contact-heading {
+				font-size: 1.35em;
+				font-weight: 700;
+				line-height: 1.5;
+				margin-bottom: 2em;
+				color: inherit;
+				letter-spacing: 0.03em;
 			}
-			.footer-navigation-buttons .button {
-				min-width: 180px;
+			#footer .actions {
+				justify-content: center;
+				display: flex;
+				margin-top: 1.5em;
+			}
+			#footer form {
+				text-align: left;
+				max-width: 680px;
+				margin: 0 auto;
 			}
 		</style>
 	</head>
@@ -124,9 +236,9 @@
 							<li class="has-dropdown">
 								<a href="index.html">Services & Visual Solutions</a>
 								<ul class="dropdown-menu">
-									<li><a href="figures.html">1. Grants, Figures & Graphical Abstracts</a></li>
-									<li><a href="journal-covers.html">2. Journal Covers & Press Releases</a></li>
-									<li><a href="logos.html">3. Lab Branding & Pitch Decks</a></li>
+									<li><a href="figures.html">1. Figures, Graphical Abstracts & Medical Illustrations</a></li>
+									<li><a href="journal-covers.html">2. Scientific Journal Cover Designs</a></li>
+									<li><a href="logos.html">3. Logos for Research Groups & Industry</a></li>
 									<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
 								</ul>
 							</li>
@@ -134,49 +246,120 @@
 							<li><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://www.aurabiovisuals.com/https://www.aurabiovisuals.com/about.html" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Header with Diagonal Glow -->
-							<article class="post featured">
+						<!-- About Us Section -->
+							<section class="post">
 								<header class="major">
-									<h2>About Aura BioVisuals Studio</h2>
-									<p>Bridging the Gap Between Complex Scientific Research and Impactful Visual Communication.</p>
+									<h2>About Us</h2>
+									<p>Aura BioVisuals Studio is driven by a multidisciplinary advisory structure combining high-end scientific visual design with advanced pharmaceutical and engineering expertise.</p>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="About Aura BioVisuals Studio" /></div>
-								<p>Aura BioVisuals Studio is a dedicated scientific illustration and design studio. We specialize in transforming complex biomedical data, grant narratives, and clinical research into high-impact, publication-ready visual assets.</p>
-							</article>
 
-						<!-- Team Members & Studio Overview -->
-							<section class="posts">
-								<article>
-									<header>
-										<h2><a href="#">Our Mission</a></h2>
-									</header>
-									<p>Our goal is to assist scientists, academic institutions, and biotech firms in communicating complex scientific breakthroughs clearly and visually through high-precision design and artwork.</p>
-								</article>
-								<article>
-									<header>
-										<h2><a href="#">Scientific Precision</a></h2>
-									</header>
-									<p>With expertise in biomedical graphics, molecular rendering, and publication design, we ensure every figure and cover meets strict peer-review and journal standards.</p>
-								</article>
+								<h3 class="section-subheading">TRUSTED COLLABORATIONS & ACADEMIC INSTITUTIONS</h3>
+								<div class="logo-slider-container">
+									<div class="logo-slider">
+										<!-- Group 1 -->
+										<img src="images/logo-3.png" alt="Collaborator Logo" />
+										<img src="images/logo-5.png" alt="Collaborator Logo" />
+										<img src="images/logo-7.png" alt="Collaborator Logo" />
+										<img src="images/logo-8.png" alt="Collaborator Logo" />
+										<img src="images/logo-9.png" alt="Collaborator Logo" />
+										<img src="images/logo-10.png" alt="Collaborator Logo" />
+										<img src="images/logo-11.png" alt="Collaborator Logo" />
+										<img src="images/logo-12.png" alt="Collaborator Logo" />
+										<img src="images/logo-14.png" alt="Collaborator Logo" />
+										<img src="images/logo-16.png" alt="Collaborator Logo" />
+										<img src="images/logo-17.png" alt="Collaborator Logo" />
+										<img src="images/logo-18.png" alt="Collaborator Logo" />
+
+										<!-- Group 2 (Duplicated) -->
+										<img src="images/logo-3.png" alt="Collaborator Logo" />
+										<img src="images/logo-5.png" alt="Collaborator Logo" />
+										<img src="images/logo-7.png" alt="Collaborator Logo" />
+										<img src="images/logo-8.png" alt="Collaborator Logo" />
+										<img src="images/logo-9.png" alt="Collaborator Logo" />
+										<img src="images/logo-10.png" alt="Collaborator Logo" />
+										<img src="images/logo-11.png" alt="Collaborator Logo" />
+										<img src="images/logo-12.png" alt="Collaborator Logo" />
+										<img src="images/logo-14.png" alt="Collaborator Logo" />
+										<img src="images/logo-16.png" alt="Collaborator Logo" />
+										<img src="images/logo-17.png" alt="Collaborator Logo" />
+										<img src="images/logo-18.png" alt="Collaborator Logo" />
+									</div>
+								</div>
+
+								<!-- Management Team Title with Extra Top Margin -->
+								<h3 class="section-subheading team-section-heading">OUR MANAGEMENT TEAM</h3>
+								
+								<div class="team-grid">
+									<div class="team-card">
+										<div class="team-header">
+											<img src="images/Parinaz.png" alt="Parinaz Ghanbari" class="team-avatar" />
+											<div>
+												<h3>Parinaz Ghanbari</h3>
+												<span class="title">Founder & Art Director | Senior Scientific Illustrator</span>
+											</div>
+										</div>
+										<p>Expert in 3D/2D biomedical visuals, scientific journal covers, and complex data visualization for competitive research funding.</p>
+									</div>
+
+									<div class="team-card">
+										<div class="team-header">
+											<img src="images/Babak.png" alt="Babak Mamnoon, Ph.D." class="team-avatar" />
+											<div>
+												<h3>Babak Mamnoon, Ph.D.</h3>
+												<span class="title">Senior Scientific Advisor – Pharmaceutical & Computational Sciences</span>
+											</div>
+										</div>
+										<p>Specializes in molecular modeling, targeted drug delivery systems, and ensuring scientific accuracy across biomedical illustrations.</p>
+									</div>
+
+									<div class="team-card">
+										<div class="team-header">
+											<img src="images/Anika.png" alt="Anika Chopra, Ph.D." class="team-avatar" />
+											<div>
+												<h3>Anika Chopra, Ph.D.</h3>
+												<span class="title">Scientific & Technical Consultant – Engineering Systems</span>
+											</div>
+										</div>
+										<p>Consultant in complex systems architecture, technical modeling, and industrial simulation frameworks.</p>
+									</div>
+								</div>
 							</section>
 
 					</div>
 
-				<!-- Footer -->
+				<!-- Footer / Contact Section -->
 					<footer id="footer">
-						<div class="footer-navigation-buttons">
-							<a href="index.html" class="button large">Home / Services</a>
-							<a href="contact.html" class="button primary large">Contact Us</a>
-						</div>
+						<section class="footer-form-container">
+							<h2 class="contact-heading">Send us a description of your project,<br />and we will respond within 24 hours.</h2>
+							<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" required />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email" required />
+									</div>
+									<div class="field">
+										<label for="message">Project Details / Inquiry</label>
+										<textarea name="message" id="message" rows="4" required></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Inquiry" /></li>
+								</ul>
+							</form>
+						</section>
 					</footer>
 
 				<!-- Copyright -->
@@ -194,6 +377,36 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Sequential Scroll Fade-In Script for Team Cards -->
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const cards = document.querySelectorAll(".team-card");
+
+					const observerOptions = {
+						root: null,
+						threshold: 0.15,
+						rootMargin: "0px 0px -50px 0px"
+					};
+
+					const observer = new IntersectionObserver((entries, observer) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								cards.forEach((card, index) => {
+									setTimeout(() => {
+										card.classList.add("fade-in-visible");
+									}, index * 200); // تاخیر ۲۰۰ میلی‌ثانیه‌ای بین نمایش هر کارت
+								});
+								observer.disconnect(); // پس از یکبار اجرا غیرفعال می‌شود
+							}
+						});
+					}, observerOptions);
+
+					if (cards.length > 0) {
+						observer.observe(cards[0]);
+					}
+				});
+			</script>
 
 	</body>
 </html>
