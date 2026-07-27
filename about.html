@@ -77,9 +77,9 @@
 				margin-bottom: 1em;
 			}
 
-			/* Added Extra Spacing above Team Section */
+			/* Spacing above Team Section */
 			.team-section-heading {
-				margin-top: 5em !important; /* فاصله بیشتر بین لوگوها و تیتر بخش مدیریت */
+				margin-top: 5em !important;
 				margin-bottom: 1.5em;
 			}
 
@@ -89,7 +89,7 @@
 				padding: 25px 0;
 				background: rgba(255, 255, 255, 0.03);
 				white-space: nowrap;
-				margin: 1.5em 0 4em 0; /* افزایش فاصله از پایین اسلایدر */
+				margin: 1.5em 0 4em 0;
 				border-top: 2px solid rgba(0, 0, 0, 0.15);
 				border-bottom: 2px solid rgba(0, 0, 0, 0.15);
 			}
@@ -187,36 +187,24 @@
 				.team-header { min-width: 100%; }
 			}
 
-			/* Custom Centered Footer & Contact Form */
+			/* Custom Centered Action Buttons in Footer */
 			#footer {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				padding: 4em 2em;
-			}
-			#footer > section.footer-form-container {
-				width: 100%;
-				max-width: 780px;
-				margin: 0 auto;
+				padding: 5em 2em;
 				text-align: center;
 			}
-			.contact-heading {
-				font-size: 1.35em;
-				font-weight: 700;
-				line-height: 1.5;
-				margin-bottom: 2em;
-				color: inherit;
-				letter-spacing: 0.03em;
-			}
-			#footer .actions {
-				justify-content: center;
+			.footer-navigation-buttons {
 				display: flex;
-				margin-top: 1.5em;
-			}
-			#footer form {
-				text-align: left;
-				max-width: 680px;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				flex-wrap: wrap;
 				margin: 0 auto;
+			}
+			.footer-navigation-buttons .button {
+				min-width: 180px;
 			}
 		</style>
 	</head>
@@ -246,9 +234,9 @@
 							<li><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://twitter.com/" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
@@ -336,30 +324,12 @@
 
 					</div>
 
-				<!-- Footer / Contact Section -->
+				<!-- Footer with Buttons for Services and Contact -->
 					<footer id="footer">
-						<section class="footer-form-container">
-							<h2 class="contact-heading">Send us a description of your project,<br />and we will respond within 24 hours.</h2>
-							<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" required />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" required />
-									</div>
-									<div class="field">
-										<label for="message">Project Details / Inquiry</label>
-										<textarea name="message" id="message" rows="4" required></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Inquiry" /></li>
-								</ul>
-							</form>
-						</section>
+						<div class="footer-navigation-buttons">
+							<a href="index.html" class="button large">Services & Solutions</a>
+							<a href="contact.html" class="button primary large">Contact Us</a>
+						</div>
 					</footer>
 
 				<!-- Copyright -->
@@ -395,9 +365,9 @@
 								cards.forEach((card, index) => {
 									setTimeout(() => {
 										card.classList.add("fade-in-visible");
-									}, index * 200); // تاخیر ۲۰۰ میلی‌ثانیه‌ای بین نمایش هر کارت
+									}, index * 200);
 								});
-								observer.disconnect(); // پس از یکبار اجرا غیرفعال می‌شود
+								observer.disconnect();
 							}
 						});
 					}, observerOptions);
