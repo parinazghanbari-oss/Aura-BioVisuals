@@ -77,13 +77,19 @@
 				margin-bottom: 1em;
 			}
 
+			/* Added Extra Spacing above Team Section */
+			.team-section-heading {
+				margin-top: 5em !important; /* فاصله بیشتر بین لوگوها و تیتر بخش مدیریت */
+				margin-bottom: 1.5em;
+			}
+
 			/* CSS for Client Logo Slider with Rail Lines */
 			.logo-slider-container {
 				overflow: hidden;
 				padding: 25px 0;
 				background: rgba(255, 255, 255, 0.03);
 				white-space: nowrap;
-				margin: 1.5em 0 2.5em 0;
+				margin: 1.5em 0 4em 0; /* افزایش فاصله از پایین اسلایدر */
 				border-top: 2px solid rgba(0, 0, 0, 0.15);
 				border-bottom: 2px solid rgba(0, 0, 0, 0.15);
 			}
@@ -107,23 +113,35 @@
 				to { transform: translateX(-50%); }
 			}
 
-			/* CSS for Team Advisory Section - Horizontal Rows */
+			/* CSS for Team Advisory Section - Horizontal Rows with Fade Animation */
 			.team-grid {
 				display: flex;
 				flex-direction: column;
-				gap: 20px;
+				gap: 25px;
 				margin-top: 2em;
 				text-align: left;
 			}
 			.team-card {
 				background: rgba(0, 0, 0, 0.02);
-				padding: 20px 25px;
+				padding: 25px 30px;
 				border-radius: 8px;
 				border: 1px solid rgba(0, 0, 0, 0.08);
 				display: flex;
 				align-items: center;
 				gap: 25px;
+
+				/* Scroll Fade-In Initial State */
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 			}
+
+			/* Scroll Fade-In Active State */
+			.team-card.fade-in-visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
 			.team-header {
 				display: flex;
 				align-items: center;
@@ -277,7 +295,9 @@
 									</div>
 								</div>
 
-								<h3 class="section-subheading">OUR MANAGEMENT TEAM</h3>
+								<!-- Management Team Title with Extra Top Margin -->
+								<h3 class="section-subheading team-section-heading">OUR MANAGEMENT TEAM</h3>
+								
 								<div class="team-grid">
 									<div class="team-card">
 										<div class="team-header">
@@ -357,6 +377,36 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Sequential Scroll Fade-In Script for Team Cards -->
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const cards = document.querySelectorAll(".team-card");
+
+					const observerOptions = {
+						root: null,
+						threshold: 0.15,
+						rootMargin: "0px 0px -50px 0px"
+					};
+
+					const observer = new IntersectionObserver((entries, observer) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								cards.forEach((card, index) => {
+									setTimeout(() => {
+										card.classList.add("fade-in-visible");
+									}, index * 200); // تاخیر ۲۰۰ میلی‌ثانیه‌ای بین نمایش هر کارت
+								});
+								observer.disconnect(); // پس از یکبار اجرا غیرفعال می‌شود
+							}
+						});
+					}, observerOptions);
+
+					if (cards.length > 0) {
+						observer.observe(cards[0]);
+					}
+				});
+			</script>
 
 	</body>
 </html>
