@@ -1,117 +1,217 @@
 <!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP | Customized for Aura BioVisuals Studio
+-->
 <html>
 	<head>
-		<title>Figures & Medical Illustrations | Aura BioVisuals Studio</title>
+		<title>Grants, Figures & Graphical Abstracts | Aura BioVisuals Studio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- Favicon for Browser Tab Logo -->
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			#nav ul.links li.has-dropdown { position: relative; }
-			#nav ul.links li .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #212931; min-width: 280px; z-index: 1000; list-style: none; padding: 10px 0; margin: 0; border-radius: 0 0 4px 4px; box-shadow: 0 8px 16px rgba(0,0,0,0.3); text-align: left; }
-			#nav ul.links li.has-dropdown:hover .dropdown-menu { display: block; }
-			#nav ul.links li .dropdown-menu li { display: block; padding: 0; margin: 0; }
-			#nav ul.links li .dropdown-menu li a { display: block; padding: 10px 20px; color: rgba(255, 255, 255, 0.8) !important; font-size: 0.8em; text-transform: none; letter-spacing: 0.05em; border-bottom: none !important; }
-			#nav ul.links li .dropdown-menu li a:hover { background: rgba(255, 255, 255, 0.1); color: #ffffff !important; }
-
-			/* Scroll to Top Button (Bottom Right) */
-			#scrollToTopBtn {
-				position: fixed;
-				bottom: 25px;
-				right: 25px;
-				z-index: 99;
-				width: 45px;
-				height: 45px;
-				padding: 0 !important;
-				line-height: 43px !important;
-				text-align: center;
-				border-radius: 50% !important;
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-				font-size: 1em;
-				min-width: unset !important;
+			/* --- Header Logo Styling --- */
+			#header .logo {
+				border: none !important;
+				padding: 0;
+				background: transparent;
+				display: inline-block;
 			}
 
-			/* Bottom Navigation Buttons */
-			.page-nav-actions {
+			#header .logo img {
+				max-height: 55px; /* تنظیم اندازه ارتفاع لوگو */
+				width: auto;
+				display: block;
+				margin: 0 auto;
+				transition: transform 0.3s ease, opacity 0.3s ease;
+			}
+
+			#header .logo img:hover {
+				transform: scale(1.04);
+				opacity: 0.9;
+			}
+
+			/* CSS Dropdown Menu for Services */
+			#nav ul.links li.has-dropdown {
+				position: relative;
+			}
+			#nav ul.links li .dropdown-menu {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: #212931;
+				min-width: 280px;
+				z-index: 1000;
+				list-style: none;
+				padding: 10px 0;
+				margin: 0;
+				border-radius: 0 0 4px 4px;
+				box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+				text-align: left;
+			}
+			#nav ul.links li.has-dropdown:hover .dropdown-menu {
+				display: block;
+			}
+			#nav ul.links li .dropdown-menu li {
+				display: block;
+				padding: 0;
+				margin: 0;
+			}
+			#nav ul.links li .dropdown-menu li a {
+				display: block;
+				padding: 10px 20px;
+				color: rgba(255, 255, 255, 0.8) !important;
+				font-size: 0.8em;
+				text-transform: none;
+				letter-spacing: 0.05em;
+				border-bottom: none !important;
+			}
+			#nav ul.links li .dropdown-menu li a:hover {
+				background: rgba(255, 255, 255, 0.1);
+				color: #ffffff !important;
+			}
+
+			/* --- Neon Yellow Glow Behind Main Header --- */
+			article.post.featured {
+				position: relative;
+				z-index: 1;
+				overflow: visible;
+			}
+
+			article.post.featured header.major {
+				position: relative;
+				display: inline-block;
+				padding: 2em 3em;
+				z-index: 2;
+			}
+
+			/* Bright Neon Yellow Background Glow */
+			article.post.featured header.major::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 105%;
+				height: 130%;
+				background: radial-gradient(
+					circle, 
+					rgba(223, 255, 0, 0.6) 0%, 
+					rgba(204, 255, 0, 0.35) 50%, 
+					rgba(204, 255, 0, 0) 80%
+				);
+				filter: blur(40px);
+				border-radius: 50px;
+				z-index: -1;
+				pointer-events: none;
+			}
+
+			/* Custom Centered Navigation Buttons in Footer */
+			#footer {
 				display: flex;
 				justify-content: center;
-				gap: 15px;
-				margin-top: 3em;
-				padding-top: 2em;
-				border-top: 1px solid rgba(0, 0, 0, 0.1);
+				align-items: center;
+				padding: 4em 2em 5em 2em;
+				text-align: center;
+				border-top: none;
+				background: transparent;
+			}
+
+			.footer-navigation-buttons {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				flex-wrap: wrap;
+				margin: 0 auto;
+			}
+
+			.footer-navigation-buttons .button {
+				min-width: 180px;
 			}
 		</style>
 	</head>
 	<body class="is-preload">
-		<div id="wrapper">
-			<header id="header">
-				<a href="index.html" class="logo">Aura BioVisuals</a>
-			</header>
 
-			<nav id="nav">
-				<ul class="links">
-					<li class="active has-dropdown">
-						<a href="index.html">Services & Visual Solutions</a>
-						<ul class="dropdown-menu">
-							<li><a href="figures.html">1. Figures, Graphical Abstracts & Medical Illustrations</a></li>
-							<li><a href="journal-covers.html">2. Scientific Journal Cover Designs</a></li>
-							<li><a href="logos.html">3. Logos for Research Groups & Industry</a></li>
-							<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
-						</ul>
-					</li>
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="contact.html">Contact Us</a></li>
-				</ul>
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-				</ul>
-			</nav>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-			<div id="main">
-				<section class="post">
-					<header class="major">
-						<h2>1. Figures, Graphical Abstracts & Medical Illustrations</h2>
-						<p>High-precision scientific diagrams, publication figures, and graphical abstracts designed to clearly communicate complex mechanisms for high-impact journals and research grants.</p>
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">
+							<img src="images/aura-logo.png" alt="Aura BioVisuals Logo" />
+						</a>
 					</header>
 
-					<!-- Portfolio Gallery Grid -->
-					<section class="posts">
-						<article>
-							<header><h2>Project Sample 1</h2></header>
-							<a href="images/pic02.jpg" target="_blank" class="image fit"><img src="images/pic02.jpg" alt="Sample Figure" /></a>
-							<p>Detailed caption and description of the scientific figure or medical illustration will go here.</p>
-						</article>
-						<article>
-							<header><h2>Project Sample 2</h2></header>
-							<a href="images/pic01.jpg" target="_blank" class="image fit"><img src="images/pic01.jpg" alt="Sample Figure" /></a>
-							<p>Detailed caption and description of the scientific figure or medical illustration will go here.</p>
-						</article>
-					</section>
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active has-dropdown">
+								<a href="index.html">Services & Visual Solutions</a>
+								<ul class="dropdown-menu">
+									<li><a href="figures.html">1. Grants, Figures & Graphical Abstracts</a></li>
+									<li><a href="journal-covers.html">2. Scientific Journal Cover Designs</a></li>
+									<li><a href="logos.html">3. Logos for Research Groups & Industry</a></li>
+									<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
+								</ul>
+							</li>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="contact.html">Contact Us</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="url?id=3" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						</ul>
+					</nav>
 
-					<!-- Bottom Navigation Buttons -->
-					<ul class="actions page-nav-actions">
-						<li><a href="index.html" class="button primary">Back to Home</a></li>
-						<li><a href="contact.html" class="button">Contact Us</a></li>
-					</ul>
-				</section>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Featured Post Header -->
+							<article class="post featured">
+								<header class="major">
+									<h2>Grants, Figures &<br />Graphical Abstracts</h2>
+									<p>High-precision scientific diagrams, publication figures, and graphical abstracts designed to clearly communicate complex mechanisms for high-impact journals and research grants.</p>
+								</header>
+							</article>
+
+						<!-- Content Section -->
+							<section class="post">
+								<p>We collaborate with researchers, biotechnology teams, and academic labs to transform complex biological pathways and research methodologies into elegant, clear, and publication-ready visual figures.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer Navigation Buttons -->
+					<footer id="footer">
+						<div class="footer-navigation-buttons">
+							<a href="index.html" class="button large">Services & Visual Solutions</a>
+							<a href="about.html" class="button large">About Us</a>
+							<a href="contact.html" class="button primary large">Contact Us</a>
+						</div>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Aura BioVisuals Studio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
 			</div>
 
-			<!-- Fixed Scroll to Top Button -->
-			<a href="#header" class="button icon solid fa-arrow-up scrolly" id="scrollToTopBtn" title="Back to Top"></a>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-			<div id="copyright">
-				<ul><li>&copy; Aura BioVisuals Studio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-			</div>
-		</div>
-
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
 	</body>
 </html>
