@@ -14,16 +14,20 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- Header Logo Styling --- */
+			/* --- Header Logo Styling & Tagline --- */
 			#header .logo {
 				border: none !important;
 				padding: 0;
 				background: transparent;
-				display: inline-block;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
 			}
 
 			#header .logo img {
-				max-height: 55px; /* تنظیم اندازه ارتفاع لوگو */
+				max-height: 55px;
 				width: auto;
 				display: block;
 				margin: 0 auto;
@@ -33,6 +37,17 @@
 			#header .logo img:hover {
 				transform: scale(1.04);
 				opacity: 0.9;
+			}
+
+			.logo-subtitle {
+				display: block;
+				font-size: 0.75em;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: rgba(255, 255, 255, 0.85);
+				margin-top: 6px;
+				font-weight: 500;
+				font-family: inherit;
 			}
 
 			/* CSS Dropdown Menu for Services */
@@ -76,7 +91,7 @@
 				color: #ffffff !important;
 			}
 
-			/* --- Neon Yellow Glow Behind Main Header --- */
+			/* --- Diagonal Slash Glow Behind Main Header --- */
 			article.post.featured {
 				position: relative;
 				z-index: 1;
@@ -90,25 +105,148 @@
 				z-index: 2;
 			}
 
-			/* Bright Neon Yellow Background Glow */
+			/* Diagonal Slash Gradient Glow */
 			article.post.featured header.major::before {
 				content: '';
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%, -50%);
-				width: 105%;
-				height: 130%;
-				background: radial-gradient(
-					circle, 
-					rgba(223, 255, 0, 0.6) 0%, 
-					rgba(204, 255, 0, 0.35) 50%, 
-					rgba(204, 255, 0, 0) 80%
+				transform: translate(-50%, -50%) rotate(-15deg);
+				width: 110%;
+				height: 140%;
+				background: linear-gradient(
+					125deg, 
+					rgba(204, 255, 0, 0.45) 0%, 
+					rgba(0, 82, 255, 0.5) 50%, 
+					rgba(255, 20, 147, 0.45) 100%
 				);
-				filter: blur(40px);
-				border-radius: 50px;
+				filter: blur(45px);
+				border-radius: 40px;
 				z-index: -1;
 				pointer-events: none;
+				opacity: 0.85;
+			}
+
+			/* --- Portfolio Grid (4 Columns x 4 Rows, 4:5 Vertical Aspect Ratio) --- */
+			.portfolio-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 20px;
+				margin: 2em 0;
+				width: 100%;
+			}
+
+			@media screen and (max-width: 980px) {
+				.portfolio-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				.portfolio-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			.portfolio-item {
+				position: relative;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+				background: #ffffff;
+				aspect-ratio: 4 / 5;
+				cursor: pointer;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				
+				/* Scroll Fade Effect Setup */
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			.portfolio-item.is-visible {
+				opacity: 1;
+				transform: translateY(0);
+				transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+			}
+
+			.portfolio-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+			}
+
+			.portfolio-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.4s ease;
+			}
+
+			.portfolio-item:hover img {
+				transform: scale(1.03);
+			}
+
+			/* --- Lightbox Modal with Zoom Lens Effect --- */
+			.lightbox-modal {
+				display: none;
+				position: fixed;
+				z-index: 9999;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.88);
+				backdrop-filter: blur(8px);
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.lightbox-modal.active {
+				display: flex;
+				opacity: 1;
+			}
+
+			.lightbox-content-wrapper {
+				position: relative;
+				max-width: 90vw;
+				max-height: 90vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				border-radius: 8px;
+			}
+
+			.lightbox-img {
+				max-width: 90vw;
+				max-height: 85vh;
+				object-fit: contain;
+				border-radius: 6px;
+				cursor: zoom-in;
+				transition: transform 0.3s ease;
+			}
+
+			.lightbox-img.zoomed {
+				cursor: zoom-out;
+				transform: scale(1.8);
+			}
+
+			.lightbox-close {
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				color: #ffffff;
+				font-size: 35px;
+				font-weight: bold;
+				cursor: pointer;
+				z-index: 10000;
+				transition: color 0.2s;
+			}
+
+			.lightbox-close:hover {
+				color: #ccff00;
 			}
 
 			/* Custom Centered Navigation Buttons in Footer */
@@ -145,6 +283,7 @@
 					<header id="header">
 						<a href="index.html" class="logo">
 							<img src="images/aura-logo.png" alt="Aura BioVisuals Logo" />
+							<span class="logo-subtitle">Aura BioVisuals Studio</span>
 						</a>
 					</header>
 
@@ -164,8 +303,8 @@
 							<li><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="url?id=3" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="url?id=4" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
@@ -181,11 +320,37 @@
 								</header>
 							</article>
 
-						<!-- Content Section -->
+						<!-- Portfolio Section -->
 							<section class="post">
-								<p>We collaborate with researchers, biotechnology teams, and academic labs to transform complex biological pathways and research methodologies into elegant, clear, and publication-ready visual figures.</p>
+								<div class="portfolio-grid">
+									<!-- 16 Portfolio Items -->
+									<div class="portfolio-item"><img src="images/figure1.jpg" alt="Scientific Illustration 1" /></div>
+									<div class="portfolio-item"><img src="images/figure2.jpg" alt="Scientific Illustration 2" /></div>
+									<div class="portfolio-item"><img src="images/figure3.jpg" alt="Scientific Illustration 3" /></div>
+									<div class="portfolio-item"><img src="images/figure4.jpg" alt="Scientific Illustration 4" /></div>
+									<div class="portfolio-item"><img src="images/figure5.jpg" alt="Scientific Illustration 5" /></div>
+									<div class="portfolio-item"><img src="images/figure6.jpg" alt="Scientific Illustration 6" /></div>
+									<div class="portfolio-item"><img src="images/figure7.jpg" alt="Scientific Illustration 7" /></div>
+									<div class="portfolio-item"><img src="images/figure8.jpg" alt="Scientific Illustration 8" /></div>
+									<div class="portfolio-item"><img src="images/figure9.jpg" alt="Scientific Illustration 9" /></div>
+									<div class="portfolio-item"><img src="images/figure10.jpg" alt="Scientific Illustration 10" /></div>
+									<div class="portfolio-item"><img src="images/figure11.jpg" alt="Scientific Illustration 11" /></div>
+									<div class="portfolio-item"><img src="images/figure12.jpg" alt="Scientific Illustration 12" /></div>
+									<div class="portfolio-item"><img src="images/figure13.jpg" alt="Scientific Illustration 13" /></div>
+									<div class="portfolio-item"><img src="images/figure14.jpg" alt="Scientific Illustration 14" /></div>
+									<div class="portfolio-item"><img src="images/figure15.jpg" alt="Scientific Illustration 15" /></div>
+									<div class="portfolio-item"><img src="images/figure16.jpg" alt="Scientific Illustration 16" /></div>
+								</div>
 							</section>
 
+					</div>
+
+				<!-- Lightbox Modal Box -->
+					<div id="lightboxModal" class="lightbox-modal">
+						<span class="lightbox-close" id="lightboxClose">&times;</span>
+						<div class="lightbox-content-wrapper">
+							<img class="lightbox-img" id="lightboxImage" src="" alt="Enlarged View" />
+						</div>
 					</div>
 
 				<!-- Footer Navigation Buttons -->
@@ -212,6 +377,64 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Custom Script for Lightbox Zoom & Scroll Animation -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// --- 1. Lightbox with Zoom Functionality ---
+					const modal = document.getElementById('lightboxModal');
+					const modalImg = document.getElementById('lightboxImage');
+					const closeBtn = document.getElementById('lightboxClose');
+					const portfolioItems = document.querySelectorAll('.portfolio-item img');
+
+					portfolioItems.forEach(img => {
+						img.addEventListener('click', function(e) {
+							e.stopPropagation();
+							modal.classList.add('active');
+							modalImg.src = this.src;
+							modalImg.classList.remove('zoomed');
+						});
+					});
+
+					// Toggle Zoom on Image Click
+					modalImg.addEventListener('click', function(e) {
+						e.stopPropagation();
+						this.classList.toggle('zoomed');
+					});
+
+					// Close Lightbox on Clicking Outside or Close Button
+					function closeModal() {
+						modal.classList.remove('active');
+						modalImg.classList.remove('zoomed');
+					}
+
+					modal.addEventListener('click', closeModal);
+					closeBtn.addEventListener('click', closeModal);
+
+					document.addEventListener('keydown', function(e) {
+						if (e.key === 'Escape') closeModal();
+					});
+
+					// --- 2. Scroll Fade-In Animation ---
+					const items = document.querySelectorAll('.portfolio-item');
+					
+					const observerOptions = {
+						root: null,
+						threshold: 0.15
+					};
+
+					const observer = new IntersectionObserver((entries, observer) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								observer.unobserve(entry.target);
+							}
+						});
+					}, observerOptions);
+
+					items.forEach(item => observer.observe(item));
+				});
+			</script>
 
 	</body>
 </html>
