@@ -185,7 +185,7 @@
 				transform: scale(1.03);
 			}
 
-			/* --- Lightbox Modal with Zoom Lens Effect --- */
+			/* --- Lightbox Modal with Targeted Dynamic Zoom --- */
 			.lightbox-modal {
 				display: none;
 				position: fixed;
@@ -224,12 +224,13 @@
 				object-fit: contain;
 				border-radius: 6px;
 				cursor: zoom-in;
-				transition: transform 0.3s ease;
+				transform-origin: center center;
+				transition: transform 0.3s ease, transform-origin 0.1s ease;
 			}
 
 			.lightbox-img.zoomed {
 				cursor: zoom-out;
-				transform: scale(1.8);
+				transform: scale(2.2);
 			}
 
 			.lightbox-close {
@@ -322,7 +323,7 @@
 						<!-- Portfolio Section -->
 							<section class="post">
 								<div class="portfolio-grid">
-									<!-- 16 Portfolio Items from images folder -->
+									<!-- 16 Portfolio Items -->
 									<div class="portfolio-item"><img src="images/figure1.png" alt="Scientific Illustration 1" /></div>
 									<div class="portfolio-item"><img src="images/figure2.png" alt="Scientific Illustration 2" /></div>
 									<div class="portfolio-item"><img src="images/figure3.png" alt="Scientific Illustration 3" /></div>
@@ -357,7 +358,7 @@
 						<div class="footer-navigation-buttons">
 							<a href="index.html" class="button large">Services & Visual Solutions</a>
 							<a href="about.html" class="button large">About Us</a>
-							<a href="contact.html" class="button primary large">Contact Us</a>
+							<a href="contact.html" class="button primary large">Discuss a project</a>
 						</div>
 					</footer>
 
@@ -377,10 +378,10 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<!-- Custom Script for Lightbox Zoom & Scroll Animation -->
+			<!-- Custom Script for Point-Specific Zoom & Scroll Animation -->
 			<script>
 				document.addEventListener('DOMContentLoaded', function() {
-					// --- 1. Lightbox with Zoom Functionality ---
+					// --- 1. Lightbox with Dynamic Click-Point Zoom ---
 					const modal = document.getElementById('lightboxModal');
 					const modalImg = document.getElementById('lightboxImage');
 					const closeBtn = document.getElementById('lightboxClose');
@@ -392,19 +393,32 @@
 							modal.classList.add('active');
 							modalImg.src = this.src;
 							modalImg.classList.remove('zoomed');
+							modalImg.style.transformOrigin = 'center center';
 						});
 					});
 
-					// Toggle Zoom on Image Click
+					// Dynamic Zoom based on Click Coordinates
 					modalImg.addEventListener('click', function(e) {
 						e.stopPropagation();
-						this.classList.toggle('zoomed');
+						
+						if (this.classList.contains('zoomed')) {
+							this.classList.remove('zoomed');
+							this.style.transformOrigin = 'center center';
+						} else {
+							const rect = this.getBoundingClientRect();
+							const x = ((e.clientX - rect.left) / rect.width) * 100;
+							const y = ((e.clientY - rect.top) / rect.height) * 100;
+							
+							this.style.transformOrigin = `${x}% ${y}%`;
+							this.classList.add('zoomed');
+						}
 					});
 
 					// Close Lightbox on Clicking Outside or Close Button
 					function closeModal() {
 						modal.classList.remove('active');
 						modalImg.classList.remove('zoomed');
+						modalImg.style.transformOrigin = 'center center';
 					}
 
 					modal.addEventListener('click', closeModal);
