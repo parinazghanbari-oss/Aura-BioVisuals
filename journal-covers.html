@@ -1,117 +1,451 @@
 <!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP | Customized for Aura BioVisuals Studio
+-->
 <html>
 	<head>
-		<title>Scientific Journal Cover Designs | Aura BioVisuals Studio</title>
+		<title>Journal Covers & Press Releases | Aura BioVisuals Studio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- Favicon for Browser Tab Logo -->
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			#nav ul.links li.has-dropdown { position: relative; }
-			#nav ul.links li .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #212931; min-width: 280px; z-index: 1000; list-style: none; padding: 10px 0; margin: 0; border-radius: 0 0 4px 4px; box-shadow: 0 8px 16px rgba(0,0,0,0.3); text-align: left; }
-			#nav ul.links li.has-dropdown:hover .dropdown-menu { display: block; }
-			#nav ul.links li .dropdown-menu li { display: block; padding: 0; margin: 0; }
-			#nav ul.links li .dropdown-menu li a { display: block; padding: 10px 20px; color: rgba(255, 255, 255, 0.8) !important; font-size: 0.8em; text-transform: none; letter-spacing: 0.05em; border-bottom: none !important; }
-			#nav ul.links li .dropdown-menu li a:hover { background: rgba(255, 255, 255, 0.1); color: #ffffff !important; }
-
-			/* Scroll to Top Button (Bottom Right) */
-			#scrollToTopBtn {
-				position: fixed;
-				bottom: 25px;
-				right: 25px;
-				z-index: 99;
-				width: 45px;
-				height: 45px;
-				padding: 0 !important;
-				line-height: 43px !important;
-				text-align: center;
-				border-radius: 50% !important;
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-				font-size: 1em;
-				min-width: unset !important;
+			/* --- Header Logo Styling --- */
+			#header .logo {
+				border: none !important;
+				padding: 0;
+				background: transparent;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
 			}
 
-			/* Bottom Navigation Buttons */
-			.page-nav-actions {
+			#header .logo img {
+				max-height: 60px;
+				width: auto;
+				display: block;
+				margin: 0 auto;
+				transition: transform 0.3s ease, opacity 0.3s ease;
+			}
+
+			#header .logo img:hover {
+				transform: scale(1.04);
+				opacity: 0.9;
+			}
+
+			.logo-subtitle {
+				display: block;
+				font-size: 0.75em;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: rgba(255, 255, 255, 0.85);
+				margin-top: 8px;
+				font-weight: 500;
+			}
+
+			/* CSS Dropdown Menu for Services */
+			#nav ul.links li.has-dropdown {
+				position: relative;
+			}
+			#nav ul.links li .dropdown-menu {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: #212931;
+				min-width: 280px;
+				z-index: 1000;
+				list-style: none;
+				padding: 10px 0;
+				margin: 0;
+				border-radius: 0 0 4px 4px;
+				box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+				text-align: left;
+			}
+			#nav ul.links li.has-dropdown:hover .dropdown-menu {
+				display: block;
+			}
+			#nav ul.links li .dropdown-menu li {
+				display: block;
+				padding: 0;
+				margin: 0;
+			}
+			#nav ul.links li .dropdown-menu li a {
+				display: block;
+				padding: 10px 20px;
+				color: rgba(255, 255, 255, 0.8) !important;
+				font-size: 0.8em;
+				text-transform: none;
+				letter-spacing: 0.05em;
+				border-bottom: none !important;
+			}
+			#nav ul.links li .dropdown-menu li a:hover {
+				background: rgba(255, 255, 255, 0.1);
+				color: #ffffff !important;
+			}
+
+			/* --- Diagonal Slash Blue Glow Behind Main Header --- */
+			article.post.featured {
+				position: relative;
+				z-index: 1;
+				overflow: visible;
+			}
+
+			article.post.featured header.major {
+				position: relative;
+				display: inline-block;
+				padding: 2em 3em;
+				z-index: 2;
+			}
+
+			/* Diagonal Slash Blue Glow Effect */
+			article.post.featured header.major::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) rotate(-15deg);
+				width: 110%;
+				height: 140%;
+				background: linear-gradient(
+					125deg, 
+					rgba(0, 183, 255, 0.75) 0%, 
+					rgba(0, 102, 255, 0.45) 50%, 
+					rgba(0, 217, 255, 0.15) 100%
+				);
+				filter: blur(45px);
+				border-radius: 40px;
+				z-index: -1;
+				pointer-events: none;
+				opacity: 0.9;
+			}
+
+			/* --- Portfolio Grid (3 Columns, Aspect Ratio 4:5) --- */
+			.portfolio-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 25px;
+				margin: 2em 0;
+				width: 100%;
+			}
+
+			@media screen and (max-width: 980px) {
+				.portfolio-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				.portfolio-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			.portfolio-item {
+				position: relative;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+				background: #ffffff;
+				aspect-ratio: 4 / 5;
+				cursor: pointer;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				
+				/* Scroll Fade Setup */
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			.portfolio-item.is-visible {
+				opacity: 1;
+				transform: translateY(0);
+				transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+			}
+
+			.portfolio-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+			}
+
+			.portfolio-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.4s ease;
+			}
+
+			.portfolio-item:hover img {
+				transform: scale(1.03);
+			}
+
+			/* --- Lightbox Modal with Dynamic Click-Point Zoom --- */
+			.lightbox-modal {
+				display: none;
+				position: fixed;
+				z-index: 9999;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.88);
+				backdrop-filter: blur(8px);
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.lightbox-modal.active {
+				display: flex;
+				opacity: 1;
+			}
+
+			.lightbox-content-wrapper {
+				position: relative;
+				max-width: 90vw;
+				max-height: 90vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				border-radius: 8px;
+			}
+
+			.lightbox-img {
+				max-width: 90vw;
+				max-height: 85vh;
+				object-fit: contain;
+				border-radius: 6px;
+				cursor: zoom-in;
+				transform-origin: center center;
+				transition: transform 0.3s ease, transform-origin 0.1s ease;
+			}
+
+			.lightbox-img.zoomed {
+				cursor: zoom-out;
+				transform: scale(2.2);
+			}
+
+			.lightbox-close {
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				color: #ffffff;
+				font-size: 35px;
+				font-weight: bold;
+				cursor: pointer;
+				z-index: 10000;
+				transition: color 0.2s;
+			}
+
+			.lightbox-close:hover {
+				color: #00b7ff;
+			}
+
+			/* Custom Centered Navigation Buttons in Footer */
+			#footer {
 				display: flex;
 				justify-content: center;
-				gap: 15px;
-				margin-top: 3em;
-				padding-top: 2em;
-				border-top: 1px solid rgba(0, 0, 0, 0.1);
+				align-items: center;
+				padding: 4em 2em 5em 2em;
+				text-align: center;
+				border-top: none;
+				background: transparent;
+			}
+
+			.footer-navigation-buttons {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				flex-wrap: wrap;
+				margin: 0 auto;
+			}
+
+			.footer-navigation-buttons .button {
+				min-width: 180px;
 			}
 		</style>
 	</head>
 	<body class="is-preload">
-		<div id="wrapper">
-			<header id="header">
-				<a href="index.html" class="logo">Aura BioVisuals</a>
-			</header>
 
-			<nav id="nav">
-				<ul class="links">
-					<li class="active has-dropdown">
-						<a href="index.html">Services & Visual Solutions</a>
-						<ul class="dropdown-menu">
-							<li><a href="figures.html">1. Figures, Graphical Abstracts & Medical Illustrations</a></li>
-							<li><a href="journal-covers.html">2. Scientific Journal Cover Designs</a></li>
-							<li><a href="logos.html">3. Logos for Research Groups & Industry</a></li>
-							<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
-						</ul>
-					</li>
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="contact.html">Contact Us</a></li>
-				</ul>
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-				</ul>
-			</nav>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-			<div id="main">
-				<section class="post">
-					<header class="major">
-						<h2>2. Scientific Journal Cover Designs & Press Releases</h2>
-						<p>Striking, high-impact journal cover art and press visuals designed to celebrate scientific milestones and showcase breakthrough discoveries on premier covers.</p>
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">
+							<img src="images/aura-logo.png" alt="Aura BioVisuals Logo" />
+							<span class="logo-subtitle">Aura BioVisuals Studio</span>
+						</a>
 					</header>
 
-					<!-- Portfolio Gallery Grid -->
-					<section class="posts">
-						<article>
-							<header><h2>Cover Sample 1</h2></header>
-							<a href="images/pic03.jpg" target="_blank" class="image fit"><img src="images/pic03.jpg" alt="Journal Cover Design" /></a>
-							<p>Details of the journal cover artwork and target publication will go here.</p>
-						</article>
-						<article>
-							<header><h2>Cover Sample 2</h2></header>
-							<a href="images/pic01.jpg" target="_blank" class="image fit"><img src="images/pic01.jpg" alt="Journal Cover Design" /></a>
-							<p>Details of the journal cover artwork and target publication will go here.</p>
-						</article>
-					</section>
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active has-dropdown">
+								<a href="index.html">Services & Visual Solutions</a>
+								<ul class="dropdown-menu">
+									<li><a href="figures.html">1. Grants, Figures & Graphical Abstracts</a></li>
+									<li><a href="journal-covers.html">2. Scientific Journal Cover Designs</a></li>
+									<li><a href="logos.html">3. Logos for Research Groups & Industry</a></li>
+									<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
+								</ul>
+							</li>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="contact.html">Contact Us</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						</ul>
+					</nav>
 
-					<!-- Bottom Navigation Buttons -->
-					<ul class="actions page-nav-actions">
-						<li><a href="index.html" class="button primary">Back to Home</a></li>
-						<li><a href="contact.html" class="button">Contact Us</a></li>
-					</ul>
-				</section>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Featured Post Header -->
+							<article class="post featured">
+								<header class="major">
+									<h2>Journal Covers &<br />Press Releases</h2>
+									<p>Captivating cover art and promotional visuals designed for leading scientific journals, institution announcements, and major research press releases.</p>
+								</header>
+							</article>
+
+						<!-- Portfolio Section -->
+							<section class="post">
+								<div class="portfolio-grid">
+									<!-- 14 Journal Cover Items (3 Columns x 5 Rows Layout) -->
+									<div class="portfolio-item"><img src="images/cover1.png" alt="Journal Cover 1" /></div>
+									<div class="portfolio-item"><img src="images/cover2.png" alt="Journal Cover 2" /></div>
+									<div class="portfolio-item"><img src="images/cover3.png" alt="Journal Cover 3" /></div>
+									<div class="portfolio-item"><img src="images/cover4.png" alt="Journal Cover 4" /></div>
+									<div class="portfolio-item"><img src="images/cover5.png" alt="Journal Cover 5" /></div>
+									<div class="portfolio-item"><img src="images/cover6.png" alt="Journal Cover 6" /></div>
+									<div class="portfolio-item"><img src="images/cover8.png" alt="Journal Cover 8" /></div>
+									<div class="portfolio-item"><img src="images/cover9.png" alt="Journal Cover 9" /></div>
+									<div class="portfolio-item"><img src="images/cover10.png" alt="Journal Cover 10" /></div>
+									<div class="portfolio-item"><img src="images/cover11.png" alt="Journal Cover 11" /></div>
+									<div class="portfolio-item"><img src="images/cover12.png" alt="Journal Cover 12" /></div>
+									<div class="portfolio-item"><img src="images/cover13.png" alt="Journal Cover 13" /></div>
+									<div class="portfolio-item"><img src="images/cover14.png" alt="Journal Cover 14" /></div>
+									<div class="portfolio-item"><img src="images/cover15.png" alt="Journal Cover 15" /></div>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Lightbox Modal Box -->
+					<div id="lightboxModal" class="lightbox-modal">
+						<span class="lightbox-close" id="lightboxClose">&times;</span>
+						<div class="lightbox-content-wrapper">
+							<img class="lightbox-img" id="lightboxImage" src="" alt="Enlarged View" />
+						</div>
+					</div>
+
+				<!-- Footer Navigation Buttons -->
+					<footer id="footer">
+						<div class="footer-navigation-buttons">
+							<a href="index.html" class="button large">Services & Visual Solutions</a>
+							<a href="about.html" class="button large">About Us</a>
+							<a href="contact.html" class="button primary large">Discuss a project</a>
+						</div>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Aura BioVisuals Studio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
 			</div>
 
-			<!-- Fixed Scroll to Top Button -->
-			<a href="#header" class="button icon solid fa-arrow-up scrolly" id="scrollToTopBtn" title="Back to Top"></a>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-			<div id="copyright">
-				<ul><li>&copy; Aura BioVisuals Studio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-			</div>
-		</div>
+			<!-- Custom Script for Point-Specific Zoom & Scroll Animation -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// --- 1. Lightbox with Dynamic Click-Point Zoom ---
+					const modal = document.getElementById('lightboxModal');
+					const modalImg = document.getElementById('lightboxImage');
+					const closeBtn = document.getElementById('lightboxClose');
+					const portfolioItems = document.querySelectorAll('.portfolio-item img');
 
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+					portfolioItems.forEach(img => {
+						img.addEventListener('click', function(e) {
+							e.stopPropagation();
+							modal.classList.add('active');
+							modalImg.src = this.src;
+							modalImg.classList.remove('zoomed');
+							modalImg.style.transformOrigin = 'center center';
+						});
+					});
+
+					// Dynamic Zoom based on Click Coordinates
+					modalImg.addEventListener('click', function(e) {
+						e.stopPropagation();
+						
+						if (this.classList.contains('zoomed')) {
+							this.classList.remove('zoomed');
+							this.style.transformOrigin = 'center center';
+						} else {
+							const rect = this.getBoundingClientRect();
+							const x = ((e.clientX - rect.left) / rect.width) * 100;
+							const y = ((e.clientY - rect.top) / rect.height) * 100;
+							
+							this.style.transformOrigin = `${x}% ${y}%`;
+							this.classList.add('zoomed');
+						}
+					});
+
+					// Close Lightbox on Clicking Outside or Close Button
+					function closeModal() {
+						modal.classList.remove('active');
+						modalImg.classList.remove('zoomed');
+						modalImg.style.transformOrigin = 'center center';
+					}
+
+					modal.addEventListener('click', closeModal);
+					closeBtn.addEventListener('click', closeModal);
+
+					document.addEventListener('keydown', function(e) {
+						if (e.key === 'Escape') closeModal();
+					});
+
+					// --- 2. Scroll Fade-In Animation ---
+					const items = document.querySelectorAll('.portfolio-item');
+					
+					const observerOptions = {
+						root: null,
+						threshold: 0.15
+					};
+
+					const observer = new IntersectionObserver((entries, observer) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								observer.unobserve(entry.target);
+							}
+						});
+					}, observerOptions);
+
+					items.forEach(item => observer.observe(item));
+				});
+			</script>
+
 	</body>
 </html>
