@@ -7,32 +7,26 @@
 		<title>Aura BioVisuals Studio | Scientific Visual Communication</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
-		<!-- Favicon for Browser Tab Logo -->
-		<link rel="icon" type="image/png" href="images/favicon.png" />
-
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- Header Logo Styling --- */
-			#header .logo {
-				border: none !important;
-				padding: 0;
-				background: transparent;
+			/* Intro Header Logo and Single Line Title Styling */
+			#intro .intro-logo {
+				max-width: 140px;
+				height: auto;
+				margin-bottom: 1.5em;
 				display: inline-block;
 			}
-
-			#header .logo img {
-				max-height: 55px; /* تنظیم اندازه ارتفاع لوگو */
-				width: auto;
-				display: block;
-				margin: 0 auto;
-				transition: transform 0.3s ease, opacity 0.3s ease;
+			#intro h1 {
+				white-space: nowrap;
+				font-size: 3.2em;
 			}
-
-			#header .logo img:hover {
-				transform: scale(1.04);
-				opacity: 0.9;
+			@media screen and (max-width: 980px) {
+				#intro h1 { font-size: 2.4em; }
+			}
+			@media screen and (max-width: 736px) {
+				#intro h1 { font-size: 1.8em; white-space: normal; }
+				#intro .intro-logo { max-width: 100px; }
 			}
 
 			/* CSS Dropdown Menu for Services */
@@ -76,7 +70,27 @@
 				color: #ffffff !important;
 			}
 
-			/* --- Diagonal Tri-Color Glow Behind Main Header --- */
+			/* Custom Centered Action Buttons in Footer */
+			#footer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 5em 2em;
+				text-align: center;
+			}
+			.footer-navigation-buttons {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				flex-wrap: wrap;
+				margin: 0 auto;
+			}
+			.footer-navigation-buttons .button {
+				min-width: 180px;
+			}
+
+			/* --- Diagonal Tri-Color Glow Behind Main Featured Title --- */
 			article.post.featured {
 				position: relative;
 				z-index: 1;
@@ -90,7 +104,7 @@
 				z-index: 2;
 			}
 
-			/* Glow Slash Gradient (Yellow - Deep Blue - Magenta) */
+			/* Glow slash (1: Yellow, 2: Deep Blue, 3: Magenta Red) */
 			article.post.featured header.major::before {
 				content: '';
 				position: absolute;
@@ -112,41 +126,168 @@
 				opacity: 0.85;
 			}
 
-			/* Custom Centered Navigation Buttons in Footer */
-			#footer {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding: 4em 2em 5em 2em;
-				text-align: center;
-				border-top: none;
-				background: transparent;
+			/* Remove Grid Borders between the 4 Cards */
+			section.posts {
+				border-top: none !important;
+				overflow: hidden;
+				padding: 2em 0 !important;
+			}
+			section.posts article {
+				border-color: transparent !important;
+				border-width: 0 !important;
+				box-shadow: none !important;
+				padding: 1.5em 1em !important;
 			}
 
-			.footer-navigation-buttons {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 20px;
-				flex-wrap: wrap;
+			/* Clean, Straight Ambient Title Styling */
+			.glow-title {
+				position: relative;
+				display: inline-block;
+				z-index: 2;
+				padding: 10px 15px;
+				margin-bottom: 1em;
+			}
+
+			.glow-title a {
+				font-size: 0.9em;
+				line-height: 1.35;
+				letter-spacing: 0.03em;
+			}
+
+			.glow-title::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 110%;
+				height: 120%;
+				border-radius: 50%;
+				filter: blur(35px);
+				opacity: 0.5;
+				z-index: -1;
+				pointer-events: none;
+			}
+
+			/* Uniform Large Rounded Rectangle Image Container */
+			section.posts article .image-glow-wrapper {
+				position: relative;
+				width: 90%;
+				max-width: 480px;
+				height: 280px; /* Fixed Height to Ensure Identical Sizes */
 				margin: 0 auto;
+				display: block;
 			}
 
-			.footer-navigation-buttons .button {
-				min-width: 180px;
+			section.posts article .image-glow-wrapper::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 106%;
+				height: 106%;
+				border-radius: 24px;
+				filter: blur(40px);
+				opacity: 0.65;
+				z-index: 0;
+				pointer-events: none;
+				transition: opacity 0.4s ease, transform 0.4s ease;
+			}
+
+			section.posts article .image-glow-wrapper:hover::before {
+				opacity: 0.9;
+				transform: translate(-50%, -50%) scale(1.04);
+			}
+
+			/* Rounded Rectangle Image Styling & Hover Zoom Effect */
+			section.posts article .image.fit {
+				position: relative;
+				z-index: 1;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				border-radius: 20px;
+				overflow: hidden;
+				display: block;
+				border: none !important;
+				transition: transform 0.4s ease;
+			}
+
+			section.posts article .image-glow-wrapper:hover .image.fit {
+				transform: scale(1.02);
+			}
+
+			/* Force Exact Rectangular Fill with Cover Cropping */
+			section.posts article .image.fit img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				border-radius: 20px;
+				display: block;
+			}
+
+			/* --- Unified Color Definitions for Titles & Rectangles --- */
+			/* 1. Lime-Yellow Glow (زرد فسفری) */
+			.glow-yellow-lime::before {
+				background: radial-gradient(circle, rgba(204, 255, 0, 0.95) 0%, rgba(204, 255, 0, 0) 75%);
+			}
+
+			/* 2. Deep Royal Blue Glow (آبی پررنگ) */
+			.glow-deep-blue::before {
+				background: radial-gradient(circle, rgba(0, 82, 255, 0.95) 0%, rgba(0, 82, 255, 0) 75%);
+			}
+
+			/* 3. Magenta Red Glow (قرمز روشن مایل به سرخابی) */
+			.glow-magenta-red::before {
+				background: radial-gradient(circle, rgba(255, 20, 147, 0.95) 0%, rgba(255, 20, 147, 0) 75%);
+			}
+
+			/* 4. Light Cyan Green Glow (سبز روشن مایل به سایان) */
+			.glow-cyan-green::before {
+				background: radial-gradient(circle, rgba(0, 245, 212, 0.95) 0%, rgba(0, 245, 212, 0) 75%);
+			}
+
+			/* --- Sliding Animations (Left & Right Entry/Exit) --- */
+			section.posts article {
+				transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+				will-change: transform;
+			}
+
+			/* Initial Out-of-Screen States (Half visible/off-screen) */
+			section.posts article.slide-left-init {
+				transform: translateX(-55%);
+			}
+
+			section.posts article.slide-right-init {
+				transform: translateX(55%);
+			}
+
+			/* Active In-Screen State */
+			section.posts article.slide-in-active {
+				transform: translateX(0) !important;
 			}
 		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<img src="images/aura-logo.png" alt="Aura BioVisuals Studio" class="intro-logo" />
+						<h1>Aura BioVisuals Studio</h1>
+						<p>High-Impact Scientific Visuals, Journal Covers, & Biomedical Illustrations.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">
-							<img src="images/aura-logo.png" alt="Aura BioVisuals Logo" />
-						</a>
+						<a href="index.html" class="logo">Aura BioVisuals</a>
 					</header>
 
 				<!-- Nav -->
@@ -155,9 +296,9 @@
 							<li class="active has-dropdown">
 								<a href="index.html">Services & Visual Solutions</a>
 								<ul class="dropdown-menu">
-									<li><a href="figures.html">1. Figures, Graphical Abstracts & Medical Illustrations</a></li>
-									<li><a href="journal-covers.html">2. Scientific Journal Cover Designs</a></li>
-									<li><a href="logos.html">3. Logos for Research Groups & Industry</a></li>
+									<li><a href="figures.html">1. Grants, Figures & Graphical Abstracts</a></li>
+									<li><a href="journal-covers.html">2. Journal Covers & Press Releases</a></li>
+									<li><a href="logos.html">3. Lab Branding & Pitch Decks</a></li>
 									<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
 								</ul>
 							</li>
@@ -165,73 +306,65 @@
 							<li><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://www.aurabiovisuals.com/https://www.aurabiovisuals.com/about.html" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Featured Post Header -->
+						<!-- Featured Post / Intro Banner with Diagonal Tri-Color Glow -->
 							<article class="post featured">
 								<header class="major">
-									<h2>Visual Excellence in Scientific Communication</h2>
+									<h2>Visual Excellence in<br />Scientific Communication</h2>
 									<p>Aura BioVisuals Studio specializes in transforming complex biomedical concepts, grant narratives, and clinical research into publication-ready visual assets.</p>
 								</header>
 							</article>
 
-						<!-- Posts Grid -->
+						<!-- Services Grid (4 Categories with section1.png to section4.png) -->
 							<section class="posts">
-								<article>
+								<article class="slide-left-init">
 									<header>
-										<h2><a href="figures.html">Figures & Graphical Abstracts</a></h2>
+										<h2 class="glow-title glow-yellow-lime"><a href="figures.html">Grants, Figures &<br />Graphical Abstracts</a></h2>
 									</header>
-									<a href="figures.html" class="image fit"><img src="images/pic01.jpg" alt="Scientific Figures" /></a>
-									<p>High-resolution, clear, and publication-ready illustrations for research papers, grants, and clinical studies.</p>
-									<ul class="actions special">
-										<li><a href="figures.html" class="button">Explore Figures</a></li>
-									</ul>
+									<div class="image-glow-wrapper glow-yellow-lime">
+										<a href="figures.html" class="image fit"><img src="images/section1.png" alt="Grants, Figures & Graphical Abstracts" /></a>
+									</div>
 								</article>
 
-								<article>
+								<article class="slide-right-init">
 									<header>
-										<h2><a href="journal-covers.html">Journal Cover Press</a></h2>
+										<h2 class="glow-title glow-deep-blue"><a href="journal-covers.html">Journal Covers &<br />Press Releases</a></h2>
 									</header>
-									<a href="journal-covers.html" class="image fit"><img src="images/pic02.jpg" alt="Journal Covers" /></a>
-									<p>Eye-catching cover designs crafted to highlight groundbreaking research for top-tier scientific journals.</p>
-									<ul class="actions special">
-										<li><a href="journal-covers.html" class="button">Explore Covers</a></li>
-									</ul>
+									<div class="image-glow-wrapper glow-deep-blue">
+										<a href="journal-covers.html" class="image fit"><img src="images/section2.png" alt="Journal Covers & Press Releases" /></a>
+									</div>
 								</article>
 
-								<article>
+								<article class="slide-left-init">
 									<header>
-										<h2><a href="logos.html">Scientific & Biotech Logos</a></h2>
+										<h2 class="glow-title glow-magenta-red"><a href="logos.html">Lab Branding &<br />Pitch Decks</a></h2>
 									</header>
-									<a href="logos.html" class="image fit"><img src="images/pic03.jpg" alt="Biotech Logos" /></a>
-									<p>Distinctive branding assets tailored specifically for research laboratories, academic consortia, and biotech startups.</p>
-									<ul class="actions special">
-										<li><a href="logos.html" class="button">Explore Logos</a></li>
-									</ul>
+									<div class="image-glow-wrapper glow-magenta-red">
+										<a href="logos.html" class="image fit"><img src="images/section3.png" alt="Lab Branding & Pitch Decks" /></a>
+									</div>
 								</article>
 
-								<article>
+								<article class="slide-right-init">
 									<header>
-										<h2><a href="3d-models.html">3D Molecular & Cellular Models</a></h2>
+										<h2 class="glow-title glow-cyan-green"><a href="3d-models.html">3D Molecular &<br />Cellular Models</a></h2>
 									</header>
-									<a href="3d-models.html" class="image fit"><img src="images/pic04.jpg" alt="3D Scientific Models" /></a>
-									<p>Detailed 3D visualizations and biological renders designed to showcase structural biology and complex mechanistic pathways.</p>
-									<ul class="actions special">
-										<li><a href="3d-models.html" class="button">Explore 3D Models</a></li>
-									</ul>
+									<div class="image-glow-wrapper glow-cyan-green">
+										<a href="3d-models.html" class="image fit"><img src="images/section4.png" alt="3D Molecular Models" /></a>
+									</div>
 								</article>
 							</section>
 
 					</div>
 
-				<!-- Footer Navigation Buttons -->
+				<!-- Footer with Buttons for About and Contact -->
 					<footer id="footer">
 						<div class="footer-navigation-buttons">
 							<a href="about.html" class="button large">About Us</a>
@@ -254,6 +387,33 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Reversible Left/Right Slide-in Intersection Observer Script -->
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const slidingCards = document.querySelectorAll("section.posts article");
+
+					const observerOptions = {
+						root: null,
+						threshold: 0.15,
+						rootMargin: "0px 0px -50px 0px"
+					};
+
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("slide-in-active");
+							} else {
+								entry.target.classList.remove("slide-in-active");
+							}
+						});
+					}, observerOptions);
+
+					slidingCards.forEach(card => {
+						observer.observe(card);
+					});
+				});
+			</script>
 
 	</body>
 </html>
