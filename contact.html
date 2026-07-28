@@ -14,6 +14,27 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			/* --- Header Logo Styling --- */
+			#header .logo {
+				border: none !important;
+				padding: 0;
+				background: transparent;
+				display: inline-block;
+			}
+
+			#header .logo img {
+				max-height: 55px; /* تنظیم اندازه ارتفاع لوگو */
+				width: auto;
+				display: block;
+				margin: 0 auto;
+				transition: transform 0.3s ease, opacity 0.3s ease;
+			}
+
+			#header .logo img:hover {
+				transform: scale(1.04);
+				opacity: 0.9;
+			}
+
 			/* CSS Dropdown Menu for Services */
 			#nav ul.links li.has-dropdown {
 				position: relative;
@@ -211,7 +232,9 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Aura BioVisuals</a>
+						<a href="index.html" class="logo">
+							<img src="images/aura-logo.png" alt="Aura BioVisuals Logo" />
+						</a>
 					</header>
 
 				<!-- Nav -->
