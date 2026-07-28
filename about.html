@@ -7,26 +7,32 @@
 		<title>About Us | Aura BioVisuals Studio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- Favicon for Browser Tab Logo -->
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Intro Header Logo and Single Line Title Styling */
-			#intro .intro-logo {
-				max-width: 140px;
-				height: auto;
-				margin-bottom: 1.5em;
+			/* --- Header Logo Styling --- */
+			#header .logo {
+				border: none !important;
+				padding: 0;
+				background: transparent;
 				display: inline-block;
 			}
-			#intro h1 {
-				white-space: nowrap;
-				font-size: 3.2em;
+
+			#header .logo img {
+				max-height: 55px; /* تنظیم اندازه ارتفاع لوگو */
+				width: auto;
+				display: block;
+				margin: 0 auto;
+				transition: transform 0.3s ease, opacity 0.3s ease;
 			}
-			@media screen and (max-width: 980px) {
-				#intro h1 { font-size: 2.4em; }
-			}
-			@media screen and (max-width: 736px) {
-				#intro h1 { font-size: 1.8em; white-space: normal; }
-				#intro .intro-logo { max-width: 100px; }
+
+			#header .logo img:hover {
+				transform: scale(1.04);
+				opacity: 0.9;
 			}
 
 			/* CSS Dropdown Menu for Services */
@@ -70,15 +76,14 @@
 				color: #ffffff !important;
 			}
 
-			/* --- Diagonal Tri-Color Glow Behind Main Title --- */
-			article.post.featured,
-			section.post {
+			/* --- Diagonal Tri-Color Glow Behind Main Header --- */
+			article.post.featured {
 				position: relative;
 				z-index: 1;
 				overflow: visible;
 			}
 
-			header.major {
+			article.post.featured header.major {
 				position: relative;
 				display: inline-block;
 				padding: 2em 3em;
@@ -86,7 +91,7 @@
 			}
 
 			/* Glow Slash Gradient (Yellow - Deep Blue - Magenta) */
-			header.major::before {
+			article.post.featured header.major::before {
 				content: '';
 				position: absolute;
 				top: 50%;
@@ -107,131 +112,17 @@
 				opacity: 0.85;
 			}
 
-			/* Centered Section Title */
-			.section-subheading {
-				text-align: center !important;
-				margin-top: 2em;
-				margin-bottom: 1em;
-			}
-
-			/* Added Extra Spacing above Team Section */
-			.team-section-heading {
-				margin-top: 5em !important;
-				margin-bottom: 1.5em;
-			}
-
-			/* CSS for Client Logo Slider with Rail Lines */
-			.logo-slider-container {
-				overflow: hidden;
-				padding: 25px 0;
-				background: rgba(255, 255, 255, 0.03);
-				white-space: nowrap;
-				margin: 1.5em 0 4em 0;
-				border-top: 2px solid rgba(0, 0, 0, 0.15);
-				border-bottom: 2px solid rgba(0, 0, 0, 0.15);
-			}
-			.logo-slider {
-				display: inline-block;
-				animation: 35s slide infinite linear;
-			}
-			.logo-slider img {
-				height: 50px;
-				width: auto;
-				margin: 0 35px;
-				vertical-align: middle;
-				opacity: 0.85;
-				transition: opacity 0.3s;
-			}
-			.logo-slider img:hover {
-				opacity: 1;
-			}
-			@keyframes slide {
-				from { transform: translateX(0); }
-				to { transform: translateX(-50%); }
-			}
-
-			/* CSS for Team Advisory Section - Horizontal Rows with Fade Animation */
-			.team-grid {
-				display: flex;
-				flex-direction: column;
-				gap: 25px;
-				margin-top: 2em;
-				text-align: left;
-			}
-			.team-card {
-				background: rgba(0, 0, 0, 0.02);
-				padding: 25px 30px;
-				border-radius: 8px;
-				border: 1px solid rgba(0, 0, 0, 0.08);
-				display: flex;
-				align-items: center;
-				gap: 25px;
-
-				/* Scroll Fade-In Initial State */
-				opacity: 0;
-				transform: translateY(30px);
-				transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-			}
-
-			/* Scroll Fade-In Active State */
-			.team-card.fade-in-visible {
-				opacity: 1;
-				transform: translateY(0);
-			}
-
-			.team-header {
-				display: flex;
-				align-items: center;
-				gap: 15px;
-				min-width: 280px;
-				flex-shrink: 0;
-			}
-			.team-avatar {
-				width: 65px;
-				height: 65px;
-				border-radius: 50%;
-				object-fit: cover;
-				border: 2px solid #cbd5e0;
-				flex-shrink: 0;
-			}
-			.team-card h3 {
-				margin: 0;
-				font-size: 1.1em;
-				line-height: 1.2;
-			}
-			.team-card .title {
-				color: #64748b;
-				font-size: 0.82em;
-				font-weight: 600;
-				display: block;
-				margin-top: 4px;
-				line-height: 1.3;
-			}
-			.team-card p {
-				margin: 0;
-				font-size: 0.85em;
-				line-height: 1.5;
-				color: rgba(0, 0, 0, 0.75);
-			}
-
-			/* Responsive Design for Small Screens */
-			@media screen and (max-width: 736px) {
-				.team-card {
-					flex-direction: column;
-					align-items: flex-start;
-					gap: 12px;
-				}
-				.team-header { min-width: 100%; }
-			}
-
-			/* Custom Centered Action Buttons in Footer */
+			/* Custom Centered Navigation Buttons in Footer */
 			#footer {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				padding: 5em 2em;
+				padding: 4em 2em 5em 2em;
 				text-align: center;
+				border-top: none;
+				background: transparent;
 			}
+
 			.footer-navigation-buttons {
 				display: flex;
 				justify-content: center;
@@ -240,6 +131,7 @@
 				flex-wrap: wrap;
 				margin: 0 auto;
 			}
+
 			.footer-navigation-buttons .button {
 				min-width: 180px;
 			}
@@ -252,7 +144,9 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Aura BioVisuals</a>
+						<a href="index.html" class="logo">
+							<img src="images/aura-logo.png" alt="Aura BioVisuals Logo" />
+						</a>
 					</header>
 
 				<!-- Nav -->
@@ -280,88 +174,35 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- About Us Section -->
-							<section class="post">
+						<!-- Featured Post Header -->
+							<article class="post featured">
 								<header class="major">
 									<h2>About Us</h2>
 									<p>Aura BioVisuals Studio is driven by a multidisciplinary advisory structure combining high-end scientific visual design with advanced pharmaceutical and engineering expertise.</p>
 								</header>
+							</article>
 
-								<h3 class="section-subheading">TRUSTED COLLABORATIONS & ACADEMIC INSTITUTIONS</h3>
-								<div class="logo-slider-container">
-									<div class="logo-slider">
-										<!-- Group 1 -->
-										<img src="images/logo-3.png" alt="Collaborator Logo" />
-										<img src="images/logo-5.png" alt="Collaborator Logo" />
-										<img src="images/logo-7.png" alt="Collaborator Logo" />
-										<img src="images/logo-8.png" alt="Collaborator Logo" />
-										<img src="images/logo-9.png" alt="Collaborator Logo" />
-										<img src="images/logo-10.png" alt="Collaborator Logo" />
-										<img src="images/logo-11.png" alt="Collaborator Logo" />
-										<img src="images/logo-12.png" alt="Collaborator Logo" />
-										<img src="images/logo-14.png" alt="Collaborator Logo" />
-										<img src="images/logo-16.png" alt="Collaborator Logo" />
-										<img src="images/logo-17.png" alt="Collaborator Logo" />
-										<img src="images/logo-18.png" alt="Collaborator Logo" />
-
-										<!-- Group 2 (Duplicated) -->
-										<img src="images/logo-3.png" alt="Collaborator Logo" />
-										<img src="images/logo-5.png" alt="Collaborator Logo" />
-										<img src="images/logo-7.png" alt="Collaborator Logo" />
-										<img src="images/logo-8.png" alt="Collaborator Logo" />
-										<img src="images/logo-9.png" alt="Collaborator Logo" />
-										<img src="images/logo-10.png" alt="Collaborator Logo" />
-										<img src="images/logo-11.png" alt="Collaborator Logo" />
-										<img src="images/logo-12.png" alt="Collaborator Logo" />
-										<img src="images/logo-14.png" alt="Collaborator Logo" />
-										<img src="images/logo-16.png" alt="Collaborator Logo" />
-										<img src="images/logo-17.png" alt="Collaborator Logo" />
-										<img src="images/logo-18.png" alt="Collaborator Logo" />
-									</div>
-								</div>
-
-								<!-- Management Team Title with Extra Top Margin -->
-								<h3 class="section-subheading team-section-heading">OUR MANAGEMENT TEAM</h3>
+						<!-- Main Content Section -->
+							<section class="post">
+								<h3 style="text-align: center; margin-bottom: 2em;">Trusted Collaborations & Academic Institutions</h3>
 								
-								<div class="team-grid">
-									<div class="team-card">
-										<div class="team-header">
-											<img src="images/Parinaz.png" alt="Parinaz Ghanbari" class="team-avatar" />
-											<div>
-												<h3>Parinaz Ghanbari</h3>
-												<span class="title">Founder & Art Director | Senior Scientific Illustrator</span>
-											</div>
-										</div>
-										<p>Expert in 3D/2D biomedical visuals, scientific journal covers, and complex data visualization for competitive research funding.</p>
-									</div>
-
-									<div class="team-card">
-										<div class="team-header">
-											<img src="images/Babak.png" alt="Babak Mamnoon, Ph.D." class="team-avatar" />
-											<div>
-												<h3>Babak Mamnoon, Ph.D.</h3>
-												<span class="title">Senior Scientific Advisor – Pharmaceutical & Computational Sciences</span>
-											</div>
-										</div>
-										<p>Specializes in molecular modeling, targeted drug delivery systems, and ensuring scientific accuracy across biomedical illustrations.</p>
-									</div>
-
-									<div class="team-card">
-										<div class="team-header">
-											<img src="images/Anika.png" alt="Anika Chopra, Ph.D." class="team-avatar" />
-											<div>
-												<h3>Anika Chopra, Ph.D.</h3>
-												<span class="title">Scientific & Technical Consultant – Engineering Systems</span>
-											</div>
-										</div>
-										<p>Consultant in complex systems architecture, technical modeling, and industrial simulation frameworks.</p>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-4"><span class="image fit"><img src="images/und-logo.png" alt="University of North Dakota" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/rvu-logo.png" alt="Rocky Vista University" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/osu-logo.png" alt="Oregon State University" /></span></div>
 									</div>
 								</div>
+
+								<hr />
+
+								<h3 style="text-align: center; margin-top: 2em;">Our Leadership & Expertise</h3>
+								<p>We bridge the gap between complex biomedical research and clear, impactful visual communication. Our team works directly with academic principal investigators, biotechnology companies, and scientific publishers to transform data into compelling figures, journal covers, and interactive media.</p>
 							</section>
 
 					</div>
 
-				<!-- Footer Buttons (Form Removed) -->
+				<!-- Footer Navigation Buttons -->
 					<footer id="footer">
 						<div class="footer-navigation-buttons">
 							<a href="index.html" class="button large">Services & Visual Solutions</a>
@@ -384,36 +225,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
-			<!-- Sequential Scroll Fade-In Script for Team Cards -->
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					const cards = document.querySelectorAll(".team-card");
-
-					const observerOptions = {
-						root: null,
-						threshold: 0.15,
-						rootMargin: "0px 0px -50px 0px"
-					};
-
-					const observer = new IntersectionObserver((entries, observer) => {
-						entries.forEach(entry => {
-							if (entry.isIntersecting) {
-								cards.forEach((card, index) => {
-									setTimeout(() => {
-										card.classList.add("fade-in-visible");
-									}, index * 200);
-								});
-								observer.disconnect();
-							}
-						});
-					}, observerOptions);
-
-					if (cards.length > 0) {
-						observer.observe(cards[0]);
-					}
-				});
-			</script>
 
 	</body>
 </html>
