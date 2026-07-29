@@ -14,16 +14,24 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Full-Page Darkened Fixed Background Setup */
-			#intro {
-				background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("images/mainbackground.png") !important;
+			/* --- 1. Single Unified Dark Background for the Entire Page --- */
+			body, #wrapper, #main, #footer, #intro {
+				background: transparent !important;
+			}
+
+			body {
+				background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.80)), url("images/mainbackground.png") !important;
 				background-size: cover !important;
 				background-position: center !important;
 				background-repeat: no-repeat !important;
 				background-attachment: fixed !important;
 			}
 
-			/* Intro Header Logo and Title Styling */
+			article.post, section.posts article {
+				background: transparent !important;
+			}
+
+			/* --- 2. Intro Header Logo and Title Styling --- */
 			#intro .intro-logo {
 				max-width: 130px;
 				height: auto;
@@ -46,7 +54,7 @@
 				#intro .intro-logo { max-width: 90px; }
 			}
 
-			/* CSS Dropdown Menu for Services */
+			/* --- 3. CSS Dropdown Menu for Services --- */
 			#nav ul.links li.has-dropdown {
 				position: relative;
 			}
@@ -87,7 +95,7 @@
 				color: #ffffff !important;
 			}
 
-			/* Custom Centered Action Buttons in Footer */
+			/* --- 4. Custom Centered Action Buttons in Footer --- */
 			#footer {
 				display: flex;
 				justify-content: center;
@@ -107,7 +115,7 @@
 				min-width: 180px;
 			}
 
-			/* --- Diagonal Tri-Color Glow Behind Main Featured Title --- */
+			/* --- 5. Diagonal Tri-Color Glow Behind Main Featured Title --- */
 			article.post.featured {
 				position: relative;
 				z-index: 1;
@@ -121,7 +129,6 @@
 				z-index: 2;
 			}
 
-			/* Glow slash (1: Yellow, 2: Deep Blue, 3: Magenta Red) */
 			article.post.featured header.major::before {
 				content: '';
 				position: absolute;
@@ -191,7 +198,7 @@
 				position: relative;
 				width: 90%;
 				max-width: 480px;
-				height: 280px; /* Fixed Height to Ensure Identical Sizes */
+				height: 280px;
 				margin: 0 auto;
 				display: block;
 			}
@@ -266,13 +273,12 @@
 				background: radial-gradient(circle, rgba(0, 245, 212, 0.95) 0%, rgba(0, 245, 212, 0) 75%);
 			}
 
-			/* --- Sliding Animations (Left & Right Entry/Exit) --- */
+			/* --- 6. Sliding Animations (Left & Right Entry/Exit) --- */
 			section.posts article {
 				transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 				will-change: transform;
 			}
 
-			/* Initial Out-of-Screen States */
 			section.posts article.slide-left-init {
 				transform: translateX(-55%);
 			}
@@ -281,7 +287,6 @@
 				transform: translateX(55%);
 			}
 
-			/* Active In-Screen State */
 			section.posts article.slide-in-active {
 				transform: translateX(0) !important;
 			}
