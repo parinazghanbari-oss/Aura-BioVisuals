@@ -14,9 +14,9 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- 1. Global Full-Page Background (Using cover7.png) --- */
+			/* --- 1. Global Full-Page Background (Using mainbackground.png) --- */
 			body {
-				background-image: url("images/cover7.png") !important;
+				background-image: url("images/mainbackground.png") !important;
 				background-size: cover !important;
 				background-position: center top !important;
 				background-repeat: no-repeat !important;
@@ -62,8 +62,10 @@
 			#intro .intro-logo {
 				max-width: 130px;
 				height: auto;
-				margin-bottom: 1.5em;
-				display: inline-block;
+				margin-bottom: 1em;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
 				transition: transform 0.3s ease;
 			}
 			#intro .intro-logo:hover {
@@ -193,13 +195,13 @@
 				padding: 1.5em 1em !important;
 			}
 
-			/* Clean Ambient Title Styling */
+			/* Clean Ambient Title Styling with Reduced Bottom Margin */
 			.glow-title {
 				position: relative;
 				display: inline-block;
 				z-index: 2;
-				padding: 10px 15px;
-				margin-bottom: 1em;
+				padding: 5px 15px;
+				margin-bottom: 0.3em !important; /* Reduced space between title and image */
 			}
 
 			.glow-title a {
@@ -223,12 +225,12 @@
 				pointer-events: none;
 			}
 
-			/* Uniform Large Rounded Rectangle Image Container */
+			/* Wider Uniform Rounded Rectangle Image Container */
 			section.posts article .image-glow-wrapper {
 				position: relative;
-				width: 90%;
-				max-width: 480px;
-				height: 280px;
+				width: 95%; /* Expanded width for a wider rectangular look */
+				max-width: 540px; /* Increased max-width */
+				height: 270px;
 				margin: 0 auto;
 				display: block;
 			}
@@ -321,7 +323,7 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						<img src="images/aura-logo.png" alt="Aura BioVisuals Studio" class="intro-logo" />
+						<img src="images/aura-logo.png" alt="Aura BioVisuals Studio Logo" class="intro-logo" />
 						<h1>Aura BioVisuals Studio</h1>
 						<p>High-Impact Scientific Visuals, Journal Covers, & Biomedical Illustrations.</p>
 						<ul class="actions">
@@ -412,7 +414,7 @@
 					<footer id="footer">
 						<div class="footer-navigation-buttons">
 							<a href="about.html" class="button large">About Us</a>
-							<a href="contact.html" class="button primary large">Contact Us</a>
+							<a href="contact.html" class="button primary large">Discuss Project</a>
 						</div>
 					</footer>
 
