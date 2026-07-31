@@ -14,28 +14,75 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- Header Logo Styling --- */
+			/* --- 1. Global Dark Background Setup --- */
+			body {
+				background-color: #0b0f19 !important;
+				background-image: none !important;
+				color: rgba(255, 255, 255, 0.85);
+			}
+
+			/* Make Outer Wrappers Transparent */
+			#wrapper, #intro {
+				background: transparent !important;
+			}
+
+			/* --- 2. Glassmorphism Main Container & Nav --- */
+			#main {
+				background: rgba(255, 255, 255, 0.08) !important;
+				backdrop-filter: blur(20px) !important;
+				-webkit-backdrop-filter: blur(20px) !important;
+				border: 1px solid rgba(255, 255, 255, 0.15) !important;
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+				border-radius: 16px;
+				margin-top: 1.5em;
+				margin-bottom: 2em;
+			}
+
+			#nav {
+				background: rgba(255, 255, 255, 0.05) !important;
+				backdrop-filter: blur(15px) !important;
+				-webkit-backdrop-filter: blur(15px) !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+			}
+
+			article.post, section.post {
+				background: transparent !important;
+			}
+
+			/* --- 3. Header Logo & Full Title Styling --- */
 			#header .logo {
 				border: none !important;
 				padding: 0;
-				background: transparent;
-				display: inline-block;
+				background: transparent !important;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				box-shadow: none !important;
 			}
 
-			#header .logo img {
-				max-height: 55px; /* تنظیم اندازه ارتفاع لوگو */
+			#header .logo img.header-logo-img {
+				max-height: 55px;
 				width: auto;
 				display: block;
-				margin: 0 auto;
-				transition: transform 0.3s ease, opacity 0.3s ease;
+				margin: 0 auto 8px auto;
+				transition: transform 0.3s ease;
 			}
 
-			#header .logo img:hover {
-				transform: scale(1.04);
-				opacity: 0.9;
+			#header .logo:hover img.header-logo-img {
+				transform: scale(1.05);
 			}
 
-			/* CSS Dropdown Menu for Services */
+			#header .logo span.logo-text {
+				font-size: 0.9em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: #ffffff;
+				font-weight: 600;
+			}
+
+			/* --- 4. Dropdown Menu for Services --- */
 			#nav ul.links li.has-dropdown {
 				position: relative;
 			}
@@ -44,14 +91,15 @@
 				position: absolute;
 				top: 100%;
 				left: 0;
-				background: #212931;
+				background: rgba(18, 24, 38, 0.95);
+				backdrop-filter: blur(10px);
 				min-width: 280px;
 				z-index: 1000;
 				list-style: none;
 				padding: 10px 0;
 				margin: 0;
-				border-radius: 0 0 4px 4px;
-				box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+				border-radius: 0 0 8px 8px;
+				box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 				text-align: left;
 			}
 			#nav ul.links li.has-dropdown:hover .dropdown-menu {
@@ -65,33 +113,30 @@
 			#nav ul.links li .dropdown-menu li a {
 				display: block;
 				padding: 10px 20px;
-				color: rgba(255, 255, 255, 0.8) !important;
+				color: rgba(255, 255, 255, 0.9) !important;
 				font-size: 0.8em;
 				text-transform: none;
 				letter-spacing: 0.05em;
 				border-bottom: none !important;
 			}
 			#nav ul.links li .dropdown-menu li a:hover {
-				background: rgba(255, 255, 255, 0.1);
+				background: rgba(255, 255, 255, 0.15);
 				color: #ffffff !important;
 			}
 
-			/* --- Diagonal Tri-Color Glow Behind Main Header --- */
-			article.post.featured {
-				position: relative;
-				z-index: 1;
-				overflow: visible;
-			}
-
-			article.post.featured header.major {
+			/* --- 5. Tri-Color Glow Behind Title --- */
+			header.major {
 				position: relative;
 				display: inline-block;
 				padding: 2em 3em;
 				z-index: 2;
 			}
 
-			/* Glow Slash Gradient (Yellow - Deep Blue - Magenta) */
-			article.post.featured header.major::before {
+			header.major h2, header.major p {
+				color: #ffffff !important;
+			}
+
+			header.major::before {
 				content: '';
 				position: absolute;
 				top: 50%;
@@ -101,9 +146,9 @@
 				height: 140%;
 				background: linear-gradient(
 					125deg, 
-					rgba(204, 255, 0, 0.45) 0%, 
-					rgba(0, 82, 255, 0.5) 50%, 
-					rgba(255, 20, 147, 0.45) 100%
+					rgba(204, 255, 0, 0.3) 0%, 
+					rgba(0, 82, 255, 0.35) 50%, 
+					rgba(255, 20, 147, 0.3) 100%
 				);
 				filter: blur(45px);
 				border-radius: 40px;
@@ -112,105 +157,92 @@
 				opacity: 0.85;
 			}
 
-			/* --- Centered Frosted Glass Container (Glassmorphism) --- */
-			#main {
+			/* --- 6. Form & Contact Split Section Styling --- */
+			.contact-split-container {
 				display: flex;
-				flex-direction: column;
-				align-items: center;
-				width: 100%;
-				padding-bottom: 3em;
-			}
-
-			.glass-contact-container {
-				width: 100%;
-				max-width: 720px;
-				margin: 2em auto 5em auto;
-				padding: 3em 2.5em;
-				background: rgba(255, 255, 255, 0.65);
-				backdrop-filter: blur(16px);
-				-webkit-backdrop-filter: blur(16px);
-				border: 1px solid rgba(255, 255, 255, 0.8);
-				border-radius: 20px;
-				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 15px rgba(255, 255, 255, 0.2);
+				gap: 40px;
+				margin-top: 2em;
 				text-align: left;
 			}
 
-			.contact-intro-text {
-				text-align: center;
-				font-size: 1.05em;
-				line-height: 1.6;
-				color: #1a202c !important;
-				font-weight: 600;
-				margin-bottom: 2em;
-				padding-bottom: 1.2em;
-				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			.contact-form-side {
+				flex: 1.3;
+				background: rgba(255, 255, 255, 0.04);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				padding: 35px;
+				border-radius: 12px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
 			}
 
-			.glass-contact-container label {
-				font-weight: 700;
-				letter-spacing: 0.05em;
-				margin-bottom: 0.5em;
-				color: #2d3748 !important;
-			}
-
-			.glass-contact-container input[type="text"],
-			.glass-contact-container input[type="email"],
-			.glass-contact-container textarea {
-				background: rgba(255, 255, 255, 0.85);
-				border: 1px solid rgba(0, 0, 0, 0.15);
-				border-radius: 8px;
-				color: #1a202c !important;
-				padding: 0.8em 1em;
-				transition: border-color 0.3s ease, background 0.3s ease;
-			}
-
-			.glass-contact-container input[type="text"]::placeholder,
-			.glass-contact-container input[type="email"]::placeholder,
-			.glass-contact-container textarea::placeholder {
-				color: #718096 !important;
-			}
-
-			.glass-contact-container input[type="text"]:focus,
-			.glass-contact-container input[type="email"]:focus,
-			.glass-contact-container textarea:focus {
-				border-color: #0052ff;
-				background: #ffffff;
-				outline: none;
-			}
-
-			/* Blue Custom Button Matching Background Glow */
-			.glass-contact-container input[type="submit"].btn-blue {
-				background-color: #0052ff !important;
-				box-shadow: 0 4px 14px rgba(0, 82, 255, 0.4) !important;
-				color: #ffffff !important;
-				border: none !important;
-				border-radius: 8px;
-				transition: all 0.3s ease !important;
-			}
-
-			.glass-contact-container input[type="submit"].btn-blue:hover {
-				background-color: #256bff !important;
-				box-shadow: 0 6px 20px rgba(0, 82, 255, 0.6) !important;
-				transform: translateY(-2px);
-			}
-
-			.glass-contact-container .actions {
+			.contact-info-side {
+				flex: 0.9;
+				background: rgba(255, 255, 255, 0.04);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				padding: 35px;
+				border-radius: 12px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
 				display: flex;
-				justify-content: center;
-				margin-top: 2em;
+				flex-direction: column;
+				justify-content: space-between;
 			}
 
-			/* Custom Centered Navigation Buttons in Footer with Top Spacing */
+			/* Form Input Glassmorphism Overrides */
+			.contact-form-side input[type="text"],
+			.contact-form-side input[type="email"],
+			.contact-form-side select,
+			.contact-form-side textarea {
+				background: rgba(255, 255, 255, 0.06) !important;
+				border: 1px solid rgba(255, 255, 255, 0.2) !important;
+				color: #ffffff !important;
+				border-radius: 6px;
+			}
+
+			.contact-form-side input[type="text"]:focus,
+			.contact-form-side input[type="email"]:focus,
+			.contact-form-side select:focus,
+			.contact-form-side textarea:focus {
+				border-color: #38bdf8 !important;
+				box-shadow: 0 0 8px rgba(56, 189, 248, 0.3) !important;
+			}
+
+			.contact-form-side label {
+				color: #ffffff !important;
+				font-size: 0.85em;
+				letter-spacing: 0.05em;
+			}
+
+			.contact-info-side h3 {
+				color: #ffffff !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+				padding-bottom: 10px;
+				margin-bottom: 20px;
+			}
+
+			.contact-info-side p, .contact-info-side a {
+				color: rgba(255, 255, 255, 0.85) !important;
+			}
+
+			.contact-info-side a:hover {
+				color: #38bdf8 !important;
+			}
+
+			@media screen and (max-width: 980px) {
+				.contact-split-container {
+					flex-direction: column;
+				}
+			}
+
+			/* --- 7. Footer Styling --- */
 			#footer {
+				background: transparent !important;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				padding: 4em 2em 5em 2em;
+				padding: 4em 2em;
 				text-align: center;
-				border-top: none;
-				background: transparent;
 			}
-
 			.footer-navigation-buttons {
 				display: flex;
 				justify-content: center;
@@ -219,7 +251,6 @@
 				flex-wrap: wrap;
 				margin: 0 auto;
 			}
-
 			.footer-navigation-buttons .button {
 				min-width: 180px;
 			}
@@ -233,7 +264,8 @@
 				<!-- Header -->
 					<header id="header">
 						<a href="index.html" class="logo">
-							<img src="images/aura-logo.png" alt="Aura BioVisuals Logo" />
+							<img src="images/aura-logo.png" alt="Aura Logo" class="header-logo-img" />
+							<span class="logo-text">Aura BioVisuals Studio</span>
 						</a>
 					</header>
 
@@ -262,47 +294,76 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Header Section with Diagonal Tri-Color Glow -->
-							<article class="post featured">
+						<!-- Contact Us Section -->
+							<section class="post">
 								<header class="major">
-									<h2>Get in Touch</h2>
-									<p>Let's bring your scientific vision to life with high-impact visual design.</p>
+									<h2>Contact Us</h2>
+									<p>Let's collaborate on transforming your scientific research into compelling visual assets. Reach out to discuss grant figures, journal covers, or studio projects.</p>
 								</header>
-							</article>
 
-						<!-- Frosted Glass Contact Form Box -->
-							<div class="glass-contact-container">
-								<p class="contact-intro-text">
-									Please fill out the form below with your project details. Our team will review your inquiry and get back to you within 24 hours.
-								</p>
-								<form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
-									<div class="fields">
-										<div class="field">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" placeholder="Your Full Name" required />
+								<div class="contact-split-container">
+									<!-- Form Side -->
+									<div class="contact-form-side">
+										<form method="post" action="#">
+											<div class="fields">
+												<div class="field">
+													<label for="name">Name</label>
+													<input type="text" name="name" id="name" placeholder="Your Full Name" />
+												</div>
+												<div class="field">
+													<label for="email">Email</label>
+													<input type="email" name="email" id="email" placeholder="your.email@institution.edu" />
+												</div>
+												<div class="field">
+													<label for="service">Service Required</label>
+													<select name="service" id="service">
+														<option value="">- Select Category -</option>
+														<option value="figures">Grants, Figures & Graphical Abstracts</option>
+														<option value="journal-covers">Journal Covers & Press Releases</option>
+														<option value="logos">Lab Branding & Pitch Decks</option>
+														<option value="3d-models">3D Molecular & Cellular Models</option>
+														<option value="other">Other Inquiry</option>
+													</select>
+												</div>
+												<div class="field">
+													<label for="message">Message</label>
+													<textarea name="message" id="message" rows="5" placeholder="Tell us about your project timeline and visual requirements..."></textarea>
+												</div>
+											</div>
+											<ul class="actions">
+												<li><input type="submit" value="Send Message" class="primary" /></li>
+											</ul>
+										</form>
+									</div>
+
+									<!-- Contact Information Side -->
+									<div class="contact-info-side">
+										<div>
+											<h3>Direct Reach</h3>
+											<p><strong>Email:</strong><br /><a href="mailto:info@aurabiovisuals.com">info@aurabiovisuals.com</a></p>
+											<p><strong>Studio Location:</strong><br />Fargo, North Dakota, USA</p>
+											<p><strong>Working Hours:</strong><br />Monday – Friday: 9:00 AM – 6:00 PM (CST)</p>
 										</div>
-										<div class="field">
-											<label for="email">Email</label>
-											<input type="email" name="email" id="email" placeholder="your.email@institution.edu" required />
-										</div>
-										<div class="field">
-											<label for="message">Project Details</label>
-											<textarea name="message" id="message" rows="5" placeholder="Tell us about your research project, scope, and timeline..." required></textarea>
+
+										<div>
+											<h3>Connect</h3>
+											<ul class="icons alt">
+												<li><a href="https://www.linkedin.com/company/aura-biovisuals-studio/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+												<li><a href="https://www.instagram.com/aurabiovisuals/" target="_blank" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="https://x.com/AuraBioVisuals" target="_blank" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+											</ul>
 										</div>
 									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Inquiry" class="button large btn-blue" /></li>
-									</ul>
-								</form>
-							</div>
+								</div>
+							</section>
 
 					</div>
 
-				<!-- Footer Navigation Buttons -->
+				<!-- Footer Buttons -->
 					<footer id="footer">
 						<div class="footer-navigation-buttons">
 							<a href="index.html" class="button large">Services & Visual Solutions</a>
-							<a href="about.html" class="button primary large">About Us</a>
+							<a href="about.html" class="button large">About Us</a>
 						</div>
 					</footer>
 
