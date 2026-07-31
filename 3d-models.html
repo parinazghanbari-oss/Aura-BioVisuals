@@ -14,16 +14,54 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- Header Logo Styling --- */
+			/* --- 1. Global Dark Background Setup --- */
+			body {
+				background-color: #0b0f19 !important;
+				background-image: none !important;
+				color: rgba(255, 255, 255, 0.85);
+			}
+
+			/* Make Outer Wrappers Transparent */
+			#wrapper, #intro {
+				background: transparent !important;
+			}
+
+			/* --- 2. Glassmorphism Main Container & Nav --- */
+			#main {
+				background: rgba(255, 255, 255, 0.08) !important;
+				backdrop-filter: blur(20px) !important;
+				-webkit-backdrop-filter: blur(20px) !important;
+				border: 1px solid rgba(255, 255, 255, 0.15) !important;
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+				border-radius: 16px;
+				margin-top: 1.5em;
+				margin-bottom: 2em;
+			}
+
+			#nav {
+				background: rgba(255, 255, 255, 0.05) !important;
+				backdrop-filter: blur(15px) !important;
+				-webkit-backdrop-filter: blur(15px) !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+			}
+
+			article.post, section.post {
+				background: transparent !important;
+				border-bottom: none !important;
+				border-top: none !important;
+			}
+
+			/* --- 3. Header Logo & Subtitle Styling --- */
 			#header .logo {
 				border: none !important;
 				padding: 0;
-				background: transparent;
+				background: transparent !important;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
 				text-decoration: none;
+				box-shadow: none !important;
 			}
 
 			#header .logo img {
@@ -49,7 +87,7 @@
 				font-weight: 500;
 			}
 
-			/* CSS Dropdown Menu for Services */
+			/* --- 4. CSS Dropdown Menu for Services --- */
 			#nav ul.links li.has-dropdown {
 				position: relative;
 			}
@@ -58,14 +96,15 @@
 				position: absolute;
 				top: 100%;
 				left: 0;
-				background: #212931;
+				background: rgba(18, 24, 38, 0.95);
+				backdrop-filter: blur(10px);
 				min-width: 280px;
 				z-index: 1000;
 				list-style: none;
 				padding: 10px 0;
 				margin: 0;
-				border-radius: 0 0 4px 4px;
-				box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+				border-radius: 0 0 8px 8px;
+				box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 				text-align: left;
 			}
 			#nav ul.links li.has-dropdown:hover .dropdown-menu {
@@ -79,22 +118,27 @@
 			#nav ul.links li .dropdown-menu li a {
 				display: block;
 				padding: 10px 20px;
-				color: rgba(255, 255, 255, 0.8) !important;
+				color: rgba(255, 255, 255, 0.9) !important;
 				font-size: 0.8em;
 				text-transform: none;
 				letter-spacing: 0.05em;
 				border-bottom: none !important;
 			}
 			#nav ul.links li .dropdown-menu li a:hover {
-				background: rgba(255, 255, 255, 0.1);
+				background: rgba(255, 255, 255, 0.15);
 				color: #ffffff !important;
 			}
 
-			/* --- Diagonal Slash Cyan/Green Glow Behind Main Header --- */
+			/* --- 5. Featured Header, Cyan Glow & Line Removal --- */
 			article.post.featured {
 				position: relative;
 				z-index: 1;
 				overflow: visible;
+				background: transparent !important;
+				border: none !important;
+				border-bottom: none !important;
+				border-top: none !important;
+				padding-bottom: 0 !important;
 			}
 
 			article.post.featured header.major {
@@ -102,9 +146,25 @@
 				display: inline-block;
 				padding: 2em 3em;
 				z-index: 2;
+				border: none !important;
+				border-bottom: none !important;
+				border-top: none !important;
 			}
 
-			/* Diagonal Slash Cyan Glow Effect */
+			/* Completely remove default template line under major header */
+			header.major::after,
+			article.post.featured header.major::after {
+				display: none !important;
+				content: none !important;
+				border: none !important;
+			}
+
+			article.post.featured header.major h2, 
+			article.post.featured header.major p {
+				color: #ffffff !important;
+			}
+
+			/* Diagonal Slash Cyan/Green Glow Effect */
 			article.post.featured header.major::before {
 				content: '';
 				position: absolute;
@@ -126,7 +186,7 @@
 				opacity: 0.9;
 			}
 
-			/* --- Portfolio Grid (2 Columns x 4 Rows with Dynamic Heights) --- */
+			/* --- 6. Portfolio Grid (2 Columns x 4 Rows with Dynamic Heights) --- */
 			.portfolio-grid {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
@@ -146,8 +206,9 @@
 				position: relative;
 				border-radius: 12px;
 				overflow: hidden;
-				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-				background: #ffffff;
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.1);
 				cursor: pointer;
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
 				
@@ -170,7 +231,8 @@
 
 			.portfolio-item:hover {
 				transform: translateY(-5px);
-				box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+				box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+				border-color: rgba(255, 255, 255, 0.3);
 			}
 
 			.portfolio-item img {
@@ -185,7 +247,7 @@
 				transform: scale(1.03);
 			}
 
-			/* --- Lightbox Modal with Dynamic Click-Point Zoom --- */
+			/* --- 7. Lightbox Modal with Dynamic Click-Point Zoom --- */
 			.lightbox-modal {
 				display: none;
 				position: fixed;
@@ -249,7 +311,7 @@
 				color: #00f5d4;
 			}
 
-			/* Custom Centered Navigation Buttons in Footer */
+			/* --- 8. Custom Centered Navigation Buttons in Footer --- */
 			#footer {
 				display: flex;
 				justify-content: center;
@@ -257,7 +319,7 @@
 				padding: 4em 2em 5em 2em;
 				text-align: center;
 				border-top: none;
-				background: transparent;
+				background: transparent !important;
 			}
 
 			.footer-navigation-buttons {
