@@ -7,10 +7,73 @@
 		<title>About Us | Aura BioVisuals Studio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- Favicon for Browser Tab Logo -->
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Intro Header Logo and Single Line Title Styling */
+			/* --- Global Dark Solid Background --- */
+			body {
+				background-color: #0b0f19 !important;
+				background-image: none !important;
+			}
+
+			#wrapper, #intro {
+				background: transparent !important;
+			}
+
+			/* --- Header Logo & Title Styling (No Border, Logo Above Text) --- */
+			#header .logo {
+				border: none !important;
+				padding: 0;
+				background: transparent !important;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				box-shadow: none !important;
+			}
+
+			#header .logo img.header-logo-img {
+				max-height: 55px;
+				width: auto;
+				display: block;
+				margin: 0 auto 8px auto;
+				transition: transform 0.3s ease;
+			}
+
+			#header .logo:hover img.header-logo-img {
+				transform: scale(1.05);
+			}
+
+			#header .logo span.logo-text {
+				font-size: 0.9em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: #ffffff;
+				font-weight: 600;
+			}
+
+			/* --- Main Container Styling --- */
+			#main {
+				background: rgba(255, 255, 255, 0.08) !important;
+				backdrop-filter: blur(20px) !important;
+				-webkit-backdrop-filter: blur(20px) !important;
+				border: 1px solid rgba(255, 255, 255, 0.15) !important;
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+				border-radius: 16px;
+				margin-top: 1.5em;
+				margin-bottom: 2em;
+			}
+
+			#main > .image.main:first-child {
+				display: none !important;
+			}
+
+			/* --- Intro Header Logo and Single Line Title Styling --- */
 			#intro .intro-logo {
 				max-width: 140px;
 				height: auto;
@@ -20,6 +83,7 @@
 			#intro h1 {
 				white-space: nowrap;
 				font-size: 3.2em;
+				color: #ffffff;
 			}
 			@media screen and (max-width: 980px) {
 				#intro h1 { font-size: 2.4em; }
@@ -29,7 +93,14 @@
 				#intro .intro-logo { max-width: 100px; }
 			}
 
-			/* CSS Dropdown Menu for Services */
+			/* --- Navigation Background & Dropdown Menu --- */
+			#nav {
+				background: rgba(255, 255, 255, 0.05) !important;
+				backdrop-filter: blur(15px) !important;
+				-webkit-backdrop-filter: blur(15px) !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+			}
+
 			#nav ul.links li.has-dropdown {
 				position: relative;
 			}
@@ -38,14 +109,15 @@
 				position: absolute;
 				top: 100%;
 				left: 0;
-				background: #212931;
+				background: rgba(18, 24, 38, 0.95);
+				backdrop-filter: blur(10px);
 				min-width: 280px;
 				z-index: 1000;
 				list-style: none;
 				padding: 10px 0;
 				margin: 0;
-				border-radius: 0 0 4px 4px;
-				box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+				border-radius: 0 0 8px 8px;
+				box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 				text-align: left;
 			}
 			#nav ul.links li.has-dropdown:hover .dropdown-menu {
@@ -59,14 +131,14 @@
 			#nav ul.links li .dropdown-menu li a {
 				display: block;
 				padding: 10px 20px;
-				color: rgba(255, 255, 255, 0.8) !important;
+				color: rgba(255, 255, 255, 0.9) !important;
 				font-size: 0.8em;
 				text-transform: none;
 				letter-spacing: 0.05em;
 				border-bottom: none !important;
 			}
 			#nav ul.links li .dropdown-menu li a:hover {
-				background: rgba(255, 255, 255, 0.1);
+				background: rgba(255, 255, 255, 0.15);
 				color: #ffffff !important;
 			}
 
@@ -76,6 +148,7 @@
 				position: relative;
 				z-index: 1;
 				overflow: visible;
+				background: transparent !important;
 			}
 
 			header.major {
@@ -85,7 +158,6 @@
 				z-index: 2;
 			}
 
-			/* Glow Slash Gradient (Yellow - Deep Blue - Magenta) */
 			header.major::before {
 				content: '';
 				position: absolute;
@@ -96,9 +168,9 @@
 				height: 140%;
 				background: linear-gradient(
 					125deg, 
-					rgba(204, 255, 0, 0.45) 0%, 
-					rgba(0, 82, 255, 0.5) 50%, 
-					rgba(255, 20, 147, 0.45) 100%
+					rgba(204, 255, 0, 0.25) 0%, 
+					rgba(0, 82, 255, 0.3) 50%, 
+					rgba(255, 20, 147, 0.25) 100%
 				);
 				filter: blur(45px);
 				border-radius: 40px;
@@ -112,23 +184,24 @@
 				text-align: center !important;
 				margin-top: 2em;
 				margin-bottom: 1em;
+				color: #ffffff;
 			}
 
-			/* Added Extra Spacing above Team Section */
+			/* Extra Spacing above Team Section */
 			.team-section-heading {
 				margin-top: 5em !important;
 				margin-bottom: 1.5em;
 			}
 
-			/* CSS for Client Logo Slider with Rail Lines */
+			/* --- Client Logo Slider --- */
 			.logo-slider-container {
 				overflow: hidden;
 				padding: 25px 0;
 				background: rgba(255, 255, 255, 0.03);
 				white-space: nowrap;
 				margin: 1.5em 0 4em 0;
-				border-top: 2px solid rgba(0, 0, 0, 0.15);
-				border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 			}
 			.logo-slider {
 				display: inline-block;
@@ -150,7 +223,7 @@
 				to { transform: translateX(-50%); }
 			}
 
-			/* CSS for Team Advisory Section - Horizontal Rows with Fade Animation */
+			/* --- Team Advisory Section --- */
 			.team-grid {
 				display: flex;
 				flex-direction: column;
@@ -159,10 +232,10 @@
 				text-align: left;
 			}
 			.team-card {
-				background: rgba(0, 0, 0, 0.02);
+				background: rgba(255, 255, 255, 0.04);
 				padding: 25px 30px;
-				border-radius: 8px;
-				border: 1px solid rgba(0, 0, 0, 0.08);
+				border-radius: 12px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
 				display: flex;
 				align-items: center;
 				gap: 25px;
@@ -173,7 +246,6 @@
 				transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 			}
 
-			/* Scroll Fade-In Active State */
 			.team-card.fade-in-visible {
 				opacity: 1;
 				transform: translateY(0);
@@ -191,16 +263,17 @@
 				height: 65px;
 				border-radius: 50%;
 				object-fit: cover;
-				border: 2px solid #cbd5e0;
+				border: 2px solid rgba(255, 255, 255, 0.3);
 				flex-shrink: 0;
 			}
 			.team-card h3 {
 				margin: 0;
 				font-size: 1.1em;
 				line-height: 1.2;
+				color: #ffffff;
 			}
 			.team-card .title {
-				color: #64748b;
+				color: #94a3b8;
 				font-size: 0.82em;
 				font-weight: 600;
 				display: block;
@@ -211,10 +284,9 @@
 				margin: 0;
 				font-size: 0.85em;
 				line-height: 1.5;
-				color: rgba(0, 0, 0, 0.75);
+				color: rgba(255, 255, 255, 0.8);
 			}
 
-			/* Responsive Design for Small Screens */
 			@media screen and (max-width: 736px) {
 				.team-card {
 					flex-direction: column;
@@ -224,8 +296,9 @@
 				.team-header { min-width: 100%; }
 			}
 
-			/* Custom Centered Action Buttons in Footer */
+			/* --- Footer Action Buttons --- */
 			#footer {
+				background: transparent !important;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -250,9 +323,12 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Header -->
+				<!-- Header (Logo Image on Top, Studio Title Below) -->
 					<header id="header">
-						<a href="index.html" class="logo">Aura BioVisuals</a>
+						<a href="index.html" class="logo">
+							<img src="images/aura-logo.png" alt="Aura Logo" class="header-logo-img" />
+							<span class="logo-text">Aura BioVisuals Studio</span>
+						</a>
 					</header>
 
 				<!-- Nav -->
@@ -304,7 +380,7 @@
 										<img src="images/logo-17.png" alt="Collaborator Logo" />
 										<img src="images/logo-18.png" alt="Collaborator Logo" />
 
-										<!-- Group 2 (Duplicated) -->
+										<!-- Group 2 (Duplicated for continuous scroll) -->
 										<img src="images/logo-3.png" alt="Collaborator Logo" />
 										<img src="images/logo-5.png" alt="Collaborator Logo" />
 										<img src="images/logo-7.png" alt="Collaborator Logo" />
@@ -320,7 +396,7 @@
 									</div>
 								</div>
 
-								<!-- Management Team Title with Extra Top Margin -->
+								<!-- Management Team Title -->
 								<h3 class="section-subheading team-section-heading">OUR MANAGEMENT TEAM</h3>
 								
 								<div class="team-grid">
@@ -361,7 +437,7 @@
 
 					</div>
 
-				<!-- Footer Buttons (Form Removed) -->
+				<!-- Footer Buttons -->
 					<footer id="footer">
 						<div class="footer-navigation-buttons">
 							<a href="index.html" class="button large">Services & Visual Solutions</a>
