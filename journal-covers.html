@@ -186,7 +186,7 @@
 				opacity: 0.9;
 			}
 
-			/* --- 6. Portfolio Grid (2 Columns with Dynamic Random Heights) --- */
+			/* --- 6. Portfolio Grid (2 Columns) --- */
 			.portfolio-grid {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
@@ -217,11 +217,16 @@
 				transform: translateY(30px);
 			}
 
-			/* Varied Aspect Ratios for Dynamic Random Layout */
+			/* First 6 items: Fixed identical rectangle size */
+			.portfolio-item.size-fixed-rect { 
+				aspect-ratio: 16 / 9; 
+			}
+
+			/* Remaining items: Random varied aspect ratios */
 			.portfolio-item.size-portrait { aspect-ratio: 4 / 5; }
-			.portfolio-item.size-landscape { aspect-ratio: 4 / 3; }
 			.portfolio-item.size-square { aspect-ratio: 1 / 1; }
 			.portfolio-item.size-tall { aspect-ratio: 3 / 4; }
+			.portfolio-item.size-landscape { aspect-ratio: 4 / 3; }
 
 			.portfolio-item.is-visible {
 				opacity: 1;
@@ -385,21 +390,23 @@
 						<!-- Portfolio Section -->
 							<section class="post">
 								<div class="portfolio-grid">
-									<!-- 14 Journal Cover Items in 2 Columns with Dynamic Varying Sizes -->
-									<div class="portfolio-item size-portrait"><img src="images/cover1.png" alt="Journal Cover 1" /></div>
-									<div class="portfolio-item size-landscape"><img src="images/cover2.png" alt="Journal Cover 2" /></div>
-									<div class="portfolio-item size-square"><img src="images/cover3.png" alt="Journal Cover 3" /></div>
-									<div class="portfolio-item size-tall"><img src="images/cover4.png" alt="Journal Cover 4" /></div>
-									<div class="portfolio-item size-portrait"><img src="images/cover5.png" alt="Journal Cover 5" /></div>
-									<div class="portfolio-item size-landscape"><img src="images/cover6.png" alt="Journal Cover 6" /></div>
+									<!-- 6 First Items: Fixed Identical Rectangle (16:9) -->
+									<div class="portfolio-item size-fixed-rect"><img src="images/cover1.png" alt="Journal Cover 1" /></div>
+									<div class="portfolio-item size-fixed-rect"><img src="images/cover2.png" alt="Journal Cover 2" /></div>
+									<div class="portfolio-item size-fixed-rect"><img src="images/cover3.png" alt="Journal Cover 3" /></div>
+									<div class="portfolio-item size-fixed-rect"><img src="images/cover4.png" alt="Journal Cover 4" /></div>
+									<div class="portfolio-item size-fixed-rect"><img src="images/cover5.png" alt="Journal Cover 5" /></div>
+									<div class="portfolio-item size-fixed-rect"><img src="images/cover6.png" alt="Journal Cover 6" /></div>
+
+									<!-- Remaining Items: Dynamic Random Sizes -->
 									<div class="portfolio-item size-square"><img src="images/cover8.png" alt="Journal Cover 8" /></div>
 									<div class="portfolio-item size-tall"><img src="images/cover9.png" alt="Journal Cover 9" /></div>
 									<div class="portfolio-item size-landscape"><img src="images/cover10.png" alt="Journal Cover 10" /></div>
 									<div class="portfolio-item size-portrait"><img src="images/cover11.png" alt="Journal Cover 11" /></div>
-									<div class="portfolio-item size-square"><img src="images/cover12.png" alt="Journal Cover 12" /></div>
-									<div class="portfolio-item size-tall"><img src="images/cover13.png" alt="Journal Cover 13" /></div>
+									<div class="portfolio-item size-tall"><img src="images/cover12.png" alt="Journal Cover 12" /></div>
+									<div class="portfolio-item size-square"><img src="images/cover13.png" alt="Journal Cover 13" /></div>
 									<div class="portfolio-item size-portrait"><img src="images/cover14.png" alt="Journal Cover 14" /></div>
-									<div class="portfolio-item size-square"><img src="images/cover15.png" alt="Journal Cover 15" /></div>
+									<div class="portfolio-item size-landscape"><img src="images/cover15.png" alt="Journal Cover 15" /></div>
 								</div>
 							</section>
 
