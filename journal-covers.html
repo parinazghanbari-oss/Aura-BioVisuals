@@ -14,16 +14,54 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- Header Logo Styling --- */
+			/* --- 1. Global Dark Background Setup --- */
+			body {
+				background-color: #0b0f19 !important;
+				background-image: none !important;
+				color: rgba(255, 255, 255, 0.85);
+			}
+
+			/* Make Outer Wrappers Transparent */
+			#wrapper, #intro {
+				background: transparent !important;
+			}
+
+			/* --- 2. Glassmorphism Main Container & Nav --- */
+			#main {
+				background: rgba(255, 255, 255, 0.08) !important;
+				backdrop-filter: blur(20px) !important;
+				-webkit-backdrop-filter: blur(20px) !important;
+				border: 1px solid rgba(255, 255, 255, 0.15) !important;
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+				border-radius: 16px;
+				margin-top: 1.5em;
+				margin-bottom: 2em;
+			}
+
+			#nav {
+				background: rgba(255, 255, 255, 0.05) !important;
+				backdrop-filter: blur(15px) !important;
+				-webkit-backdrop-filter: blur(15px) !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+			}
+
+			article.post, section.post {
+				background: transparent !important;
+				border-bottom: none !important;
+				border-top: none !important;
+			}
+
+			/* --- 3. Header Logo & Subtitle Styling --- */
 			#header .logo {
 				border: none !important;
 				padding: 0;
-				background: transparent;
+				background: transparent !important;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
 				text-decoration: none;
+				box-shadow: none !important;
 			}
 
 			#header .logo img {
@@ -49,7 +87,7 @@
 				font-weight: 500;
 			}
 
-			/* CSS Dropdown Menu for Services */
+			/* --- 4. CSS Dropdown Menu for Services --- */
 			#nav ul.links li.has-dropdown {
 				position: relative;
 			}
@@ -58,14 +96,15 @@
 				position: absolute;
 				top: 100%;
 				left: 0;
-				background: #212931;
+				background: rgba(18, 24, 38, 0.95);
+				backdrop-filter: blur(10px);
 				min-width: 280px;
 				z-index: 1000;
 				list-style: none;
 				padding: 10px 0;
 				margin: 0;
-				border-radius: 0 0 4px 4px;
-				box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+				border-radius: 0 0 8px 8px;
+				box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 				text-align: left;
 			}
 			#nav ul.links li.has-dropdown:hover .dropdown-menu {
@@ -79,22 +118,27 @@
 			#nav ul.links li .dropdown-menu li a {
 				display: block;
 				padding: 10px 20px;
-				color: rgba(255, 255, 255, 0.8) !important;
+				color: rgba(255, 255, 255, 0.9) !important;
 				font-size: 0.8em;
 				text-transform: none;
 				letter-spacing: 0.05em;
 				border-bottom: none !important;
 			}
 			#nav ul.links li .dropdown-menu li a:hover {
-				background: rgba(255, 255, 255, 0.1);
+				background: rgba(255, 255, 255, 0.15);
 				color: #ffffff !important;
 			}
 
-			/* --- Diagonal Slash Blue Glow Behind Main Header --- */
+			/* --- 5. Featured Header, Blue Glow & Line Removal --- */
 			article.post.featured {
 				position: relative;
 				z-index: 1;
 				overflow: visible;
+				background: transparent !important;
+				border: none !important;
+				border-bottom: none !important;
+				border-top: none !important;
+				padding-bottom: 0 !important;
 			}
 
 			article.post.featured header.major {
@@ -102,6 +146,22 @@
 				display: inline-block;
 				padding: 2em 3em;
 				z-index: 2;
+				border: none !important;
+				border-bottom: none !important;
+				border-top: none !important;
+			}
+
+			/* Completely remove default template line under major header */
+			header.major::after,
+			article.post.featured header.major::after {
+				display: none !important;
+				content: none !important;
+				border: none !important;
+			}
+
+			article.post.featured header.major h2, 
+			article.post.featured header.major p {
+				color: #ffffff !important;
 			}
 
 			/* Diagonal Slash Blue Glow Effect */
@@ -126,22 +186,17 @@
 				opacity: 0.9;
 			}
 
-			/* --- Portfolio Grid (3 Columns, Aspect Ratio 4:5) --- */
+			/* --- 6. Portfolio Grid (2 Columns with Dynamic Random Heights) --- */
 			.portfolio-grid {
 				display: grid;
-				grid-template-columns: repeat(3, 1fr);
+				grid-template-columns: repeat(2, 1fr);
 				gap: 25px;
 				margin: 2em 0;
 				width: 100%;
+				align-items: center;
 			}
 
-			@media screen and (max-width: 980px) {
-				.portfolio-grid {
-					grid-template-columns: repeat(2, 1fr);
-				}
-			}
-
-			@media screen and (max-width: 480px) {
+			@media screen and (max-width: 736px) {
 				.portfolio-grid {
 					grid-template-columns: 1fr;
 				}
@@ -151,9 +206,9 @@
 				position: relative;
 				border-radius: 12px;
 				overflow: hidden;
-				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-				background: #ffffff;
-				aspect-ratio: 4 / 5;
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.1);
 				cursor: pointer;
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
 				
@@ -161,6 +216,12 @@
 				opacity: 0;
 				transform: translateY(30px);
 			}
+
+			/* Varied Aspect Ratios for Dynamic Random Layout */
+			.portfolio-item.size-portrait { aspect-ratio: 4 / 5; }
+			.portfolio-item.size-landscape { aspect-ratio: 4 / 3; }
+			.portfolio-item.size-square { aspect-ratio: 1 / 1; }
+			.portfolio-item.size-tall { aspect-ratio: 3 / 4; }
 
 			.portfolio-item.is-visible {
 				opacity: 1;
@@ -170,7 +231,8 @@
 
 			.portfolio-item:hover {
 				transform: translateY(-5px);
-				box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+				box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+				border-color: rgba(255, 255, 255, 0.3);
 			}
 
 			.portfolio-item img {
@@ -185,7 +247,7 @@
 				transform: scale(1.03);
 			}
 
-			/* --- Lightbox Modal with Dynamic Click-Point Zoom --- */
+			/* --- 7. Lightbox Modal with Dynamic Click-Point Zoom --- */
 			.lightbox-modal {
 				display: none;
 				position: fixed;
@@ -249,7 +311,7 @@
 				color: #00b7ff;
 			}
 
-			/* Custom Centered Navigation Buttons in Footer */
+			/* --- 8. Custom Centered Navigation Buttons in Footer --- */
 			#footer {
 				display: flex;
 				justify-content: center;
@@ -257,7 +319,7 @@
 				padding: 4em 2em 5em 2em;
 				text-align: center;
 				border-top: none;
-				background: transparent;
+				background: transparent !important;
 			}
 
 			.footer-navigation-buttons {
@@ -323,21 +385,21 @@
 						<!-- Portfolio Section -->
 							<section class="post">
 								<div class="portfolio-grid">
-									<!-- 14 Journal Cover Items (3 Columns x 5 Rows Layout) -->
-									<div class="portfolio-item"><img src="images/cover1.png" alt="Journal Cover 1" /></div>
-									<div class="portfolio-item"><img src="images/cover2.png" alt="Journal Cover 2" /></div>
-									<div class="portfolio-item"><img src="images/cover3.png" alt="Journal Cover 3" /></div>
-									<div class="portfolio-item"><img src="images/cover4.png" alt="Journal Cover 4" /></div>
-									<div class="portfolio-item"><img src="images/cover5.png" alt="Journal Cover 5" /></div>
-									<div class="portfolio-item"><img src="images/cover6.png" alt="Journal Cover 6" /></div>
-									<div class="portfolio-item"><img src="images/cover8.png" alt="Journal Cover 8" /></div>
-									<div class="portfolio-item"><img src="images/cover9.png" alt="Journal Cover 9" /></div>
-									<div class="portfolio-item"><img src="images/cover10.png" alt="Journal Cover 10" /></div>
-									<div class="portfolio-item"><img src="images/cover11.png" alt="Journal Cover 11" /></div>
-									<div class="portfolio-item"><img src="images/cover12.png" alt="Journal Cover 12" /></div>
-									<div class="portfolio-item"><img src="images/cover13.png" alt="Journal Cover 13" /></div>
-									<div class="portfolio-item"><img src="images/cover14.png" alt="Journal Cover 14" /></div>
-									<div class="portfolio-item"><img src="images/cover15.png" alt="Journal Cover 15" /></div>
+									<!-- 14 Journal Cover Items in 2 Columns with Dynamic Varying Sizes -->
+									<div class="portfolio-item size-portrait"><img src="images/cover1.png" alt="Journal Cover 1" /></div>
+									<div class="portfolio-item size-landscape"><img src="images/cover2.png" alt="Journal Cover 2" /></div>
+									<div class="portfolio-item size-square"><img src="images/cover3.png" alt="Journal Cover 3" /></div>
+									<div class="portfolio-item size-tall"><img src="images/cover4.png" alt="Journal Cover 4" /></div>
+									<div class="portfolio-item size-portrait"><img src="images/cover5.png" alt="Journal Cover 5" /></div>
+									<div class="portfolio-item size-landscape"><img src="images/cover6.png" alt="Journal Cover 6" /></div>
+									<div class="portfolio-item size-square"><img src="images/cover8.png" alt="Journal Cover 8" /></div>
+									<div class="portfolio-item size-tall"><img src="images/cover9.png" alt="Journal Cover 9" /></div>
+									<div class="portfolio-item size-landscape"><img src="images/cover10.png" alt="Journal Cover 10" /></div>
+									<div class="portfolio-item size-portrait"><img src="images/cover11.png" alt="Journal Cover 11" /></div>
+									<div class="portfolio-item size-square"><img src="images/cover12.png" alt="Journal Cover 12" /></div>
+									<div class="portfolio-item size-tall"><img src="images/cover13.png" alt="Journal Cover 13" /></div>
+									<div class="portfolio-item size-portrait"><img src="images/cover14.png" alt="Journal Cover 14" /></div>
+									<div class="portfolio-item size-square"><img src="images/cover15.png" alt="Journal Cover 15" /></div>
 								</div>
 							</section>
 
