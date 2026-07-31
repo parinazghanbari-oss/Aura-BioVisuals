@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- 1. Global Dark Solid Background --- */
+			/* --- 1. Global Dark Background Setup --- */
 			body {
 				background-color: #0b0f19 !important;
 				background-image: none !important;
@@ -124,19 +124,27 @@
 				color: #ffffff !important;
 			}
 
-			/* --- 5. Tri-Color Glow Behind Title --- */
-			header.major {
+			/* --- 5. Tri-Color Glow Behind Main Header --- */
+			article.post.featured {
+				position: relative;
+				z-index: 1;
+				overflow: visible;
+				background: transparent !important;
+			}
+
+			article.post.featured header.major {
 				position: relative;
 				display: inline-block;
 				padding: 2em 3em;
 				z-index: 2;
 			}
 
-			header.major h2, header.major p {
+			article.post.featured header.major h2, 
+			article.post.featured header.major p {
 				color: #ffffff !important;
 			}
 
-			header.major::before {
+			article.post.featured header.major::before {
 				content: '';
 				position: absolute;
 				top: 50%;
@@ -157,40 +165,142 @@
 				opacity: 0.85;
 			}
 
-			/* --- 6. Glassmorphism Posts/Grid Cards --- */
-			section.posts article {
-				background: rgba(255, 255, 255, 0.04) !important;
-				backdrop-filter: blur(10px) !important;
-				-webkit-backdrop-filter: blur(10px) !important;
-				border: 1px solid rgba(255, 255, 255, 0.1) !important;
+			/* --- 6. Portfolio Grid (2 Columns x 5 Rows) --- */
+			.portfolio-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 25px;
+				margin: 2em 0;
+				width: 100%;
+				align-items: center;
+			}
+
+			@media screen and (max-width: 736px) {
+				.portfolio-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			.portfolio-item {
+				position: relative;
 				border-radius: 12px;
-				padding: 25px !important;
-				transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+				overflow: hidden;
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				cursor: pointer;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				
+				/* Scroll Fade Setup */
+				opacity: 0;
+				transform: translateY(30px);
 			}
 
-			section.posts article:hover {
+			/* Varied Aspect Ratios for Dynamic Sizes */
+			.portfolio-item.size-portrait { aspect-ratio: 4 / 5; }
+			.portfolio-item.size-landscape { aspect-ratio: 4 / 3; }
+			.portfolio-item.size-square { aspect-ratio: 1 / 1; }
+			.portfolio-item.size-tall { aspect-ratio: 3 / 4; }
+
+			.portfolio-item.is-visible {
+				opacity: 1;
+				transform: translateY(0);
+				transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+			}
+
+			.portfolio-item:hover {
 				transform: translateY(-5px);
-				border-color: rgba(255, 255, 255, 0.25) !important;
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+				box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+				border-color: rgba(255, 255, 255, 0.3);
 			}
 
-			section.posts article h3 {
-				color: #ffffff !important;
+			.portfolio-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.4s ease;
 			}
 
-			section.posts article p {
-				color: rgba(255, 255, 255, 0.8) !important;
+			.portfolio-item:hover img {
+				transform: scale(1.03);
 			}
 
-			/* --- 7. Footer Buttons --- */
+			/* --- 7. Lightbox Modal with Dynamic Click-Point Zoom --- */
+			.lightbox-modal {
+				display: none;
+				position: fixed;
+				z-index: 9999;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.88);
+				backdrop-filter: blur(8px);
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.lightbox-modal.active {
+				display: flex;
+				opacity: 1;
+			}
+
+			.lightbox-content-wrapper {
+				position: relative;
+				max-width: 90vw;
+				max-height: 90vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				border-radius: 8px;
+			}
+
+			.lightbox-img {
+				max-width: 90vw;
+				max-height: 85vh;
+				object-fit: contain;
+				border-radius: 6px;
+				cursor: zoom-in;
+				transform-origin: center center;
+				transition: transform 0.3s ease, transform-origin 0.1s ease;
+			}
+
+			.lightbox-img.zoomed {
+				cursor: zoom-out;
+				transform: scale(2.2);
+			}
+
+			.lightbox-close {
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				color: #ffffff;
+				font-size: 35px;
+				font-weight: bold;
+				cursor: pointer;
+				z-index: 10000;
+				transition: color 0.2s;
+			}
+
+			.lightbox-close:hover {
+				color: #38bdf8;
+			}
+
+			/* --- 8. Custom Centered Navigation Buttons in Footer --- */
 			#footer {
-				background: transparent !important;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				padding: 4em 2em;
+				padding: 4em 2em 5em 2em;
 				text-align: center;
+				border-top: none;
+				background: transparent !important;
 			}
+
 			.footer-navigation-buttons {
 				display: flex;
 				justify-content: center;
@@ -199,6 +309,7 @@
 				flex-wrap: wrap;
 				margin: 0 auto;
 			}
+
 			.footer-navigation-buttons .button {
 				min-width: 180px;
 			}
@@ -220,7 +331,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="has-dropdown active">
+							<li class="active has-dropdown">
 								<a href="index.html">Services & Visual Solutions</a>
 								<ul class="dropdown-menu">
 									<li><a href="figures.html">1. Figures, Graphical Abstracts & Medical Illustrations</a></li>
@@ -242,39 +353,46 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Service Intro Post -->
-							<section class="post">
+						<!-- Featured Post Header -->
+							<article class="post featured">
 								<header class="major">
 									<h2>Logos for Research Groups & Industry</h2>
-									<p>Building strong visual identities for academic labs, biotech start-ups, and scientific institutions. We create memorable branding, custom vector logos, and pitch decks tailored to high-impact science.</p>
+									<p>Distinctive visual identities, academic logos, and high-stakes pitch decks tailored for research laboratories, biotech startups, and scientific ventures.</p>
 								</header>
-							</section>
+							</article>
 
-						<!-- Gallery Grid -->
-							<section class="posts">
-								<article>
-									<header>
-										<h3>Lab & Venture Branding</h3>
-									</header>
-									<a class="image fit"><img src="images/logo-1.png" alt="Lab Logo Design" /></a>
-									<p>Custom vector logos engineered to translate complex scientific concepts into modern, professional identity systems.</p>
-								</article>
-
-								<article>
-									<header>
-										<h3>Biotech Identity Systems</h3>
-									</header>
-									<a class="image fit"><img src="images/logo-2.png" alt="Biotech Branding" /></a>
-									<p>Comprehensive visual guidelines and digital assets designed for grant presentations, lab websites, and venture funding pitch decks.</p>
-								</article>
+						<!-- Portfolio Section -->
+							<section class="post">
+								<div class="portfolio-grid">
+									<!-- 10 Brand Items (2 Columns x 5 Rows with varied sizing) -->
+									<div class="portfolio-item size-portrait"><img src="images/brand1.png" alt="Lab Branding 1" /></div>
+									<div class="portfolio-item size-landscape"><img src="images/brand2.png" alt="Lab Branding 2" /></div>
+									<div class="portfolio-item size-square"><img src="images/brand3.png" alt="Lab Branding 3" /></div>
+									<div class="portfolio-item size-tall"><img src="images/brand4.png" alt="Lab Branding 4" /></div>
+									<div class="portfolio-item size-landscape"><img src="images/brand5.png" alt="Lab Branding 5" /></div>
+									<div class="portfolio-item size-portrait"><img src="images/brand6.png" alt="Lab Branding 6" /></div>
+									<div class="portfolio-item size-tall"><img src="images/brand7.png" alt="Lab Branding 7" /></div>
+									<div class="portfolio-item size-square"><img src="images/brand8.png" alt="Lab Branding 8" /></div>
+									<div class="portfolio-item size-portrait"><img src="images/brand9.png" alt="Lab Branding 9" /></div>
+									<div class="portfolio-item size-landscape"><img src="images/brand10.png" alt="Lab Branding 10" /></div>
+								</div>
 							</section>
 
 					</div>
 
-				<!-- Footer Buttons -->
+				<!-- Lightbox Modal Box -->
+					<div id="lightboxModal" class="lightbox-modal">
+						<span class="lightbox-close" id="lightboxClose">&times;</span>
+						<div class="lightbox-content-wrapper">
+							<img class="lightbox-img" id="lightboxImage" src="" alt="Enlarged View" />
+						</div>
+					</div>
+
+				<!-- Footer Navigation Buttons -->
 					<footer id="footer">
 						<div class="footer-navigation-buttons">
 							<a href="index.html" class="button large">Services & Visual Solutions</a>
+							<a href="about.html" class="button large">About Us</a>
 							<a href="contact.html" class="button primary large">Contact Us</a>
 						</div>
 					</footer>
@@ -294,6 +412,77 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Custom Script for Point-Specific Zoom & Scroll Animation -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// --- 1. Lightbox with Dynamic Click-Point Zoom ---
+					const modal = document.getElementById('lightboxModal');
+					const modalImg = document.getElementById('lightboxImage');
+					const closeBtn = document.getElementById('lightboxClose');
+					const portfolioItems = document.querySelectorAll('.portfolio-item img');
+
+					portfolioItems.forEach(img => {
+						img.addEventListener('click', function(e) {
+							e.stopPropagation();
+							modal.classList.add('active');
+							modalImg.src = this.src;
+							modalImg.classList.remove('zoomed');
+							modalImg.style.transformOrigin = 'center center';
+						});
+					});
+
+					// Dynamic Zoom based on Click Coordinates
+					modalImg.addEventListener('click', function(e) {
+						e.stopPropagation();
+						
+						if (this.classList.contains('zoomed')) {
+							this.classList.remove('zoomed');
+							this.style.transformOrigin = 'center center';
+						} else {
+							const rect = this.getBoundingClientRect();
+							const x = ((e.clientX - rect.left) / rect.width) * 100;
+							const y = ((e.clientY - rect.top) / rect.height) * 100;
+							
+							this.style.transformOrigin = `${x}% ${y}%`;
+							this.classList.add('zoomed');
+						}
+					});
+
+					// Close Lightbox on Clicking Outside or Close Button
+					function closeModal() {
+						modal.classList.remove('active');
+						modalImg.classList.remove('zoomed');
+						modalImg.style.transformOrigin = 'center center';
+					}
+
+					modal.addEventListener('click', closeModal);
+					closeBtn.addEventListener('click', closeModal);
+
+					document.addEventListener('keydown', function(e) {
+						if (e.key === 'Escape') closeModal();
+					});
+
+					// --- 2. Scroll Fade-In Animation ---
+					const items = document.querySelectorAll('.portfolio-item');
+					
+					const observerOptions = {
+						root: null,
+						threshold: 0.15
+					};
+
+					const observer = new IntersectionObserver((entries, observer) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								observer.unobserve(entry.target);
+							}
+						});
+					}, observerOptions);
+
+					items.forEach(item => observer.observe(item));
+				});
+			</script>
 
 	</body>
 </html>
