@@ -47,6 +47,8 @@
 
 			article.post, section.post {
 				background: transparent !important;
+				border-bottom: none !important;
+				border-top: none !important;
 			}
 
 			/* --- 3. Header Logo & Full Title Styling --- */
@@ -124,13 +126,15 @@
 				color: #ffffff !important;
 			}
 
-			/* --- 5. Diagonal Magenta Glow Behind Title & Remove Bottom Border --- */
+			/* --- 5. Diagonal Magenta Glow Behind Title & Complete Line Removal --- */
 			article.post.featured {
 				position: relative;
 				z-index: 1;
 				overflow: visible;
 				background: transparent !important;
-				border-bottom: none !important; /* Remove line under header */
+				border: none !important;
+				border-bottom: none !important;
+				border-top: none !important;
 				padding-bottom: 0 !important;
 			}
 
@@ -139,7 +143,17 @@
 				display: inline-block;
 				padding: 2em 3em;
 				z-index: 2;
-				border-bottom: none !important; /* Ensure no line under title */
+				border: none !important;
+				border-bottom: none !important;
+				border-top: none !important;
+			}
+
+			/* Completely remove default template pseudo-line under major header */
+			header.major::after,
+			article.post.featured header.major::after {
+				display: none !important;
+				content: none !important;
+				border: none !important;
 			}
 
 			article.post.featured header.major h2, 
