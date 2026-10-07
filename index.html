@@ -14,11 +14,11 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- 1. Global Solid Dark Background --- */
+			/* --- 1. Global Dark Background --- */
 			body {
 				background-color: #0e131f !important;
 				background-image: none !important;
-				padding-top: 70px; /* Space for fixed navbar */
+				padding-top: 70px; /* Space for fixed header */
 			}
 
 			/* Make Outer Wrappers Transparent */
@@ -34,7 +34,7 @@
 				width: 100%;
 				height: 70px;
 				z-index: 10000;
-				background: rgba(10, 14, 23, 0.85) !important;
+				background: rgba(10, 14, 23, 0.88) !important;
 				backdrop-filter: blur(15px) !important;
 				-webkit-backdrop-filter: blur(15px) !important;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
@@ -52,7 +52,7 @@
 				border: none !important;
 			}
 			.nav-brand-logo img {
-				height: 40px;
+				height: 42px;
 				width: auto;
 				display: block;
 				transition: transform 0.3s ease;
@@ -63,7 +63,7 @@
 
 			/* Center: Studio Title */
 			.nav-center-title {
-				font-size: 1.15em;
+				font-size: 1.1em;
 				font-weight: 700;
 				letter-spacing: 0.12em;
 				text-transform: uppercase;
@@ -72,7 +72,7 @@
 				white-space: nowrap;
 			}
 
-			/* Right: Links & Icons Container */
+			/* Right: 3 Navigation Tabs & Social Icons Container */
 			.nav-right-container {
 				display: flex;
 				align-items: center;
@@ -113,7 +113,7 @@
 				background: rgba(255, 255, 255, 0.08);
 			}
 
-			/* Dropdown Menu Styling */
+			/* CSS Dropdown Menu for Services */
 			#nav ul.links li.has-dropdown {
 				position: relative;
 			}
@@ -157,26 +157,27 @@
 				color: #ffffff !important;
 			}
 
-			/* Social Icons */
+			/* Social Icons (LinkedIn, Instagram, Twitter) */
 			#nav ul.icons {
 				display: flex;
 				align-items: center;
 				list-style: none;
 				margin: 0;
-				padding: 0 0 0 10px;
+				padding: 0 0 0 12px;
 				border-left: 1px solid rgba(255, 255, 255, 0.15);
 			}
 			#nav ul.icons li a {
 				padding: 0 8px;
-				color: rgba(255, 255, 255, 0.7) !important;
-				font-size: 0.9em;
+				color: rgba(255, 255, 255, 0.75) !important;
+				font-size: 0.95em;
 				border-bottom: none !important;
+				transition: color 0.3s ease;
 			}
 			#nav ul.icons li a:hover {
 				color: #ffffff !important;
 			}
 
-			/* Responsive Header Adjustment */
+			/* Responsive Controls */
 			@media screen and (max-width: 980px) {
 				.nav-center-title { display: none; }
 			}
@@ -186,7 +187,7 @@
 				#nav ul.icons { display: none; }
 			}
 
-			/* --- 3. Intro Section with Dark Blurred Background --- */
+			/* --- 3. Intro Section with Dark Blurred Photo Background --- */
 			#intro {
 				position: relative;
 				background: #000000 !important;
@@ -196,7 +197,6 @@
 				text-align: center;
 			}
 
-			/* Blurred Background Image pseudo-element */
 			#intro::before {
 				content: '';
 				position: absolute;
@@ -240,7 +240,7 @@
 				#intro .intro-logo { max-width: 80px; }
 			}
 
-			/* --- 4. Container Styling --- */
+			/* --- 4. Main Container Styling --- */
 			#main {
 				background: rgba(255, 255, 255, 0.06) !important;
 				backdrop-filter: blur(20px) !important;
@@ -260,7 +260,7 @@
 				background: transparent !important;
 			}
 
-			/* --- 5. Featured Header --- */
+			/* --- 5. Featured Section Header --- */
 			article.post.featured {
 				position: relative;
 				z-index: 1;
@@ -298,7 +298,7 @@
 				opacity: 0.85;
 			}
 
-			/* --- 6. Cards & Glow Wrappers --- */
+			/* --- 6. Services Cards & Glow Effects --- */
 			section.posts {
 				border-top: none !important;
 				overflow: hidden;
@@ -418,7 +418,7 @@
 				background: radial-gradient(circle, rgba(0, 245, 212, 0.85) 0%, rgba(0, 245, 212, 0) 75%);
 			}
 
-			/* --- 7. Animations --- */
+			/* --- 7. Slide Animations --- */
 			section.posts article {
 				transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 				will-change: transform;
@@ -436,7 +436,7 @@
 				transform: translateX(0) !important;
 			}
 
-			/* --- 8. Footer Styling --- */
+			/* --- 8. Footer --- */
 			#footer {
 				background: transparent !important;
 				display: flex;
@@ -460,7 +460,7 @@
 	</head>
 	<body class="is-preload">
 
-		<!-- Top Navigation Bar -->
+		<!-- Top Navigation Header -->
 			<nav id="nav">
 				<!-- Left: Logo -->
 				<a href="index.html" class="nav-brand-logo">
@@ -472,9 +472,10 @@
 					Aura BioVisuals Studio
 				</div>
 
-				<!-- Right: Navigation Menu Links & Icons -->
+				<!-- Right: 3 Page Tabs & Social Links -->
 				<div class="nav-right-container">
 					<ul class="links">
+						<!-- Tab 1: Services (with Dropdown) -->
 						<li class="active has-dropdown">
 							<a href="index.html">Services</a>
 							<ul class="dropdown-menu">
@@ -484,9 +485,13 @@
 								<li><a href="3d-models.html">4. 3D Molecular & Cellular Models</a></li>
 							</ul>
 						</li>
+						<!-- Tab 2: About Us -->
 						<li><a href="about.html">About Us</a></li>
+						<!-- Tab 3: Contact Us -->
 						<li><a href="contact.html">Contact Us</a></li>
 					</ul>
+
+					<!-- Social Icons -->
 					<ul class="icons">
 						<li><a href="https://linkedin.com" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 						<li><a href="https://instagram.com" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -498,7 +503,7 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
-				<!-- Hero Intro Section with Blurred Dark Photo Background -->
+				<!-- Intro Header Section with Blurred Photo Background -->
 					<div id="intro">
 						<img src="images/aura-logo.png" alt="Aura BioVisuals Studio Logo" class="intro-logo" />
 						<h1>Aura BioVisuals Studio</h1>
