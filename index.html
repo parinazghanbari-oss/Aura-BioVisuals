@@ -21,8 +21,34 @@
 			}
 
 			/* Make Outer Wrappers Transparent */
-			#wrapper, #intro {
+			#wrapper {
 				background: transparent !important;
+			}
+
+			/* --- Intro Header with Dark Blurred Background --- */
+			#intro {
+				position: relative;
+				background: #000000 !important;
+				overflow: hidden;
+				z-index: 1;
+				padding: 6em 2em;
+			}
+
+			/* Blurred Background Image pseudo-element */
+			#intro::before {
+				content: '';
+				position: absolute;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				/* آدرس تصویر آپلود شده */
+				background-image: url('images/1st photo.jpg');
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				filter: blur(8px) brightness(0.4); /* افکت بلر و تاریک‌کننده */
+				z-index: -1;
 			}
 
 			/* --- 2. Header Logo & Title Styling (No Border, Clean Layout) --- */
@@ -106,7 +132,7 @@
 				color: #ffffff;
 			}
 			#intro p {
-				color: rgba(255, 255, 255, 0.85);
+				color: rgba(255, 255, 255, 0.9);
 			}
 			@media screen and (max-width: 980px) {
 				#intro h1 { font-size: 2.4em; }
@@ -362,7 +388,7 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
-				<!-- Intro -->
+				<!-- Intro Section with Blurred Dark Background -->
 					<div id="intro">
 						<img src="images/aura-logo.png" alt="Aura BioVisuals Studio Logo" class="intro-logo" />
 						<h1>Aura BioVisuals Studio</h1>
